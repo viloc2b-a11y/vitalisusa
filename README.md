@@ -514,6 +514,40 @@ Buscar y reemplazar en todos los archivos:
 13468761439  →  1[TU_NUMERO_WA_REAL]
 ```
 
+### 7. Configurar Supabase para `para-investigadores.html`
+
+La página de investigadores ya está lista para usar Supabase como fuente de verdad.
+
+#### Opción A (recomendada para estático): runtime config file
+
+Editar `js/supabase-runtime-config.js` antes de desplegar:
+
+```javascript
+window.VITALIS_RUNTIME_CONFIG = {
+  supabaseUrl: "https://TU-PROYECTO.supabase.co",
+  supabaseAnonKey: "TU_SUPABASE_ANON_KEY"
+};
+```
+
+Notas:
+- usar solo `anon key` en frontend
+- no usar `service_role` en cliente web
+- en CI/CD puedes reemplazar placeholders `__SUPABASE_URL__` y `__SUPABASE_ANON_KEY__`
+
+#### Opción B (fallback): meta tags en `para-investigadores.html`
+
+```html
+<meta name="supabase-url" content="https://TU-PROYECTO.supabase.co">
+<meta name="supabase-anon-key" content="TU_SUPABASE_ANON_KEY">
+```
+
+La app usa prioridad:
+1. `window.VITALIS_RUNTIME_CONFIG`
+2. `window.__VITALIS_SUPABASE_URL__` / `window.__VITALIS_SUPABASE_ANON_KEY__`
+3. meta tags
+
+Si no detecta configuración, carga fallback local de demo sin romper la UI.
+
 ---
 
 ## Despliegue

@@ -1131,6 +1131,13 @@ p  { color: var(--texto-suave); }
   padding: 10px 12px;
   min-width: 220px;
 }
+.dashboard-state-message {
+  font-size: .84rem;
+  color: var(--texto-light);
+  margin-bottom: 12px;
+}
+.dashboard-state-message.state-loading { color: var(--azul-claro); }
+.dashboard-state-message.state-error { color: #b91c1c; }
 .referrals-table {
   width: 100%;
   border-collapse: collapse;
@@ -1221,6 +1228,14 @@ p  { color: var(--texto-suave); }
   display: flex;
   align-items: flex-end;
 }
+.form-feedback-message {
+  margin-top: 12px;
+  font-size: .85rem;
+  min-height: 20px;
+  color: rgba(255,255,255,.85);
+}
+.form-feedback-message.feedback-success { color: #d1fae5; }
+.form-feedback-message.feedback-error { color: #fecaca; }
 
 .modal {
   position: fixed;

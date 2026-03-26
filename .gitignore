@@ -1,0 +1,6 @@
+# Local environment and secrets
+.env
+.env.*
+
+# Optional local Supabase runtime override file
+js/supabase-runtime-config.local.js
