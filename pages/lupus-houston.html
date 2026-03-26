@@ -79,16 +79,22 @@
         form.onsubmit = (e) => {
             e.preventDefault();
             const formData = new FormData(form);
-            const rawData = Object.fromEntries(formData.entries());
-            const lead = window.VITALIS.captureLead(rawData);
+            const rawData  = Object.fromEntries(formData.entries());
+            const lead     = window.VITALIS.captureLead(rawData);
             if (window.VCrm) {
-                const scoreVal = lead.score || 0;
+                const scoreVal   = lead.score || 0;
                 const scoreLabel = scoreVal >= 30 ? 'A' : scoreVal >= 20 ? 'B' : 'C';
-                window.VCrm.sendLeadToCRM(
-                    window.VCrm.buildLeadData(rawData, 'lupus', { label: scoreLabel, value: scoreVal })
-                );
+                const leadData   = window.VCrm.buildLeadData(rawData, 'lupus', { label: scoreLabel, value: scoreVal });
+                window.VCrm.sendLeadToCRM(leadData)
+                    .then(result => window.VCrm.runAutomationAfterCRM(result, leadData))
+                    .catch(()    => window.VCrm.fallbackAutomation(leadData))
+                    .finally(()  => {
+                        window.VCrm.logVitalisEvent('redirect_to_thankyou', { lead_id: leadData.metadata.lead_id });
+                        window.location.href = '../gracias.html?id=' + leadData.metadata.lead_id;
+                    });
+            } else {
+                window.location.href = '../gracias.html?id=' + lead.id;
             }
-            window.location.href = '../gracias.html?id=' + lead.id;
         };
 
         if(window.VC) {

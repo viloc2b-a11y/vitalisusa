@@ -6,109 +6,574 @@
     <title>Dashboard Investigador | VITALIS Portal</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="js/crm-adapter.js" defer></script>
+    <style>
+        /* ── Dashboard-specific styles ──────────────────────── */
+        body { background: #f0f2f5; }
+
+        .dash-header {
+            background: var(--azul-marino);
+            color: white;
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,.25);
+        }
+        .dash-header .brand { color: white; font-size: 1.1rem; font-weight: 800; }
+        .dash-header .brand span { color: var(--naranja); }
+        .dash-mode-badge {
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: .75rem;
+            font-weight: 600;
+            color: rgba(255,255,255,.9);
+        }
+
+        /* ── KPI Cards ─────────────────────────────────────── */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .kpi-card {
+            background: white;
+            border-radius: var(--radio-md);
+            padding: 20px 22px;
+            box-shadow: var(--sombra-xs);
+            border-top: 4px solid var(--gris-borde);
+        }
+        .kpi-card.urgente  { border-top-color: #ef4444; }
+        .kpi-card.activos  { border-top-color: var(--azul-claro); }
+        .kpi-card.referido { border-top-color: var(--verde-salud); }
+        .kpi-card.hoy      { border-top-color: var(--naranja); }
+        .kpi-label { font-size: .72rem; font-weight: 600; color: var(--texto-light); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+        .kpi-value { font-size: 2rem; font-weight: 800; color: var(--azul-marino); line-height: 1; }
+        .kpi-sub   { font-size: .7rem; color: var(--texto-light); margin-top: 4px; }
+
+        /* ── Filters bar ────────────────────────────────────── */
+        .filters-bar {
+            background: white;
+            border-radius: var(--radio-md);
+            padding: 14px 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            box-shadow: var(--sombra-xs);
+        }
+        .filters-bar select, .filters-bar input {
+            border: 1px solid var(--gris-borde);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: .82rem;
+            color: var(--texto);
+            background: white;
+        }
+        .filters-bar label { font-size: .8rem; font-weight: 600; color: var(--texto-suave); }
+
+        /* ── Table ──────────────────────────────────────────── */
+        .pipeline-table-wrap {
+            background: white;
+            border-radius: var(--radio-lg);
+            box-shadow: var(--sombra-sm);
+            overflow: hidden;
+        }
+        .pipeline-table-wrap h3 {
+            padding: 20px 24px 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--azul-marino);
+        }
+        .table-scroll { overflow-x: auto; }
+        table.pipeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .82rem;
+        }
+        table.pipeline-table th {
+            background: #f8fafc;
+            padding: 11px 14px;
+            text-align: left;
+            font-size: .72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            color: var(--texto-suave);
+            border-bottom: 2px solid var(--gris-borde);
+            white-space: nowrap;
+        }
+        table.pipeline-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+        }
+        table.pipeline-table tr:last-child td { border-bottom: none; }
+        table.pipeline-table tr:hover td { background: #fafbff; }
+
+        /* ── Urgency badges ─────────────────────────────────── */
+        .badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 20px; font-size: .7rem; font-weight: 700; white-space: nowrap; }
+        .badge-alta   { background: #fee2e2; color: #b91c1c; }
+        .badge-media  { background: #fef9c3; color: #92400e; }
+        .badge-baja   { background: #dcfce7; color: #166534; }
+        .badge-nuevo  { background: #fff7ed; color: #c2410c; }
+        .badge-contactado   { background: #dbeafe; color: #1d4ed8; }
+        .badge-prequalified { background: #ede9fe; color: #6d28d9; }
+        .badge-screening    { background: #d1fae5; color: #065f46; }
+        .badge-enrolled     { background: #022c22; color: #6ee7b7; }
+        .badge-rejected     { background: #f1f5f9; color: #64748b; }
+
+        .score-a { color: #166534; font-weight: 800; }
+        .score-b { color: #92400e; font-weight: 800; }
+        .score-c { color: #64748b; font-weight: 700; }
+
+        .origin-badge { font-size: .7rem; font-weight: 600; }
+        .origin-comunidad  { color: var(--azul-claro); }
+        .origin-ads        { color: var(--naranja); }
+        .origin-whatsapp   { color: #25d366; }
+        .origin-directo    { color: var(--texto-suave); }
+
+        .next-task { font-size: .75rem; color: var(--texto-suave); }
+        .next-task strong { color: var(--texto); }
+
+        /* ── Action buttons ─────────────────────────────────── */
+        .btn-action {
+            padding: 5px 11px;
+            border-radius: 6px;
+            font-size: .75rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background .15s;
+        }
+        .btn-call    { background: var(--verde-salud); color: white; }
+        .btn-call:hover { background: #228b7e; }
+        .btn-detail  { background: var(--azul-suave); color: var(--azul-medio); }
+        .btn-detail:hover { background: #c9dbf5; }
+
+        /* ── Pending queue banner ───────────────────────────── */
+        .queue-banner {
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-radius: var(--radio-sm);
+            padding: 10px 16px;
+            font-size: .82rem;
+            color: #92400e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .queue-banner button {
+            margin-left: auto;
+            padding: 4px 12px;
+            background: var(--naranja);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: .75rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* ── Empty state ────────────────────────────────────── */
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--texto-suave);
+        }
+        .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .empty-state p { font-size: .9rem; }
+    </style>
 </head>
-<body style="background: #f0f2f5;">
+<body>
 
-    <header class="topbar">
-        <div class="topbar-inner">
-            <a class="brand" href="index.html"><span class="brand-v">V</span>ITALIS</a>
-            <div style="font-weight: 600;">Modo Investigador (Houston)</div>
+<header class="dash-header">
+    <a class="brand" href="index.html"><span>V</span>ITALIS</a>
+    <span class="dash-mode-badge"><i class="fas fa-flask" style="margin-right:6px;"></i>Modo Investigador · Houston</span>
+    <div style="font-size:.75rem;color:rgba(255,255,255,.5);" id="dash-last-update"></div>
+</header>
+
+<main style="padding: 24px; max-width: 1400px; margin: 0 auto;">
+
+    <!-- Pending queue warning -->
+    <div class="queue-banner" id="queue-banner" style="display:none;">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span id="queue-count-text"></span>
+        <button onclick="retryQueue()">Reintentar envío</button>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="kpi-grid" id="kpi-grid">
+        <div class="kpi-card hoy">
+            <div class="kpi-label">Leads Hoy</div>
+            <div class="kpi-value" id="kpi-hoy">—</div>
+            <div class="kpi-sub">Total recibidos</div>
         </div>
-    </header>
-
-    <main class="section">
-        <div class="container">
-            <div class="grid-4" style="margin-bottom: 30px;">
-                <div class="card-condicion" style="padding: 20px;">
-                    <span class="eyebrow" style="color: var(--azul-medio);">Leads Hoy</span>
-                    <h2>14</h2>
-                </div>
-                <div class="card-condicion" style="padding: 20px;">
-                    <span class="eyebrow" style="color: var(--verde-salud);">Por Referido</span>
-                    <h2>6</h2>
-                </div>
-                <div class="card-condicion" style="padding: 20px;">
-                    <span class="eyebrow" style="color: var(--naranja);">Score High</span>
-                    <h2>8</h2>
-                </div>
-                <div class="card-condicion" style="padding: 20px;">
-                    <span class="eyebrow">Conversion</span>
-                    <h2>22%</h2>
-                </div>
-            </div>
-
-            <div style="background: white; padding: 30px; border-radius: var(--radio-lg); box-shadow: var(--sombra-sm);">
-                <div class="flex" style="justify-content: space-between; align-items: center; margin-bottom: 24px;">
-                    <h3>Gestión de Leads</h3>
-                    <div style="display: flex; gap: 10px;">
-                        <select class="form-select" style="padding: 8px 30px 8px 12px; font-size: 0.8rem; min-width: 150px;">
-                            <option>Todos los orígenes</option>
-                            <option>Directos</option>
-                            <option>Comunidad / Referidos</option>
-                        </select>
-                        <button class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">Exportar CSV</button>
-                    </div>
-                </div>
-
-                <table class="referral-table" style="width: 100%;">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Condición</th>
-                            <th>Origen</th>
-                            <th>Referido por</th>
-                            <th>Status Contacto</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody id="investigador-leads-body">
-                        <!-- Leads Mock Data -->
-                        <tr>
-                            <td><strong>María García</strong></td>
-                            <td>Dolor de rodilla</td>
-                            <td><span style="color: var(--azul-medio); font-weight: 600;">Comunidad</span></td>
-                            <td style="font-size: 0.8rem; font-family: monospace;">VPL-XJ82B1</td>
-                            <td><span style="background: var(--verde-suave); color: var(--verde-salud); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">CONTACTADA</span></td>
-                            <td><button style="padding: 6px 12px; background: none; border: 1px solid var(--gris-borde); border-radius: 4px; font-size: 0.8rem; cursor: pointer;">Ver Scoring</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Jorge Ramírez</strong></td>
-                            <td>Ansiedad</td>
-                            <td><span style="color: var(--azul-medio); font-weight: 600;">Directo</span></td>
-                            <td>-</td>
-                            <td><span style="background: var(--azul-suave); color: var(--azul-medio); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">EN PROCESO</span></td>
-                            <td><button style="padding: 6px 12px; background: none; border: 1px solid var(--gris-borde); border-radius: 4px; font-size: 0.8rem; cursor: pointer;">Ver Scoring</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Carmen Ortiz</strong></td>
-                            <td>Dolor de rodilla</td>
-                            <td><span style="color: var(--azul-medio); font-weight: 600;">Comunidad</span></td>
-                            <td style="font-size: 0.8rem; font-family: monospace;">VPL-XJ82B1</td>
-                            <td><span style="background: #fff7ed; color: #f59e0b; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">NUEVO</span></td>
-                            <td><button style="padding: 6px 12px; background: none; border: 1px solid var(--gris-borde); border-radius: 4px; font-size: 0.8rem; cursor: pointer;">Llamar ahora</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="kpi-card urgente">
+            <div class="kpi-label">Score A — Urgentes</div>
+            <div class="kpi-value" id="kpi-urgentes">—</div>
+            <div class="kpi-sub">Llamar en 15 min</div>
         </div>
-    </main>
+        <div class="kpi-card referido">
+            <div class="kpi-label">Por Referido</div>
+            <div class="kpi-value" id="kpi-referidos">—</div>
+            <div class="kpi-sub">De la comunidad</div>
+        </div>
+        <div class="kpi-card activos">
+            <div class="kpi-label">En Pipeline</div>
+            <div class="kpi-value" id="kpi-pipeline">—</div>
+            <div class="kpi-sub">Sin contactar aún</div>
+        </div>
+    </div>
 
-    <script>
-        // Check for local leads logic
-        const savedLeads = JSON.parse(localStorage.getItem('vit_leads') || '[]');
-        const body = document.getElementById('investigador-leads-body');
-        
-        savedLeads.forEach(lead => {
-             const row = `<tr>
-                <td><strong>${lead.nombre}</strong></td>
-                <td>${lead.condition || 'General'}</td>
-                <td><span style="color: var(--azul-medio); font-weight: 600;">${lead.referral_source_code ? 'Comunidad' : 'Directo'}</span></td>
-                <td style="font-size: 0.8rem; font-family: monospace;">${lead.referral_source_code || '-'}</td>
-                <td><span style="background: #fff7ed; color: #f59e0b; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">NUEVO</span></td>
-                <td><button onclick="alert('Score: ${lead.score}')" style="padding: 6px 12px; background: none; border: 1px solid var(--gris-borde); border-radius: 4px; font-size: 0.8rem; cursor: pointer;">Ver Scoring</button></td>
-            </tr>`;
-            body.insertAdjacentHTML('afterbegin', row);
+    <!-- Filters -->
+    <div class="filters-bar">
+        <label>Filtrar:</label>
+        <select id="filter-condition" onchange="renderTable()">
+            <option value="">Todas las condiciones</option>
+            <option value="rodillas">Rodillas</option>
+            <option value="pap-anormal">Pap Anormal</option>
+            <option value="ansiedad">Ansiedad</option>
+            <option value="lupus">Lupus</option>
+            <option value="diabetes">Diabetes</option>
+        </select>
+        <select id="filter-urgency" onchange="renderTable()">
+            <option value="">Todas las urgencias</option>
+            <option value="high">Alta</option>
+            <option value="medium">Media</option>
+            <option value="low">Baja</option>
+        </select>
+        <select id="filter-origin" onchange="renderTable()">
+            <option value="">Todos los orígenes</option>
+            <option value="comunidad">Comunidad / Referido</option>
+            <option value="directo">Directo</option>
+        </select>
+        <button class="btn btn-primary" style="padding:7px 16px;font-size:.8rem;margin-left:auto;" onclick="exportCSV()">
+            <i class="fas fa-download" style="margin-right:6px;"></i>Exportar CSV
+        </button>
+    </div>
+
+    <!-- Pipeline Table -->
+    <div class="pipeline-table-wrap">
+        <h3 style="padding:20px 24px 16px;">Gestión de Pipeline Clínico</h3>
+        <div class="table-scroll">
+            <table class="pipeline-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Condición</th>
+                        <th>Score / Urgencia</th>
+                        <th>Etapa Pipeline</th>
+                        <th>Owner</th>
+                        <th>Origen</th>
+                        <th>Referido por</th>
+                        <th>Próxima tarea</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="pipeline-tbody">
+                    <!-- Rendered by JS -->
+                </tbody>
+            </table>
+        </div>
+        <div class="empty-state" id="empty-state" style="display:none;">
+            <div class="empty-icon">📭</div>
+            <p>No hay leads que coincidan con los filtros aplicados.</p>
+            <p style="font-size:.8rem;margin-top:6px;color:var(--texto-light);">Completa un pre-screen en las landings para ver los datos aquí.</p>
+        </div>
+    </div>
+
+</main>
+
+<script>
+'use strict';
+
+/* ── Data sources ────────────────────────────────────────── */
+function getAllLeads() {
+    // Merge vit_pending_leads (enriched, from CRM adapter) + vit_leads (legacy)
+    const pending = JSON.parse(localStorage.getItem('vit_pending_leads') || '[]');
+    const legacy  = JSON.parse(localStorage.getItem('vit_leads')         || '[]');
+
+    // Convert legacy format to enriched format for display
+    const legacyMapped = legacy.map(l => ({
+        personal:  { name: l.nombre || l.name || 'Sin nombre', phone: l.telefono || '', email: l.email || '', zip: l.zip || '' },
+        clinical:  { condition: l.condition || 'general', symptoms: l.nivel_dolor || '', diagnosis: l.tiene_dolor || '', medications: l.tratamiento || '' },
+        scoring:   { label: _scoreLabel(l.score), value: l.score || 0 },
+        source:    { channel: 'organic', referral_source: l.referral_source_code || '', referral_code: '', landing: '', campaign: '' },
+        metadata:  { lead_id: l.id || ('LEG' + Date.now()), created_at: l.date || new Date().toISOString() },
+        status:    'new',
+        pipeline_stage: 'Nuevo lead',
+        _legacy:   true
+    }));
+
+    // Deduplicate by lead_id
+    const all = [...pending];
+    legacyMapped.forEach(l => {
+        if (!all.find(p => p.metadata.lead_id === l.metadata.lead_id)) all.push(l);
+    });
+
+    return all.sort((a, b) => new Date(b.metadata.created_at) - new Date(a.metadata.created_at));
+}
+
+function _scoreLabel(score) {
+    if (!score) return 'C';
+    return score >= 30 ? 'A' : score >= 20 ? 'B' : 'C';
+}
+
+/* ── Automation context for each lead ───────────────────── */
+function getCtx(lead) {
+    if (window.VCrm) return window.VCrm.buildAutomationContext(lead);
+    const condition = lead.clinical && lead.clinical.condition || 'general';
+    const score     = lead.scoring  && lead.scoring.label      || 'C';
+    return {
+        urgency_level:   score === 'A' ? 'high' : score === 'B' ? 'medium' : 'low',
+        assigned_owner:  { name: 'Coordinador General' },
+        condition_label: condition,
+        routing_notes:   lead.source && lead.source.referral_source ? 'Referido' : 'Directo',
+        tasks_to_create: [{ type: 'Llamar lead nuevo', dueInMinutes: 15, priority: 'high' }]
+    };
+}
+
+/* ── KPI computation ─────────────────────────────────────── */
+function computeKPIs(leads) {
+    const today = new Date().toISOString().slice(0, 10);
+    document.getElementById('kpi-hoy').textContent       = leads.filter(l => (l.metadata.created_at || '').startsWith(today)).length;
+    document.getElementById('kpi-urgentes').textContent  = leads.filter(l => l.scoring && l.scoring.label === 'A').length;
+    document.getElementById('kpi-referidos').textContent = leads.filter(l => l.source  && l.source.referral_source).length;
+    document.getElementById('kpi-pipeline').textContent  = leads.filter(l => l.status === 'new' || l.status === 'contacted').length;
+}
+
+/* ── Urgency badge ───────────────────────────────────────── */
+function urgencyBadge(urgency) {
+    const map = {
+        high:   ['badge-alta',  '🔴 Alta'],
+        medium: ['badge-media', '🟡 Media'],
+        low:    ['badge-baja',  '🟢 Baja'],
+    };
+    const [cls, label] = map[urgency] || map.low;
+    return `<span class="badge ${cls}">${label}</span>`;
+}
+
+/* ── Stage badge ─────────────────────────────────────────── */
+function stageBadge(stage) {
+    const map = {
+        'Nuevo lead':         'badge-nuevo',
+        'Contactado':         'badge-contactado',
+        'Pre-calificado':     'badge-prequalified',
+        'Screening agendado': 'badge-screening',
+        'Enrolled':           'badge-enrolled',
+        'No califica':        'badge-rejected',
+    };
+    const cls = map[stage] || 'badge-nuevo';
+    return `<span class="badge ${cls}">${stage || 'Nuevo lead'}</span>`;
+}
+
+/* ── Condition label ─────────────────────────────────────── */
+const COND_LABELS = {
+    'rodillas':    'Dolor de Rodillas',
+    'pap-anormal': 'Pap Anormal',
+    'ansiedad':    'Ansiedad / Mental',
+    'lupus':       'Lupus / Autoinmune',
+    'diabetes':    'Diabetes Tipo 2',
+    'general':     'General'
+};
+
+/* ── Origin display ──────────────────────────────────────── */
+function originDisplay(lead) {
+    const ch  = (lead.source && lead.source.channel) || '';
+    const ref = lead.source  && lead.source.referral_source;
+    if (ref) return `<span class="origin-badge origin-comunidad"><i class="fas fa-users"></i> Comunidad</span>`;
+    if (ch.includes('whatsapp')) return `<span class="origin-badge origin-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</span>`;
+    if (ch.includes('paid') || (lead.source && lead.source.campaign)) return `<span class="origin-badge origin-ads"><i class="fas fa-ad"></i> Ads</span>`;
+    return `<span class="origin-badge origin-directo"><i class="fas fa-globe"></i> Directo</span>`;
+}
+
+/* ── Score cell ──────────────────────────────────────────── */
+function scoreCell(lead, urgency) {
+    const lbl = lead.scoring && lead.scoring.label || 'C';
+    const val = lead.scoring && lead.scoring.value || 0;
+    const cls = lbl === 'A' ? 'score-a' : lbl === 'B' ? 'score-b' : 'score-c';
+    return `<div><span class="${cls}">Score ${lbl}</span> <span style="font-size:.7rem;color:var(--texto-light);">(${val})</span></div>
+            <div style="margin-top:4px;">${urgencyBadge(urgency)}</div>`;
+}
+
+/* ── Next task cell ───────────────────────────────────────── */
+function nextTaskCell(ctx) {
+    const task = ctx.tasks_to_create && ctx.tasks_to_create[0];
+    if (!task) return '<span class="next-task">—</span>';
+    const urgColor = task.priority === 'high' ? '#b91c1c' : '#92400e';
+    return `<div class="next-task"><strong style="color:${urgColor};">${task.type}</strong><br>en ${task.dueInMinutes >= 60 ? (task.dueInMinutes/60)+'h' : task.dueInMinutes+'min'}</div>`;
+}
+
+/* ── Main render ─────────────────────────────────────────── */
+function renderTable() {
+    const filterCondition = document.getElementById('filter-condition').value;
+    const filterUrgency   = document.getElementById('filter-urgency').value;
+    const filterOrigin    = document.getElementById('filter-origin').value;
+
+    let leads = getAllLeads();
+
+    if (filterCondition) leads = leads.filter(l => l.clinical && l.clinical.condition === filterCondition);
+    if (filterUrgency) {
+        leads = leads.filter(l => {
+            const ctx = getCtx(l);
+            return ctx.urgency_level === filterUrgency;
         });
-    </script>
+    }
+    if (filterOrigin === 'comunidad') leads = leads.filter(l => l.source && l.source.referral_source);
+    if (filterOrigin === 'directo')   leads = leads.filter(l => !l.source || !l.source.referral_source);
+
+    const tbody = document.getElementById('pipeline-tbody');
+    const empty = document.getElementById('empty-state');
+    tbody.innerHTML = '';
+
+    if (leads.length === 0) {
+        empty.style.display = 'block';
+        return;
+    }
+    empty.style.display = 'none';
+
+    leads.forEach(lead => {
+        const ctx       = getCtx(lead);
+        const name      = lead.personal && lead.personal.name || 'Sin nombre';
+        const condition = lead.clinical  && lead.clinical.condition || 'general';
+        const condLabel = COND_LABELS[condition] || condition;
+        const ref       = lead.source && lead.source.referral_source || '—';
+        const stage     = lead.pipeline_stage || 'Nuevo lead';
+        const created   = lead.metadata && lead.metadata.created_at
+                        ? new Date(lead.metadata.created_at).toLocaleDateString('es-MX', { day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' })
+                        : '—';
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>
+                <strong>${_esc(name)}</strong>
+                <div style="font-size:.7rem;color:var(--texto-light);margin-top:2px;">${created}</div>
+            </td>
+            <td>${_esc(condLabel)}</td>
+            <td>${scoreCell(lead, ctx.urgency_level)}</td>
+            <td>${stageBadge(stage)}</td>
+            <td style="font-size:.77rem;">${_esc(ctx.assigned_owner.name)}</td>
+            <td>${originDisplay(lead)}</td>
+            <td style="font-size:.75rem;font-family:monospace;">${_esc(ref)}</td>
+            <td>${nextTaskCell(ctx)}</td>
+            <td style="white-space:nowrap;">
+                <button class="btn-action btn-call" onclick="callLead(${JSON.stringify(_esc(name))}, ${JSON.stringify(_esc(lead.personal && lead.personal.phone || ''))})">
+                    <i class="fas fa-phone"></i> Llamar
+                </button>
+                &nbsp;
+                <button class="btn-action btn-detail" onclick="showDetail(${JSON.stringify(lead.metadata && lead.metadata.lead_id || '')})">
+                    <i class="fas fa-eye"></i> Ver
+                </button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+/* ── Actions ─────────────────────────────────────────────── */
+function callLead(name, phone) {
+    if (phone) {
+        window.open('tel:' + phone);
+        if (window.VCrm) window.VCrm.logVitalisEvent('call_initiated', { name, phone });
+    } else {
+        alert(`No hay teléfono registrado para ${name}.`);
+    }
+}
+
+function showDetail(leadId) {
+    const leads = getAllLeads();
+    const lead  = leads.find(l => l.metadata && l.metadata.lead_id === leadId);
+    if (!lead) return;
+    const ctx = getCtx(lead);
+    alert(
+        `VITALIS — Detalle del Lead\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `ID:          ${leadId}\n` +
+        `Nombre:      ${lead.personal.name}\n` +
+        `Teléfono:    ${lead.personal.phone || 'N/A'}\n` +
+        `Condición:   ${COND_LABELS[lead.clinical.condition] || lead.clinical.condition}\n` +
+        `Score:       ${lead.scoring.label} (${lead.scoring.value}/100)\n` +
+        `Urgencia:    ${ctx.urgency_level.toUpperCase()}\n` +
+        `Owner:       ${ctx.assigned_owner.name}\n` +
+        `Referido:    ${lead.source.referral_source || 'Directo'}\n` +
+        `Síntoma:     ${lead.clinical.symptoms || 'N/A'}\n` +
+        `Diagnóstico: ${lead.clinical.diagnosis || 'N/A'}\n` +
+        `Tratamiento: ${lead.clinical.medications || 'N/A'}\n` +
+        `ZIP:         ${lead.personal.zip || 'N/A'}`
+    );
+}
+
+function retryQueue() {
+    if (window.VCrm) {
+        window.VCrm.retryPendingLeadSync();
+        alert('Reintento iniciado. Revisa la consola del navegador.');
+    }
+}
+
+function exportCSV() {
+    const leads = getAllLeads();
+    const headers = ['ID', 'Nombre', 'Teléfono', 'Email', 'ZIP', 'Condición', 'Score', 'Urgencia', 'Canal', 'Referido', 'Código Ref', 'Campaña', 'Fecha'];
+    const rows = leads.map(l => {
+        const ctx = getCtx(l);
+        return [
+            l.metadata.lead_id,
+            l.personal.name,
+            l.personal.phone,
+            l.personal.email,
+            l.personal.zip,
+            l.clinical.condition,
+            l.scoring.label,
+            ctx.urgency_level,
+            l.source.channel,
+            l.source.referral_source,
+            l.source.referral_code,
+            l.source.campaign,
+            l.metadata.created_at
+        ].map(v => `"${(v||'').toString().replace(/"/g,'""')}"`).join(',');
+    });
+    const csv  = [headers.join(','), ...rows].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const a    = document.createElement('a');
+    a.href     = URL.createObjectURL(blob);
+    a.download = `vitalis-leads-${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+}
+
+/* ── Helpers ─────────────────────────────────────────────── */
+function _esc(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ── Init ────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+    const allLeads = getAllLeads();
+    computeKPIs(allLeads);
+    renderTable();
+
+    // Show queue banner if pending leads exist
+    const queue  = JSON.parse(localStorage.getItem('vit_pending_lead_queue') || '[]');
+    const unsent = queue.filter(l => l._backup_status !== 'sent');
+    if (unsent.length > 0) {
+        const banner = document.getElementById('queue-banner');
+        banner.style.display = 'flex';
+        document.getElementById('queue-count-text').textContent =
+            `${unsent.length} lead(s) pendiente(s) de sincronizar con CRM.`;
+    }
+
+    // Update timestamp
+    document.getElementById('dash-last-update').textContent =
+        'Actualizado: ' + new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
+});
+</script>
 </body>
 </html>
