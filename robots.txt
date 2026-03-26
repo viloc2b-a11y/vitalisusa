@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloquear carpetas innecesarias
+Disallow: /assets/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://viloc2b-a11y.github.io/vitalisusa/sitemap.xml
