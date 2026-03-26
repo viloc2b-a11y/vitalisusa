@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="¿Te duelen las rodillas al caminar? Encuentra opciones médicas gratuitas en Houston con atención en español. Posible compensación.">
+    <title>Dolor de Rodillas en Houston | Opción Médica Gratuita en Español</title>
+    
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/conversion.css">
+    <link rel="stylesheet" href="../css/community.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <script src="../js/conversion.js" defer></script>
+    <script src="../js/vitalis-community.js" defer></script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><span class="brand-v">V</span>ITALIS</a>
+    <div style="font-size: .8rem; font-weight: 700; color: var(--naranja);">Estudio Activo: Houston</div>
+  </div>
+</header>
+
+<!-- HERO LANDING -->
+<section class="hero-landing">
+  <div class="hero-landing-inner">
+      <span class="eyebrow" style="color:rgba(255,255,255,0.7);">Dolor de Rodillas / Artritis</span>
+      <h1>¿Te duelen las rodillas al caminar o subir escaleras?</h1>
+      <p class="hero-sub">Participa en un estudio clínico en Houston con especialistas. Atención 100% en español. Sin costo para ti.</p>
+      
+      <div class="hero-bullets">
+          <div class="hero-bullet">✅ Visitas médicas sin costo</div>
+          <div class="hero-bullet">✅ Medicamento del estudio</div>
+          <div class="hero-bullet">✅ Compensación por tiempo</div>
+      </div>
+      
+      <a href="#pre-screen" class="btn btn-primary btn-grande" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);">Ver si califico en 60 segundos</a>
+      <p style="margin-top: 16px; font-size: .8rem; opacity: 0.8;">No necesitas seguro médico ni estatus legal</p>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="section">
+    <div class="container" style="max-width: 900px;">
+        <div class="grid-2" style="align-items: center;">
+            <div style="padding-right: 20px;">
+                <h2 style="margin-bottom: 20px;">Entendemos tu dolor</h2>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <span style="font-size: 1.4rem;">🦴</span>
+                        <p>Rigidez en las mañanas que no te deja empezar el día.</p>
+                    </div>
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <span style="font-size: 1.4rem;">🚶</span>
+                        <p>Dolor constante al caminar o bajar el escalón de la banqueta.</p>
+                    </div>
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <span style="font-size: 1.4rem;">🛌</span>
+                        <p>Dificultad para dormir por la inflamación en tus articulaciones.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="background: var(--crema-medio); padding: 40px; border-radius: 24px; text-align: center;">
+               <div style="font-size: 3rem; margin-bottom: 20px;">🏥</div>
+               <h4>Hay una opción para ti en Houston</h4>
+               <p style="font-size: 0.9rem; margin-top: 10px;">Especialistas en Houston están buscando voluntarios para probar nuevas opciones médicas que podrían cambiar tu calidad de vida.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRE-SCREEN (WIDGET INTEGRADO) -->
+<section id="pre-screen" class="prescreen-section">
+    <div class="container">
+        <div class="section-header centered">
+            <h2 style="color: white;">Empieza aquí tu proceso</h2>
+            <p style="color: rgba(255,255,255,0.8);">Responde estas preguntas rápidas para ver si eres elegible.</p>
+        </div>
+
+        <div class="prescreen-box">
+            <div class="step-indicator">
+                <div class="step-dot active">1</div>
+                <div class="step-dot">2</div>
+                <div class="step-dot">3</div>
+            </div>
+            <div class="progress-bar-wrap">
+                <div class="progress-bar-fill"></div>
+            </div>
+
+            <form id="ps-form">
+                <!-- STEP 1: Datos Básicos -->
+                <div id="step-1" class="prescreen-step visible">
+                    <h3 class="step-titulo">Información básica</h3>
+                    <p class="step-sub">Todo es confidencial y solo para uso clínico.</p>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">¿Qué edad tienes?</label>
+                            <input type="number" name="edad" id="input-edad" class="form-input" placeholder="Tu edad" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Código postal (ZIP)</label>
+                            <input type="text" name="zip" id="input-zip" class="form-input" placeholder="77021" maxlength="5">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">¿Sufres dolor de rodillas actualmente?</label>
+                        <div class="radio-group" data-autonext="true">
+                            <div class="radio-card" data-value="si">SÍ</div>
+                            <div class="radio-card" data-value="no">NO</div>
+                            <input type="hidden" name="tiene_dolor" id="input-tiene_dolor">
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-full" data-next>Continuar →</button>
+                </div>
+
+                <!-- STEP 2: Preguntas Clínicas -->
+                <div id="step-2" class="prescreen-step">
+                    <h3 class="step-titulo">Detalles sobre tu dolor</h3>
+                    <p class="step-sub">Entender lo que sientes nos ayuda a calificarte mejor.</p>
+                    
+                    <div class="form-group">
+                        <label class="form-label">¿De qué nivel es tu dolor usualmente? (1-10)</label>
+                        <div class="radio-group">
+                            <div class="radio-card" data-value="leve">Leve (1-4)</div>
+                            <div class="radio-card" data-value="medio">Medio (5-7)</div>
+                            <div class="radio-card" data-value="fuerte">Fuerte (8-10)</div>
+                            <input type="hidden" name="nivel_dolor">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">¿Has recibido algún tratamiento previo? (Selecciona todos los que apliquen)</label>
+                        <div class="check-group">
+                            <label class="check-label"><input type="checkbox" name="tr_pastillas"><span class="checkmark"></span> Pastillas / Ibuprofeno</label>
+                            <label class="check-label"><input type="checkbox" name="tr_inyecciones"><span class="checkmark"></span> Inyecciones</label>
+                            <label class="check-label"><input type="checkbox" name="tr_fisioterapia"><span class="checkmark"></span> Fisioterapia / ejercicios</label>
+                            <label class="check-label"><input type="checkbox" name="tr_ninguno"><span class="checkmark"></span> Ninguno / no sé</label>
+                        </div>
+                    </div>
+
+                    <div class="step-nav">
+                        <button class="step-back" data-back>Atrás</button>
+                        <button class="btn btn-primary btn-full" data-next>Continuar →</button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Contacto -->
+                <div id="step-3" class="prescreen-step">
+                    <h3 class="step-titulo">Datos de contacto</h3>
+                    <p class="step-sub">Te llamaremos en español para confirmarte los detalles.</p>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Nombre completo</label>
+                        <input type="text" name="nombre" class="form-input" placeholder="Nombre y apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Teléfono móvil</label>
+                        <input type="tel" name="telefono" class="form-input" placeholder="(713) 555-0000" required>
+                    </div>
+                    
+                    <p style="font-size: 0.72rem; color: var(--texto-light); margin-bottom: 20px;">Al hacer clic en "Enviar", aceptas ser contactado por VITALIS Portal para fines informativos sobre estudios clínicos. Tu información está protegida.</p>
+
+                    <div class="step-nav">
+                        <button class="step-back" data-back>Atrás</button>
+                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn" style="background: var(--verde-salud); box-shadow: 0 4px 14px rgba(42,157,143,.3);">Enviar solicitud →</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- WHATSAPP PRIORITARIO (Bottom Strip) -->
+<div id="wa-strip-container"></div> <!-- VC will inject here -->
+
+<!-- FOOTER -->
+<footer class="footer-confianza">
+    <div class="footer-inner">
+        <p class="footer-legal">VITALIS Portal no es un proveedor médico. Los estudios son aprobados por comités de ética (IRB). Participación sujeta a criterios de elegibilidad.</p>
+        <p class="footer-copy">© 2026 VITALIS Portal | Houston, TX</p>
+    </div>
+</footer>
+
+<!-- JS Logic specific to this landing -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Pre-fill from URL params if coming from Home
+        const params = new URLSearchParams(window.location.search);
+        if(params.get('edad')) document.getElementById('input-edad').value = params.get('edad');
+        if(params.get('zip')) document.getElementById('input-zip').value = params.get('zip');
+
+        // Init Form Logic
+        window.VITALIS.initPreScreen({
+            formId: 'ps-form',
+            steps: ['step-1', 'step-2', 'step-3'],
+            onComplete: (lead) => {
+                // Redirect on success
+                window.location.href = '../gracias.html?id=' + lead.id;
+            }
+        });
+
+        // Inject Community Share Strip
+        if(window.VC) {
+            window.VC.injectLandingShare('#wa-strip-container', 'dolor de rodilla');
+        }
+    });
+</script>
+
+</body>
+</html>

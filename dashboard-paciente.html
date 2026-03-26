@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Comunidad | VITALIS Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/community.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="js/vitalis-community.js" defer></script>
+</head>
+<body style="background: #f0f2f5;">
+
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="index.html"><span class="brand-v">V</span>ITALIS</a>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="vc-points-pill">
+                    <div class="vc-points-icon">V</div>
+                    <span class="vc-points-text" id="header-points">0 pts</span>
+                </div>
+                <a href="login.html" style="font-size: 0.9rem; font-weight: 600;">Cerrar sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <div class="flex" style="justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h1>Hola, Paciente Demo</h1>
+                <span class="vc-badge vc-badge-participante" id="user-level">Participante</span>
+            </div>
+
+            <div class="grid-2">
+                <!-- Panel Estudios -->
+                <div style="background: white; padding: 30px; border-radius: var(--radio-lg); box-shadow: var(--sombra-sm);">
+                    <h3>Mis Postulaciones</h3>
+                    <p style="margin-bottom: 20px; font-size: 0.9rem;">Estado de los estudios clínicos a los que te has postulado.</p>
+                    
+                    <table class="referral-table">
+                        <thead>
+                            <tr>
+                                <th>Estudio</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="estudios-body">
+                            <tr>
+                                <td>Dolor de rodillas</td>
+                                <td>Hace 2 días</td>
+                                <td><span style="color: var(--naranja); font-weight: 700;">Pendiente</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Mi Impacto Panel -->
+                <div class="community-panel" style="margin-top: 0;">
+                    <div class="cp-header">
+                        <div>
+                            <h3>Mi Impacto Vitalis</h3>
+                            <p style="font-size: 0.85rem; color: var(--texto-suave);">Ayudas a que la ciencia sea para todos.</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.8rem; font-weight: 800; color: var(--azul-claro);" id="impact-points">0</div>
+                            <div style="font-size: 0.7rem; font-weight: 700; color: var(--texto-light);">PUNTOS TOTALES</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <div style="display:flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 8px;">
+                            <span id="next-level-text">Próximo: Amigo Vitalis</span>
+                            <span id="level-progress-percent">0%</span>
+                        </div>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar-fill" id="level-progress-bar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--azul-suave); padding: 20px; border-radius: var(--radio-md); text-align: center;">
+                        <p style="font-size: 0.88rem; margin-bottom: 12px;">Tu código de referido:</p>
+                        <div style="background: white; padding: 10px; border: 2px dashed var(--azul-medio); font-family: monospace; font-size: 1.2rem; font-weight: 800; border-radius: 8px; margin-bottom: 16px;" id="referral-code">VPL-XXXXXX</div>
+                        <button onclick="window.VC.copyReferralLink()" class="vc-btn-copy btn-full" style="border-width: 1px;">Copiar link y ayudar a mi familia</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Referidos -->
+            <div class="community-panel" style="margin-top: 30px;">
+                <h3>Personas que has ayudado</h3>
+                <p style="margin-bottom: 24px; font-size: 0.9rem;">Cuando alguien usa tu link, ambos reciben puntos de reconocimiento.</p>
+                <div id="referrals-empty" style="text-align: center; padding: 40px; border: 1px dashed var(--gris-borde); border-radius: 12px;">
+                    <p style="color: var(--texto-light); font-size: 0.9rem;">Aún no has referido a nadie. ¡Comparte tu link con alguien que lo necesite!</p>
+                    <a href="https://wa.me/?text=Hola%2C%20encontr%C3%A9%20una%20opci%C3%B3n%20m%C3%A9dica%20gratuita%20en%20Houston..." target="_blank" class="vc-btn-wa" style="width: fit-content; margin: 20px auto;">Compartir por WhatsApp</a>
+                </div>
+                <table class="referral-table" id="referrals-table" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Condición</th>
+                            <th>Impacto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="referrals-body"></tbody>
+                </table>
+            </div>
+
+            <p style="font-size: 0.7rem; color: var(--texto-light); text-align: center; margin-top: 40px;">IMPORTANTE: Los puntos VITALIS son una forma de reconocimiento por tu tiempo y apoyo a la comunidad. No pueden ser canjeados por dinero en efectivo ni garantizan beneficios médicos específicos. Solo disponibles para estudios activos en Houston, TX.</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const state = window.VC.getState();
+            
+            // UI Updates
+            document.getElementById('header-points').textContent = `${state.points} pts`;
+            document.getElementById('impact-points').textContent = state.points;
+            document.getElementById('referral-code').textContent = state.referral_code;
+            
+            const levelEl = document.getElementById('user-level');
+            levelEl.textContent = state.level.name;
+            levelEl.className = 'vc-badge vc-badge-' + state.level.name.toLowerCase().split(' ')[0];
+
+            // ProgressBar Logic (Mocked)
+            const count = state.referrals.length;
+            let percent = (count / 3) * 100; // to Amigo
+            if (count >= 3) {
+                 percent = (count / 10) * 100; // to Embajador
+                 document.getElementById('next-level-text').textContent = 'Próximo: Embajador Vitalis';
+            }
+            if(count >= 10) percent = 100;
+            
+            document.getElementById('level-progress-bar').style.width = percent + '%';
+            document.getElementById('level-progress-percent').textContent = Math.round(percent) + '%';
+
+            // Referrals Table
+            if(state.referrals.length > 0) {
+                document.getElementById('referrals-empty').style.display = 'none';
+                document.getElementById('referrals-table').style.display = 'table';
+                const body = document.getElementById('referrals-body');
+                state.referrals.forEach(ref => {
+                    const row = `<tr>
+                        <td>${ref.name}</td>
+                        <td>${ref.condition}</td>
+                        <td style="color: var(--verde-salud); font-weight: 700;">+50 pts</td>
+                    </tr>`;
+                    body.insertAdjacentHTML('beforeend', row);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

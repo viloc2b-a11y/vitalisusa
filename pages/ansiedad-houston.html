@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="¿Sufres de ansiedad o insomnio en Houston? Encuentra apoyo terapéutico y especializado en español. Sin costo y con atención cercana.">
+    <title>Ansiedad Houston | Apoyo en Español | VITALIS Portal</title>
+    
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/conversion.css">
+    <link rel="stylesheet" href="../css/community.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <script src="../js/conversion.js" defer></script>
+    <script src="../js/vitalis-community.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><span class="brand-v">V</span>ITALIS</a>
+    <div style="font-size: .8rem; font-weight: 700; color: var(--naranja);">Estudio Mental Houston</div>
+  </div>
+</header>
+
+<section class="hero-landing">
+  <div class="hero-landing-inner">
+      <span class="eyebrow" style="color:rgba(255,255,255,0.7);">Salud Mental / Ansiedad</span>
+      <h1>¿Vives con ansiedad constante o problemas para dormir?</h1>
+      <p class="hero-sub">No tienes que lidiar con esto a solas. Hay especialistas en Houston ofreciendo nuevas opciones gratuitas en español para pacientes hispanos.</p>
+      
+      <div class="hero-bullets">
+          <div class="hero-bullet">✅ Evaluación psicológica</div>
+          <div class="hero-bullet">✅ Opciones terapéuticas</div>
+          <div class="hero-bullet">✅ 100% en español</div>
+      </div>
+      
+      <a href="#pre-screen" class="btn btn-primary btn-grande">Ver si califico en 60 segundos</a>
+  </div>
+</section>
+
+<section id="pre-screen" class="prescreen-section">
+    <div class="container" style="text-align: center;">
+        <div class="prescreen-box" style="display: inline-block; text-align: left; width: 100%;">
+            <h3 class="step-titulo">Inicio de registro</h3>
+            <p class="step-sub">Completar este registro no te compromete a nada.</p>
+            <form id="ps-form">
+                <input type="hidden" name="condition" value="ansiedad">
+                <div class="form-group">
+                    <label class="form-label">Nombre completo</label>
+                    <input type="text" name="nombre" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Teléfono</label>
+                    <input type="tel" name="telefono" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">¿Te cuesta trabajo dormir por la ansiedad?</label>
+                    <select name="insomnio" class="form-select">
+                        <option>Sí, casi todas las noches</option>
+                        <option>A veces</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Recibir información →</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div id="wa-strip-container"></div>
+
+<footer class="footer-confianza">
+    <div class="footer-inner"><p class="footer-copy">© 2026 VITALIS Portal | Houston, TX</p></div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('ps-form');
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const lead = window.VITALIS.captureLead(Object.fromEntries(formData.entries()));
+            window.location.href = '../gracias.html?id=' + lead.id;
+        };
+
+        if(window.VC) {
+            window.VC.injectLandingShare('#wa-strip-container', 'ansiedad');
+        }
+    });
+</script>
+
+</body>
+</html>

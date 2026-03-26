@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Investigador | VITALIS Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body style="background: #f0f2f5;">
+
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="index.html"><span class="brand-v">V</span>ITALIS</a>
+            <div style="font-weight: 600;">Modo Investigador (Houston)</div>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <div class="grid-4" style="margin-bottom: 30px;">
+                <div class="card-condicion" style="padding: 20px;">
+                    <span class="eyebrow" style="color: var(--azul-medio);">Leads Hoy</span>
+                    <h2>14</h2>
+                </div>
+                <div class="card-condicion" style="padding: 20px;">
+                    <span class="eyebrow" style="color: var(--verde-salud);">Por Referido</span>
+                    <h2>6</h2>
+                </div>
+                <div class="card-condicion" style="padding: 20px;">
+                    <span class="eyebrow" style="color: var(--naranja);">Score High</span>
+                    <h2>8</h2>
+                </div>
+                <div class="card-condicion" style="padding: 20px;">
+                    <span class="eyebrow">Conversion</span>
+                    <h2>22%</h2>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 30px; border-radius: var(--radio-lg); box-shadow: var(--sombra-sm);">
+                <div class="flex" style="justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <h3>Gestión de Leads</h3>
+                    <div style="display: flex; gap: 10px;">
+                        <select class="form-select" style="padding: 8px 30px 8px 12px; font-size: 0.8rem; min-width: 150px;">
+                            <option>Todos los orígenes</option>
+                            <option>Directos</option>
+                            <option>Comunidad / Referidos</option>
+                        </select>
+                        <button class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">Exportar CSV</button>
+                    </div>
+                </div>
+
+                <table class="referral-table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Condición</th>
+                            <th>Origen</th>
+                            <th>Referido por</th>
+                            <th>Status Contacto</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="investigador-leads-body">
+                        <!-- Leads Mock Data -->
+                        <tr>
+                            <td><strong>María García</strong></td>
+                            <td>Dolor de rodilla</td>
+                            <td><span style="color: var(--azul-medio); font-weight: 600;">Comunidad</span></td>
+                            <td style="font-size: 0.8rem; font-family: monospace;">VPL-XJ82B1</td>
+                            <td><span style="background: var(--verde-suave); color: var(--verde-salud); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">CONTACTADA</span></td>
+                            <td><button style="padding: 6px 12px; background: none; border: 1px solid var(--gris-borde); border-radius: 4px; font-size: 0.8rem; cursor: pointer;">Ver Scoring</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jorge Ramírez</strong></td>
+                            <td>Ansiedad</td>
+                            <td><span style="color: var(--azul-medio); font-weight: 600;">Directo</span></td>
+                            <td>-</td>
+                            <td><span style="background: var(--azul-suave); color: var(--azul-medio); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">EN PROCESO</span></td>
+                            <td><button style="padding: 6px 12px; background: none; border: 1px solid var(--gris-borde); border-radius: 4px; font-size: 0.8rem; cursor: pointer;">Ver Scoring</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Carmen Ortiz</strong></td>
+                            <td>Dolor de rodilla</td>
+                            <td><span style="color: var(--azul-medio); font-weight: 600;">Comunidad</span></td>
+                            <td style="font-size: 0.8rem; font-family: monospace;">VPL-XJ82B1</td>
+                            <td><span style="background: #fff7ed; color: #f59e0b; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">NUEVO</span></td>
+                            <td><button style="padding: 6px 12px; background: none; border: 1px solid var(--gris-borde); border-radius: 4px; font-size: 0.8rem; cursor: pointer;">Llamar ahora</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Check for local leads logic
+        const savedLeads = JSON.parse(localStorage.getItem('vit_leads') || '[]');
+        const body = document.getElementById('investigador-leads-body');
+        
+        savedLeads.forEach(lead => {
+             const row = `<tr>
+                <td><strong>${lead.nombre}</strong></td>
+                <td>${lead.condition || 'General'}</td>
+                <td><span style="color: var(--azul-medio); font-weight: 600;">${lead.referral_source_code ? 'Comunidad' : 'Directo'}</span></td>
+                <td style="font-size: 0.8rem; font-family: monospace;">${lead.referral_source_code || '-'}</td>
+                <td><span style="background: #fff7ed; color: #f59e0b; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">NUEVO</span></td>
+                <td><button onclick="alert('Score: ${lead.score}')" style="padding: 6px 12px; background: none; border: 1px solid var(--gris-borde); border-radius: 4px; font-size: 0.8rem; cursor: pointer;">Ver Scoring</button></td>
+            </tr>`;
+            body.insertAdjacentHTML('afterbegin', row);
+        });
+    </script>
+</body>
+</html>

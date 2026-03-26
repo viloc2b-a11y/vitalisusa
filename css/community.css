@@ -1,0 +1,145 @@
+/* =====================================================
+   COMMUNITY STYLES (v1.0)
+   Specific styles for badges, referral cards, and points tags.
+   ===================================================== */
+
+/* Community Badges/Tags */
+.vc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.vc-badge-participante { background-color: var(--azul-medio); }
+.vc-badge-amigo { background-color: var(--naranja); box-shadow: 0 4px 10px rgba(232,98,42,0.3); }
+.vc-badge-embajador { 
+    background: linear-gradient(135deg, var(--verde-salud), #154a8a);
+    box-shadow: 0 4px 12px rgba(42,157,143,0.3);
+}
+
+/* Community Points Widget */
+.vc-points-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding: 4px 12px;
+    border-radius: 30px;
+    border: 1px solid var(--gris-borde);
+    box-shadow: var(--sombra-xs);
+}
+.vc-points-icon {
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #8B4513;
+}
+.vc-points-text {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--texto);
+}
+
+/* Sharing Strip (Landings) */
+.community-share-strip {
+    background: #f8fbff;
+    border-top: 1px solid #e1ecf7;
+    padding: 48px 0;
+    margin-top: 40px;
+}
+.css-inner {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.css-text h4 {
+    margin-bottom: 12px;
+}
+.css-text p {
+    color: var(--texto-suave);
+}
+.css-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 24px 0;
+    flex-wrap: wrap;
+}
+.vc-btn-wa {
+    background: #25D366;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+.vc-btn-copy {
+    background: white;
+    color: var(--azul-medio);
+    border: 2px solid var(--azul-medio);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.css-disclaimer {
+    font-size: 0.75rem;
+    color: var(--texto-light);
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+/* Dashboard Community Panel */
+.community-panel {
+    background: white;
+    border-radius: var(--radio-lg);
+    padding: 30px;
+    box-shadow: var(--sombra-sm);
+    margin-top: 24px;
+}
+.cp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--gris-borde);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* Referral List Table */
+.referral-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.referral-table th {
+    text-align: left;
+    padding: 12px;
+    font-size: 0.8rem;
+    color: var(--texto-light);
+    border-bottom: 1px solid var(--gris-borde);
+}
+.referral-table td {
+    padding: 12px;
+    font-size: 0.88rem;
+    border-bottom: 1px solid var(--gris-claro);
+}

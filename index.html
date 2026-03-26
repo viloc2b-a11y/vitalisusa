@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="VITALIS Portal – Encuentra opciones médicas para tu dolor en Houston. Atención 100% en español para pacientes hispanos. Sin costo, posible compensación." />
+    <meta name="keywords" content="ensayos clínicos Houston, estudios médicos Houston, pacientes hispanos, opciones médicas gratis Houston" />
+    <meta property="og:title" content="VITALIS Portal | Opciones médicas para tu dolor en Houston" />
+    <meta property="og:description" content="Encuentra opciones médicas gratuitas en Houston. Atención en español." />
+    <meta property="og:type" content="website" />
+    <title>VITALIS Portal | Opciones médicas para tu dolor en Houston</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/conversion.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="js/conversion.js" defer></script>
+</head>
+<body>
+
+<!-- ═══════════════ TOPBAR ═══════════════ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-v">V</span>ITALIS
+    </a>
+
+    <nav class="nav-links">
+      <a href="como-funciona.html">Cómo funciona</a>
+      <a href="blog.html">Noticias</a>
+      <a href="para-investigadores.html">Para investigadores</a>
+      <a href="login.html">Iniciar sesión</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="lang-switcher">
+        <strong>ES</strong> | <a href="#" style="color:inherit;">EN</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="como-funciona.html">Cómo funciona</a>
+  <a href="blog.html">Noticias médicas</a>
+  <a href="para-investigadores.html">Para investigadores</a>
+  <a href="login.html">Iniciar sesión</a>
+  <a href="privacidad.html">Privacidad</a>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero-home">
+  <div class="hero-home-inner container">
+    <!-- Columna izquierda -->
+    <div>
+      <span class="hero-eyebrow">🏥 Houston, TX — 100% en Español</span>
+      <h1>Encuentra opciones médicas para tu dolor en Houston</h1>
+      <p style="color:rgba(255,255,255,.88);font-size:1.08rem;max-width:520px;margin-top:12px;">
+        Si estás sufriendo un dolor o síntoma, puede haber una opción gratuita disponible para ti ahora mismo — con apoyo en español de principio a fin.
+      </p>
+      <div class="hero-pills">
+        <span class="hero-pill"><span class="pill-icon">✅</span> Sin costo para ti</span>
+        <span class="hero-pill"><span class="pill-icon">💵</span> Posible compensación</span>
+        <span class="hero-pill"><span class="pill-icon">🗣️</span> Apoyo en español</span>
+      </div>
+      <div class="hero-actions">
+        <a href="pages/dolor-rodillas-houston.html" class="btn btn-primary btn-grande">Ver si califico ahora</a>
+        <a href="como-funciona.html" class="btn btn-ghost-white">Cómo funciona</a>
+      </div>
+    </div>
+
+    <!-- Columna derecha – Buscador -->
+    <div>
+      <div class="hero-card">
+        <h3>¿Cuál es tu dolor o síntoma principal?</h3>
+        <p>Escribe lo que sientes — no necesitas saber el nombre del estudio.</p>
+        <div class="search-wrap">
+          <input type="text" id="search-input" class="search-input"
+            placeholder="Ej: dolor de rodillas, Pap anormal, ansiedad..."
+            autocomplete="off" />
+          <button class="search-btn" onclick="buscarSintoma()" aria-label="Buscar">
+            <i class="fas fa-search"></i>
+          </button>
+          <!-- Dropdown sugerencias -->
+          <div class="search-suggestions" id="suggestions">
+            <div class="suggestion-item" onclick="window.location.href='pages/dolor-rodillas-houston.html'">
+              <span class="s-icon">🦵</span> Dolor de rodillas / artritis
+            </div>
+            <div class="suggestion-item" onclick="window.location.href='pages/pap-anormal-houston.html'">
+              <span class="s-icon">🩺</span> Resultado de Pap anormal
+            </div>
+            <div class="suggestion-item" onclick="window.location.href='pages/ansiedad-houston.html'">
+              <span class="s-icon">🧠</span> Ansiedad / nerviosismo / tristeza
+            </div>
+            <div class="suggestion-item" onclick="window.location.href='pages/lupus-houston.html'">
+              <span class="s-icon">💜</span> Lupus / fatiga extrema
+            </div>
+            <div class="suggestion-item" onclick="window.location.href='pages/diabetes-houston.html'">
+              <span class="s-icon">🩸</span> Diabetes / azúcar alta
+            </div>
+          </div>
+        </div>
+        <div class="quick-links">
+          <span class="quick-link" onclick="window.location.href='pages/dolor-rodillas-houston.html'">Rodillas</span>
+          <span class="quick-link" onclick="window.location.href='pages/pap-anormal-houston.html'">Pap anormal</span>
+          <span class="quick-link" onclick="window.location.href='pages/ansiedad-houston.html'">Ansiedad</span>
+          <span class="quick-link" onclick="window.location.href='pages/lupus-houston.html'">Lupus</span>
+          <span class="quick-link" onclick="window.location.href='pages/diabetes-houston.html'">Diabetes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TRUST STRIP ═══════════════ -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-item">
+      <div class="trust-number" data-target="5">0</div>
+      <div class="trust-label">Estudios activos en Houston</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-number" data-target="200">0</div>
+      <div class="trust-label">Pacientes atendidos</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-number" data-target="100">0</div>
+      <div class="trust-label">% Atención en español</div>
+    </div>
+    <div class="trust-item">
+      <div style="font-size:1.4rem;font-weight:700;color:var(--naranja);font-family:'Poppins',sans-serif;">⚡</div>
+      <div class="trust-label" data-respuesta>Te contactamos hoy mismo</div>
+    </div>
+  </div>
+</div>
+
+<!-- INLINE PRE-SCREEN (Home above fold) -->
+<section class="home-inline-ps" id="inline-prescreen">
+  <div class="container">
+    <h2>¿Para qué condición quieres opciones?</h2>
+    <p>Cuéntanos y te decimos si hay algo disponible ahora mismo en Houston — gratis, en español</p>
+    <form class="hips-form" onsubmit="hipsSubmit(event)">
+      <div class="hips-group">
+        <label class="hips-label" for="hips-edad">¿Cuántos años tienes?</label>
+        <input id="hips-edad" class="hips-input" type="number" placeholder="Tu edad" min="18" max="110" required />
+      </div>
+      <div class="hips-group">
+        <label class="hips-label" for="hips-zip">Código postal (ZIP)</label>
+        <input id="hips-zip" class="hips-input" type="text" placeholder="77001" maxlength="5" pattern="[0-9]{5}" />
+      </div>
+      <div class="hips-group" style="flex:2;min-width:180px;">
+        <label class="hips-label" for="hips-condicion">¿Qué sientes o padeces?</label>
+        <select id="hips-condicion" class="hips-select" required>
+          <option value="" disabled selected>Selecciona tu síntoma o condición</option>
+          <option value="pages/dolor-rodillas-houston.html">🦵 Dolor de rodillas / artritis</option>
+          <option value="pages/pap-anormal-houston.html">🩺 Pap anormal / resultado preocupante</option>
+          <option value="pages/ansiedad-houston.html">🧠 Ansiedad / nerviosismo / insomnio</option>
+          <option value="pages/lupus-houston.html">💜 Lupus / fatiga extrema</option>
+          <option value="pages/diabetes-houston.html">🩸 Diabetes tipo 2 / azúcar alta</option>
+        </select>
+      </div>
+      <button type="submit" class="hips-submit">
+        Ver si califico →
+      </button>
+    </form>
+    <p class="hips-urgency">
+      <strong>⚡ Disponibilidad limitada</strong> · Cupos activos en Houston · Atención <span data-respuesta>hoy mismo</span>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ CÓMO FUNCIONA ═══════════════ -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="eyebrow">El proceso</span>
+      <h2>Así de simple</h2>
+      <p>No necesitas seguro médico. No necesitas saber el nombre del estudio. Solo cuéntanos qué sientes.</p>
+    </div>
+    <div class="pasos-grid" style="max-width:800px;margin:0 auto;">
+      <div class="paso">
+        <div class="paso-numero">1</div>
+        <h3>Busca</h3>
+        <p>Cuéntanos qué dolor o síntoma estás viviendo. Usamos eso para encontrar la opción correcta para ti.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-numero">2</div>
+        <h3>Postúlate</h3>
+        <p>Completa el pre-screen rápido (menos de 60 segundos). Te decimos si tienes buenas posibilidades.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-numero">3</div>
+        <h3>Recibe apoyo</h3>
+        <p>Si calificas, alguien de nuestro equipo — en español — te contacta en 24 a 48 horas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ COMUNIDAD HISPANA ═══════════════ -->
+<section class="section" style="background:var(--crema-medio);">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="eyebrow">Comunidad hispana en Houston</span>
+      <h2>No estás solo/a</h2>
+      <p>Miles de familias latinas como la tuya ya están accediendo a nuevas opciones médicas con apoyo cercano y en español. La ciencia también es para nosotros.</p>
+    </div>
+    <div class="grid-3" style="margin-top:40px;max-width:900px;margin-left:auto;margin-right:auto;">
+      <div style="text-align:center;padding:24px;">
+        <div style="font-size:2.4rem;margin-bottom:12px;">🏘️</div>
+        <h4>Cerca de ti</h4>
+        <p style="font-size:.9rem;">Estudios en Houston y alrededores. Sin viajes largos.</p>
+      </div>
+      <div style="text-align:center;padding:24px;">
+        <div style="font-size:2.4rem;margin-bottom:12px;">🗣️</div>
+        <h4>En tu idioma</h4>
+        <p style="font-size:.9rem;">Todo el proceso — desde la llamada hasta las visitas — en español.</p>
+      </div>
+      <div style="text-align:center;padding:24px;">
+        <div style="font-size:2.4rem;margin-bottom:12px;">🛡️</div>
+        <h4>Con respeto</h4>
+        <p style="font-size:.9rem;">Estudios aprobados por comités de ética. Tu seguridad primero.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONDICIONES ACTIVAS ═══════════════ -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="eyebrow">Opciones activas en Houston</span>
+      <h2>¿Te identificas con alguno de estos?</h2>
+      <p>Haz clic en tu condición o síntoma para ver si calificas.</p>
+    </div>
+    <div class="condiciones-grid" style="margin-top:40px;">
+      <a href="pages/dolor-rodillas-houston.html" class="card-condicion">
+        <div class="cond-icon">🦵</div>
+        <div class="cond-titulo">Dolor de rodillas</div>
+        <p style="font-size:.82rem;color:var(--texto-suave);margin:6px 0 10px;">Artritis · Osteoartritis · Dolor al caminar</p>
+        <span class="cond-badge">Reclutando ahora</span>
+      </a>
+      <a href="pages/pap-anormal-houston.html" class="card-condicion">
+        <div class="cond-icon">🩺</div>
+        <div class="cond-titulo">Pap anormal</div>
+        <p style="font-size:.82rem;color:var(--texto-suave);margin:6px 0 10px;">Resultado preocupante · Prevención cervical</p>
+        <span class="cond-badge">Reclutando ahora</span>
+      </a>
+      <a href="pages/ansiedad-houston.html" class="card-condicion">
+        <div class="cond-icon">🧠</div>
+        <div class="cond-titulo">Ansiedad / nervios</div>
+        <p style="font-size:.82rem;color:var(--texto-suave);margin:6px 0 10px;">Preocupación excesiva · Insomnio · Pánico</p>
+        <span class="cond-badge">Reclutando ahora</span>
+      </a>
+      <a href="pages/lupus-houston.html" class="card-condicion">
+        <div class="cond-icon">💜</div>
+        <div class="cond-titulo">Lupus</div>
+        <p style="font-size:.82rem;color:var(--texto-suave);margin:6px 0 10px;">Brotes · Fatiga extrema · Dolor articular</p>
+        <span class="cond-badge">Reclutando ahora</span>
+      </a>
+      <a href="pages/diabetes-houston.html" class="card-condicion">
+        <div class="cond-icon">🩸</div>
+        <div class="cond-titulo">Diabetes tipo 2</div>
+        <p style="font-size:.82rem;color:var(--texto-suave);margin:6px 0 10px;">Azúcar descontrolada · Fatiga · Visión borrosa</p>
+        <span class="cond-badge">Reclutando ahora</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TESTIMONIOS ═══════════════ -->
+<section class="section" style="background:var(--crema);">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="eyebrow">En primera persona</span>
+      <h2>Lo que dicen nuestros pacientes</h2>
+    </div>
+    <div class="testimonios-grid" style="margin-top:40px;">
+      <div class="testimonio-card">
+        <div class="estrellas">★★★★★</div>
+        <p class="testimonio-texto">"Yo creo que participar va a ser un bien para los pacientes, un bien para la ciencia y un bien para encontrar un nuevo medicamento. Me sentí en familia desde el primer día."</p>
+        <div class="testimonio-autor">
+          <div class="autor-avatar" style="background:var(--azul-suave);">👨</div>
+          <div>
+            <div class="autor-nombre">Maxi R.</div>
+            <div class="autor-lugar">Houston, TX · Paciente voluntario</div>
+          </div>
+        </div>
+        <div class="testimonio-quote">"</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="estrellas">★★★★★</div>
+        <p class="testimonio-texto">"Al principio tenía dudas, pero me explicaron todo en español y me sentí acompañada en cada paso. Hoy me siento mucho mejor y sigo participando."</p>
+        <div class="testimonio-autor">
+          <div class="autor-avatar" style="background:var(--crema-medio);">👩</div>
+          <div>
+            <div class="autor-nombre">Ana López</div>
+            <div class="autor-lugar">62 años · Houston, TX</div>
+          </div>
+        </div>
+        <div class="testimonio-quote">"</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="estrellas">★★★★★</div>
+        <p class="testimonio-texto">"Pensé que solo me quedaba sufrir con el dolor de rodillas. Gracias a VITALIS encontré una opción real y sin costo. No lo podía creer al principio."</p>
+        <div class="testimonio-autor">
+          <div class="autor-avatar" style="background:var(--verde-suave);">👨</div>
+          <div>
+            <div class="autor-nombre">Carlos Mendoza</div>
+            <div class="autor-lugar">58 años · Houston, TX</div>
+          </div>
+        </div>
+        <div class="testimonio-quote">"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-final">
+      <h2>¿Tienes dudas o quieres más información?</h2>
+      <p>Nuestro equipo en español está listo. <strong data-respuesta>Te contactamos hoy mismo.</strong> Sin presión, sin compromiso.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <!-- WhatsApp PRIORITARIO -->
+        <a href="https://wa.me/17135551234?text=Hola%2C%20vi%20VITALIS%20Portal%20y%20quiero%20saber%20si%20califico%20para%20opciones%20m%C3%A9dicas"
+           target="_blank" rel="noopener" class="btn btn-primary btn-grande" style="background:#25d366;color:white;gap:8px;display:flex;align-items:center;">
+          <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Hablar ahora con coordinadora en español
+        </a>
+        <a href="#inline-prescreen" onclick="document.getElementById('inline-prescreen').scrollIntoView({behavior:'smooth'});return false;" class="btn btn-ghost-white btn-grande">
+          Ver si califico en 60 segundos
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ WHATSAPP FLOAT ═══════════════ -->
+<a href="https://wa.me/17135551234?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20VITALIS"
+   class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<span class="whatsapp-tooltip">¡Escríbenos en español!</span>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer-confianza">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:white;margin-bottom:12px;font-size:1.2rem;">
+          <span style="color:var(--naranja)">V</span>ITALIS Portal
+        </div>
+        <p class="footer-brand-text">Conectando pacientes hispanos con opciones médicas en Houston. Todo en español. Sin costo.</p>
+        <div style="margin-top:16px;display:flex;gap:12px;">
+          <a href="#" style="color:rgba(255,255,255,.6);font-size:1.2rem;"><i class="fab fa-facebook"></i></a>
+          <a href="#" style="color:rgba(255,255,255,.6);font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/17135551234" target="_blank" style="color:rgba(255,255,255,.6);font-size:1.2rem;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Condiciones</h5>
+        <ul>
+          <li><a href="pages/dolor-rodillas-houston.html">Dolor de rodillas</a></li>
+          <li><a href="pages/pap-anormal-houston.html">Pap anormal</a></li>
+          <li><a href="pages/ansiedad-houston.html">Ansiedad</a></li>
+          <li><a href="pages/lupus-houston.html">Lupus</a></li>
+          <li><a href="pages/diabetes-houston.html">Diabetes tipo 2</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Plataforma</h5>
+        <ul>
+          <li><a href="como-funciona.html">Cómo funciona</a></li>
+          <li><a href="blog.html">Noticias médicas</a></li>
+          <li><a href="para-investigadores.html">Para investigadores</a></li>
+          <li><a href="login.html">Iniciar sesión</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacidad.html">Política de privacidad</a></li>
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Aviso de no discriminación</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        <strong style="color:rgba(255,255,255,.6);">Aviso MVP:</strong> Este es un sitio de demostración. Actualmente no recolectamos ni almacenamos información médica protegida. La versión final cumplirá con HIPAA y RGPD.
+        VITALIS Portal no es un proveedor médico, no da diagnósticos ni reemplaza la atención de su médico. Todos los estudios mostrados son aprobados por comités de revisión institucional (IRB).
+      </p>
+      <p class="footer-copy">© 2026 VITALIS Portal</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Hamburger menu ── */
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => { mobileNav.classList.toggle('open'); });
+
+/* ── Search buscador ── */
+const searchInput = document.getElementById('search-input');
+const suggestions = document.getElementById('suggestions');
+const condicionesMap = [
+  { keywords: ['rodilla','artritis','articulacion','caminar','escalera'], url: 'pages/dolor-rodillas-houston.html' },
+  { keywords: ['pap','cervical','ginecolog','vih','vph','displasia'], url: 'pages/pap-anormal-houston.html' },
+  { keywords: ['ansiedad','nervio','panic','estres','depresion','tristeza','insomnio'], url: 'pages/ansiedad-houston.html' },
+  { keywords: ['lupus','autoinmune','fatiga','articular','sarpullido'], url: 'pages/lupus-houston.html' },
+  { keywords: ['diabetes','azucar','glucosa','insulina','vision'], url: 'pages/diabetes-houston.html' },
+];
+function normalizar(s){ return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+function buscarSintoma(){
+  const q = normalizar(searchInput.value.trim());
+  if (!q) return;
+  for(const c of condicionesMap){ if(c.keywords.some(k=>q.includes(k))){ window.location.href=c.url; return; } }
+  document.getElementById('inline-prescreen').scrollIntoView({behavior:'smooth'});
+}
+searchInput.addEventListener('keypress', e=>{ if(e.key==='Enter') buscarSintoma(); });
+searchInput.addEventListener('focus', ()=>suggestions.classList.add('visible'));
+document.addEventListener('click', e=>{ if(!e.target.closest('.search-wrap')) suggestions.classList.remove('visible'); });
+
+/* ── Inline Pre-Screen redirect ── */
+function hipsSubmit(e){
+  e.preventDefault();
+  const url = document.getElementById('hips-condicion').value;
+  if(url) window.location.href = url + '?edad=' + (document.getElementById('hips-edad').value||'') + '&zip=' + (document.getElementById('hips-zip').value||'');
+}
+
+/* ── Contadores animados ── */
+function animarContadores(){
+  document.querySelectorAll('.trust-number[data-target]').forEach(el=>{
+    const target=parseInt(el.dataset.target,10), duration=1800;
+    const step=target/(duration/16); let current=0;
+    const timer=setInterval(()=>{
+      current=Math.min(current+step,target);
+      el.textContent=Math.round(current)+(el.dataset.suffix||'');
+      if(current>=target) clearInterval(timer);
+    },16);
+  });
+}
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ animarContadores(); observer.disconnect(); } });
+},{threshold:0.3});
+const trustStrip=document.querySelector('.trust-strip');
+if(trustStrip) observer.observe(trustStrip);
+</script>
+</body>
+</html>
