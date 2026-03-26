@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/community.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
+    <script src="../js/i18n.js" defer></script>
     <script src="../js/crm-adapter.js" defer></script>
     <script src="../js/conversion.js" defer></script>
     <script src="../js/vitalis-community.js" defer></script>
@@ -22,23 +23,26 @@
     <a class="brand" href="../index.html" aria-label="VITALIS USA - Inicio">
       <img src="../images/vitalis-logo.png" alt="VITALIS USA" class="brand-logo" />
     </a>
-    <div style="font-size: .8rem; font-weight: 700; color: var(--naranja);">Estudio Lupus Houston</div>
+    <div style="font-size: .8rem; font-weight: 700; color: var(--naranja);" data-i18n="land_lupus_eyebrow">Estudio Lupus Houston</div>
+    <div class="lang-switcher" style="margin-left:auto;">
+      <strong data-lang="es" style="cursor:pointer;">ES</strong> | <a href="#" style="color:inherit;" data-lang="en">EN</a>
+    </div>
   </div>
 </header>
 
 <section class="hero-landing">
   <div class="hero-landing-inner">
-      <span class="eyebrow" style="color:rgba(255,255,255,0.7);">Enfermedad Autoinmune / Lupus</span>
-      <h1>¿Tu Lupus te causa demasiada fatiga y dolor hoy?</h1>
-      <p class="hero-sub">Participa en un estudio en Houston enfocado en pacientes hispanos. Sin costo médico y con especialistas que hablan tu idioma.</p>
+      <span class="eyebrow" style="color:rgba(255,255,255,0.7);" data-i18n="land_lupus_eyebrow">Enfermedad Autoinmune / Lupus</span>
+      <h1 data-i18n="land_lupus_hero_title">¿Tu Lupus te causa demasiada fatiga y dolor hoy?</h1>
+      <p class="hero-sub" data-i18n="land_lupus_hero_sub">Participa en un estudio en Houston enfocado en pacientes hispanos. Sin costo médico y con especialistas que hablan tu idioma.</p>
       
       <div class="hero-bullets">
-          <div class="hero-bullet">✅ Pruebas de laboratorio</div>
-          <div class="hero-bullet">✅ Medicamento especializado</div>
-          <div class="hero-bullet">✅ Compensación posible</div>
+          <div class="hero-bullet" data-i18n="land_lupus_bullet1">✅ Pruebas de laboratorio</div>
+          <div class="hero-bullet" data-i18n="land_lupus_bullet2">✅ Medicamento especializado</div>
+          <div class="hero-bullet" data-i18n="land_lupus_bullet3">✅ Compensación posible</div>
       </div>
       
-      <a href="#pre-screen" class="btn btn-primary btn-grande">Ver si califico en 60 segundos</a>
+      <a href="#pre-screen" class="btn btn-primary btn-grande" data-i18n="form_qualify_60s">Ver si califico en 60 segundos</a>
   </div>
 </section>
 
@@ -48,22 +52,22 @@
             <form id="ps-form">
                 <input type="hidden" name="condition" value="lupus">
                 <div class="form-group">
-                    <label class="form-label">Nombre completo</label>
-                    <input type="text" name="nombre" class="form-input" required>
+                    <label class="form-label" data-i18n="form_name_label">Nombre completo</label>
+                    <input type="text" name="nombre" class="form-input" data-i18n-placeholder="form_name_ph" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Teléfono móvil</label>
-                    <input type="tel" name="telefono" class="form-input" required>
+                    <label class="form-label" data-i18n="form_phone_label">Teléfono móvil</label>
+                    <input type="tel" name="telefono" class="form-input" data-i18n-placeholder="form_phone_ph" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">¿Ya tienes un diagnóstico de Lupus?</label>
+                    <label class="form-label" data-i18n="land_lupus_diag_q">¿Ya tienes un diagnóstico de Lupus?</label>
                     <div class="radio-group">
-                       <div class="radio-card" data-value="si">SÍ, lo tengo</div>
-                       <div class="radio-card" data-value="no">NO, creo tenerlo</div>
+                       <div class="radio-card" data-value="si" data-i18n="land_lupus_diag_yes">SÍ, lo tengo</div>
+                       <div class="radio-card" data-value="no" data-i18n="land_lupus_diag_no">NO, creo tenerlo</div>
                        <input type="hidden" name="diagnosticada">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-full">Hablar con especialista →</button>
+                <button type="submit" class="btn btn-primary btn-full" data-i18n="land_lupus_submit">Hablar con especialista →</button>
             </form>
         </div>
     </div>

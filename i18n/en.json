@@ -1,0 +1,19 @@
+{
+  "_note": "Reference file EN. Active translations are embedded in js/i18n.js. Edit here and sync.",
+  "nav_how": "How it works",
+  "nav_news": "News",
+  "nav_researchers": "For researchers",
+  "nav_login": "Sign in",
+  "home_hero_title": "Find free medical options for your pain in Houston",
+  "home_hero_sub": "If you're experiencing pain or a symptom, there may be a free option available for you right now — with full bilingual support from start to finish.",
+  "home_pill_free": "No cost to you",
+  "home_pill_comp": "Possible compensation",
+  "home_pill_esp": "Bilingual support",
+  "home_cta_qualify": "See if I qualify now",
+  "search_title": "What is your main pain or symptom?",
+  "home_ps_title": "Which condition do you need options for?",
+  "cond_recruiting": "Recruiting now",
+  "thanks_hero_title": "We received your information",
+  "thanks_disclaimer": "Completing this form does not represent any promise of admission, treatment, compensation, or enrollment in any study.",
+  "footer_copy": "© 2026 VITALIS Portal"
+}

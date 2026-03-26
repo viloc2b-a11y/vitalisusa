@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/community.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
+    <script src="../js/i18n.js" defer></script>
     <script src="../js/crm-adapter.js" defer></script>
     <script src="../js/conversion.js" defer></script>
     <script src="../js/vitalis-community.js" defer></script>
@@ -23,25 +24,28 @@
     <a class="brand" href="../index.html" aria-label="VITALIS USA - Inicio">
       <img src="../images/vitalis-logo.png" alt="VITALIS USA" class="brand-logo" />
     </a>
-    <div style="font-size: .8rem; font-weight: 700; color: var(--naranja);">Estudio Activo: Houston</div>
+    <div style="font-size: .8rem; font-weight: 700; color: var(--naranja);" data-i18n="land_rodillas_eyebrow">Estudio Activo: Houston</div>
+    <div class="lang-switcher" style="margin-left:auto;">
+      <strong data-lang="es" style="cursor:pointer;">ES</strong> | <a href="#" style="color:inherit;" data-lang="en">EN</a>
+    </div>
   </div>
 </header>
 
 <!-- HERO LANDING -->
 <section class="hero-landing">
   <div class="hero-landing-inner">
-      <span class="eyebrow" style="color:rgba(255,255,255,0.7);">Dolor de Rodillas / Artritis</span>
-      <h1>¿Te duelen las rodillas al caminar o subir escaleras?</h1>
-      <p class="hero-sub">Participa en un estudio clínico en Houston con especialistas. Atención 100% en español. Sin costo para ti.</p>
+      <span class="eyebrow" style="color:rgba(255,255,255,0.7);" data-i18n="land_rodillas_eyebrow">Dolor de Rodillas / Artritis</span>
+      <h1 data-i18n="land_rodillas_hero_title">¿Te duelen las rodillas al caminar o subir escaleras?</h1>
+      <p class="hero-sub" data-i18n="land_rodillas_hero_sub">Participa en un estudio clínico en Houston con especialistas. Atención 100% en español. Sin costo para ti.</p>
       
       <div class="hero-bullets">
-          <div class="hero-bullet">✅ Visitas médicas sin costo</div>
-          <div class="hero-bullet">✅ Medicamento del estudio</div>
-          <div class="hero-bullet">✅ Compensación por tiempo</div>
+          <div class="hero-bullet" data-i18n="land_rodillas_bullet1">✅ Visitas médicas sin costo</div>
+          <div class="hero-bullet" data-i18n="land_rodillas_bullet2">✅ Medicamento del estudio</div>
+          <div class="hero-bullet" data-i18n="land_rodillas_bullet3">✅ Compensación por tiempo</div>
       </div>
       
-      <a href="#pre-screen" class="btn btn-primary btn-grande" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);">Ver si califico en 60 segundos</a>
-      <p style="margin-top: 16px; font-size: .8rem; opacity: 0.8;">No necesitas seguro médico ni estatus legal</p>
+      <a href="#pre-screen" class="btn btn-primary btn-grande" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);" data-i18n="form_qualify_60s">Ver si califico en 60 segundos</a>
+      <p style="margin-top: 16px; font-size: .8rem; opacity: 0.8;" data-i18n="form_no_insurance">No necesitas seguro médico ni estatus legal</p>
   </div>
 </section>
 
@@ -50,26 +54,26 @@
     <div class="container" style="max-width: 900px;">
         <div class="grid-2" style="align-items: center;">
             <div style="padding-right: 20px;">
-                <h2 style="margin-bottom: 20px;">Entendemos tu dolor</h2>
+                <h2 style="margin-bottom: 20px;" data-i18n="land_rodillas_pain_title">Entendemos tu dolor</h2>
                 <div style="display: flex; flex-direction: column; gap: 16px;">
                     <div style="display: flex; gap: 12px; align-items: center;">
                         <span style="font-size: 1.4rem;">🦴</span>
-                        <p>Rigidez en las mañanas que no te deja empezar el día.</p>
+                        <p data-i18n="land_rodillas_pain1">Rigidez en las mañanas que no te deja empezar el día.</p>
                     </div>
                     <div style="display: flex; gap: 12px; align-items: center;">
                         <span style="font-size: 1.4rem;">🚶</span>
-                        <p>Dolor constante al caminar o bajar el escalón de la banqueta.</p>
+                        <p data-i18n="land_rodillas_pain2">Dolor constante al caminar o bajar el escalón de la banqueta.</p>
                     </div>
                     <div style="display: flex; gap: 12px; align-items: center;">
                         <span style="font-size: 1.4rem;">🛌</span>
-                        <p>Dificultad para dormir por la inflamación en tus articulaciones.</p>
+                        <p data-i18n="land_rodillas_pain3">Dificultad para dormir por la inflamación en tus articulaciones.</p>
                     </div>
                 </div>
             </div>
             <div style="background: var(--crema-medio); padding: 40px; border-radius: 24px; text-align: center;">
                <div style="font-size: 3rem; margin-bottom: 20px;">🏥</div>
-               <h4>Hay una opción para ti en Houston</h4>
-               <p style="font-size: 0.9rem; margin-top: 10px;">Especialistas en Houston están buscando voluntarios para probar nuevas opciones médicas que podrían cambiar tu calidad de vida.</p>
+               <h4 data-i18n="land_rodillas_option_box">Hay una opción para ti en Houston</h4>
+               <p style="font-size: 0.9rem; margin-top: 10px;" data-i18n="land_rodillas_option_text">Especialistas en Houston están buscando voluntarios para probar nuevas opciones médicas que podrían cambiar tu calidad de vida.</p>
             </div>
         </div>
     </div>
@@ -96,82 +100,82 @@
             <form id="ps-form">
                 <!-- STEP 1: Datos Básicos -->
                 <div id="step-1" class="prescreen-step visible">
-                    <h3 class="step-titulo">Información básica</h3>
-                    <p class="step-sub">Todo es confidencial y solo para uso clínico.</p>
+                    <h3 class="step-titulo" data-i18n="land_step_basic_title">Información básica</h3>
+                    <p class="step-sub" data-i18n="land_step_basic_sub">Todo es confidencial y solo para uso clínico.</p>
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label">¿Qué edad tienes?</label>
-                            <input type="number" name="edad" id="input-edad" class="form-input" placeholder="Tu edad" required>
+                            <label class="form-label" data-i18n="form_age_label">¿Qué edad tienes?</label>
+                            <input type="number" name="edad" id="input-edad" class="form-input" placeholder="Tu edad" data-i18n-placeholder="form_age_ph" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Código postal (ZIP)</label>
+                            <label class="form-label" data-i18n="form_zip_label">Código postal (ZIP)</label>
                             <input type="text" name="zip" id="input-zip" class="form-input" placeholder="77021" maxlength="5">
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">¿Sufres dolor de rodillas actualmente?</label>
+                        <label class="form-label" data-i18n="land_rodillas_q1">¿Sufres dolor de rodillas actualmente?</label>
                         <div class="radio-group" data-autonext="true">
-                            <div class="radio-card" data-value="si">SÍ</div>
-                            <div class="radio-card" data-value="no">NO</div>
+                            <div class="radio-card" data-value="si" data-i18n="land_rodillas_yes">SÍ</div>
+                            <div class="radio-card" data-value="no" data-i18n="land_rodillas_no">NO</div>
                             <input type="hidden" name="tiene_dolor" id="input-tiene_dolor">
                         </div>
                     </div>
                     
-                    <button class="btn btn-primary btn-full" data-next>Continuar →</button>
+                    <button class="btn btn-primary btn-full" data-next data-i18n="form_continue">Continuar →</button>
                 </div>
 
                 <!-- STEP 2: Preguntas Clínicas -->
                 <div id="step-2" class="prescreen-step">
-                    <h3 class="step-titulo">Detalles sobre tu dolor</h3>
-                    <p class="step-sub">Entender lo que sientes nos ayuda a calificarte mejor.</p>
+                    <h3 class="step-titulo" data-i18n="land_step_pain_title">Detalles sobre tu dolor</h3>
+                    <p class="step-sub" data-i18n="land_step_pain_sub">Entender lo que sientes nos ayuda a calificarte mejor.</p>
                     
                     <div class="form-group">
-                        <label class="form-label">¿De qué nivel es tu dolor usualmente? (1-10)</label>
+                        <label class="form-label" data-i18n="land_rodillas_pain_q">¿De qué nivel es tu dolor usualmente? (1-10)</label>
                         <div class="radio-group">
-                            <div class="radio-card" data-value="leve">Leve (1-4)</div>
-                            <div class="radio-card" data-value="medio">Medio (5-7)</div>
-                            <div class="radio-card" data-value="fuerte">Fuerte (8-10)</div>
+                            <div class="radio-card" data-value="leve" data-i18n="land_rodillas_mild">Leve (1-4)</div>
+                            <div class="radio-card" data-value="medio" data-i18n="land_rodillas_medium">Medio (5-7)</div>
+                            <div class="radio-card" data-value="fuerte" data-i18n="land_rodillas_strong">Fuerte (8-10)</div>
                             <input type="hidden" name="nivel_dolor">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">¿Has recibido algún tratamiento previo? (Selecciona todos los que apliquen)</label>
+                        <label class="form-label" data-i18n="land_rodillas_treat_q">¿Has recibido algún tratamiento previo? (Selecciona todos los que apliquen)</label>
                         <div class="check-group">
-                            <label class="check-label"><input type="checkbox" name="tr_pastillas"><span class="checkmark"></span> Pastillas / Ibuprofeno</label>
-                            <label class="check-label"><input type="checkbox" name="tr_inyecciones"><span class="checkmark"></span> Inyecciones</label>
-                            <label class="check-label"><input type="checkbox" name="tr_fisioterapia"><span class="checkmark"></span> Fisioterapia / ejercicios</label>
-                            <label class="check-label"><input type="checkbox" name="tr_ninguno"><span class="checkmark"></span> Ninguno / no sé</label>
+                            <label class="check-label"><input type="checkbox" name="tr_pastillas"><span class="checkmark"></span> <span data-i18n="land_rodillas_tr_pills">Pastillas / Ibuprofeno</span></label>
+                            <label class="check-label"><input type="checkbox" name="tr_inyecciones"><span class="checkmark"></span> <span data-i18n="land_rodillas_tr_inject">Inyecciones</span></label>
+                            <label class="check-label"><input type="checkbox" name="tr_fisioterapia"><span class="checkmark"></span> <span data-i18n="land_rodillas_tr_physio">Fisioterapia / ejercicios</span></label>
+                            <label class="check-label"><input type="checkbox" name="tr_ninguno"><span class="checkmark"></span> <span data-i18n="land_rodillas_tr_none">Ninguno / no sé</span></label>
                         </div>
                     </div>
 
                     <div class="step-nav">
-                        <button class="step-back" data-back>Atrás</button>
-                        <button class="btn btn-primary btn-full" data-next>Continuar →</button>
+                        <button class="step-back" data-back data-i18n="form_back">Atrás</button>
+                        <button class="btn btn-primary btn-full" data-next data-i18n="form_continue">Continuar →</button>
                     </div>
                 </div>
 
                 <!-- STEP 3: Contacto -->
                 <div id="step-3" class="prescreen-step">
-                    <h3 class="step-titulo">Datos de contacto</h3>
-                    <p class="step-sub">Te llamaremos en español para confirmarte los detalles.</p>
+                    <h3 class="step-titulo" data-i18n="land_step_contact_title">Datos de contacto</h3>
+                    <p class="step-sub" data-i18n="land_step_contact_sub">Te llamaremos en español para confirmarte los detalles.</p>
                     
                     <div class="form-group">
-                        <label class="form-label">Nombre completo</label>
-                        <input type="text" name="nombre" class="form-input" placeholder="Nombre y apellido" required>
+                        <label class="form-label" data-i18n="form_name_label">Nombre completo</label>
+                        <input type="text" name="nombre" class="form-input" placeholder="Nombre y apellido" data-i18n-placeholder="form_name_ph" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Teléfono móvil</label>
-                        <input type="tel" name="telefono" class="form-input" placeholder="(713) 555-0000" required>
+                        <label class="form-label" data-i18n="form_phone_label">Teléfono móvil</label>
+                        <input type="tel" name="telefono" class="form-input" placeholder="(713) 555-0000" data-i18n-placeholder="form_phone_ph" required>
                     </div>
                     
-                    <p style="font-size: 0.72rem; color: var(--texto-light); margin-bottom: 20px;">Al hacer clic en "Enviar", aceptas ser contactado por VITALIS Portal para fines informativos sobre estudios clínicos. Tu información está protegida.</p>
+                    <p style="font-size: 0.72rem; color: var(--texto-light); margin-bottom: 20px;" data-i18n="form_privacy">Al hacer clic en "Enviar", aceptas ser contactado por VITALIS Portal para fines informativos sobre estudios clínicos. Tu información está protegida.</p>
 
                     <div class="step-nav">
-                        <button class="step-back" data-back>Atrás</button>
-                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn" style="background: var(--verde-salud); box-shadow: 0 4px 14px rgba(42,157,143,.3);">Enviar solicitud →</button>
+                        <button class="step-back" data-back data-i18n="form_back">Atrás</button>
+                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn" style="background: var(--verde-salud); box-shadow: 0 4px 14px rgba(42,157,143,.3);" data-i18n="land_rodillas_submit">Enviar solicitud →</button>
                     </div>
                 </div>
             </form>

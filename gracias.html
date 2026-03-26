@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/community.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="js/i18n.js" defer></script>
     <script src="js/crm-adapter.js" defer></script>
     <script src="js/vitalis-community.js" defer></script>
     <style>
@@ -138,14 +139,17 @@
             <a class="brand" href="index.html" aria-label="VITALIS USA - Inicio">
                 <img src="images/vitalis-logo.png" alt="VITALIS USA" class="brand-logo" />
             </a>
+            <div class="lang-switcher" style="margin-left:auto;">
+              <strong data-lang="es" style="cursor:pointer;">ES</strong> | <a href="#" style="color:inherit;" data-lang="en">EN</a>
+            </div>
         </div>
     </header>
 
     <!-- Hero -->
     <div class="gracias-hero">
         <div class="gracias-check">✅</div>
-        <h1>Ya recibimos tu información</h1>
-        <p id="gracias-sub">Nuestro equipo la revisará y te contactará pronto para orientarte en español sobre los siguientes pasos.</p>
+        <h1 data-i18n="thanks_hero_title">Ya recibimos tu información</h1>
+        <p id="gracias-sub" data-i18n="thanks_hero_sub">Nuestro equipo la revisará y te contactará pronto para orientarte en español sobre los siguientes pasos.</p>
         <p class="ref-id" id="ref-id-display"></p>
     </div>
 
@@ -160,48 +164,48 @@
 
             <!-- Steps -->
             <div class="steps-card">
-                <h4>¿Qué pasa ahora?</h4>
+                <h4 data-i18n="thanks_steps_title">¿Qué pasa ahora?</h4>
                 <div class="step-item">
                     <div class="step-num">1</div>
-                    <div class="step-text"><strong>Revisión interna</strong> — Nuestro equipo revisará tus respuestas para verificar si hay una opción disponible para ti en este momento.</div>
+                    <div class="step-text"><strong data-i18n="thanks_s1_title">Revisión interna</strong> — <span data-i18n="thanks_s1_text">Nuestro equipo revisará tus respuestas para verificar si hay una opción disponible para ti en este momento.</span></div>
                 </div>
                 <div class="step-item">
                     <div class="step-num">2</div>
-                    <div class="step-text" id="step2-text"><strong>Te contactaremos en español</strong> — Si hay una opción que podría corresponder a tu perfil, alguien de nuestro equipo te llamará para orientarte sin ningún compromiso de tu parte.</div>
+                    <div class="step-text" id="step2-text"><strong data-i18n="thanks_s2_title">Te contactaremos en español</strong> — <span data-i18n="thanks_s2_text">Si hay una opción que podría corresponder a tu perfil, alguien de nuestro equipo te llamará para orientarte sin ningún compromiso de tu parte.</span></div>
                 </div>
                 <div class="step-item">
                     <div class="step-num">3</div>
-                    <div class="step-text"><strong>Tú decides</strong> — En esa llamada te explicaremos todo en detalle. Participar siempre es una decisión tuya, libre y voluntaria.</div>
+                    <div class="step-text"><strong data-i18n="thanks_s3_title">Tú decides</strong> — <span data-i18n="thanks_s3_text">En esa llamada te explicaremos todo en detalle. Participar siempre es una decisión tuya, libre y voluntaria.</span></div>
                 </div>
             </div>
 
             <!-- Disclaimer -->
-            <div class="disclaimer-box">
-                <strong>Aviso importante:</strong> El hecho de haber completado este formulario no representa ninguna promesa de admisión, tratamiento, compensación ni enrolamiento en ningún estudio. La elegibilidad final se determina por criterios médicos evaluados por el equipo del estudio. Todos los estudios son revisados y aprobados por un Comité de Revisión Institucional (IRB).
+            <div class="disclaimer-box" data-i18n="thanks_disclaimer">
+                El hecho de haber completado este formulario no representa ninguna promesa de admisión, tratamiento, compensación ni enrolamiento en ningún estudio. La elegibilidad final se determina por criterios médicos evaluados por el equipo del estudio. Todos los estudios son revisados y aprobados por un Comité de Revisión Institucional (IRB).
             </div>
 
             <!-- WhatsApp contact strip -->
             <div class="wa-contact-strip">
-                <p>¿Prefieres comunicarte por escrito? Puedes escribirnos directamente por WhatsApp en español.</p>
+                <p data-i18n="thanks_wa_text">¿Prefieres comunicarte por escrito? Puedes escribirnos directamente por WhatsApp en español.</p>
                 <a href="https://wa.me/17135551234?text=Hola%2C%20ya%20complet%C3%A9%20el%20formulario%20en%20VITALIS%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
                    target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+                    <i class="fab fa-whatsapp"></i> <span data-i18n="thanks_wa_btn">Escribir por WhatsApp</span>
                 </a>
             </div>
 
             <!-- Community / Referral -->
             <div class="community-block">
-                <h3>¿Conoces a alguien con un dolor similar en Houston?</h3>
-                <p>Si compartes esta página con alguien que también busca opciones médicas, les estarás ayudando. Ganarás puntos VITALIS por cada referido que complete el proceso.</p>
+                <h3 data-i18n="thanks_comm_title">¿Conoces a alguien con un dolor similar en Houston?</h3>
+                <p data-i18n="thanks_comm_sub">Si compartes esta página con alguien que también busca opciones médicas, les estarás ayudando. Ganarás puntos VITALIS por cada referido que complete el proceso.</p>
                 <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;">
-                    <a href="#" id="wa-share-btn" class="vc-btn-wa"><i class="fab fa-whatsapp"></i> Compartir por WhatsApp</a>
-                    <button onclick="if(window.VC) window.VC.copyReferralLink()" class="vc-btn-copy" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);color:white;">Copiar enlace</button>
+                    <a href="#" id="wa-share-btn" class="vc-btn-wa"><i class="fab fa-whatsapp"></i> <span data-i18n="thanks_share_wa">Compartir por WhatsApp</span></a>
+                    <button onclick="if(window.VC) window.VC.copyReferralLink()" class="vc-btn-copy" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);color:white;" data-i18n="thanks_copy_link">Copiar enlace</button>
                 </div>
-                <p style="font-size:.7rem;color:rgba(255,255,255,.55);font-style:italic;">Comparte solo con personas que deseen recibir información sobre opciones médicas. El reconocimiento es por tu tiempo y apoyo comunitario.</p>
+                <p style="font-size:.7rem;color:rgba(255,255,255,.55);font-style:italic;" data-i18n="thanks_ref_disclaimer">Comparte solo con personas que deseen recibir información sobre opciones médicas. El reconocimiento es por tu tiempo y apoyo comunitario.</p>
             </div>
 
             <div style="margin-top:32px;text-align:center;">
-                <a href="index.html" style="color:var(--texto-light);font-weight:600;font-size:.9rem;">← Volver al inicio</a>
+                <a href="index.html" style="color:var(--texto-light);font-weight:600;font-size:.9rem;" data-i18n="thanks_back">← Volver al inicio</a>
             </div>
 
         </div>
@@ -242,40 +246,45 @@
         // ── Ref ID display ──────────────────────────────────────
         document.getElementById('ref-id-display').textContent = `Ref. interna: ${leadId}`;
 
-        // ── Personalised subtitle ───────────────────────────────
+        // ── Personalised subtitle (i18n-aware) ─────────────────
+        const i18n = window.VitalisI18n;
+        const lang = i18n ? i18n.getCurrentLanguage() : 'es';
         const condLabels = {
-            'rodillas':    'dolor de rodillas',
-            'pap-anormal': 'tu resultado de Pap',
-            'ansiedad':    'ansiedad o insomnio',
-            'lupus':       'lupus',
-            'diabetes':    'diabetes tipo 2',
+            es: { 'rodillas':'dolor de rodillas', 'pap-anormal':'tu resultado de Pap', 'ansiedad':'ansiedad o insomnio', 'lupus':'lupus', 'diabetes':'diabetes tipo 2' },
+            en: { 'rodillas':'knee pain', 'pap-anormal':'your Pap result', 'ansiedad':'anxiety or insomnia', 'lupus':'lupus', 'diabetes':'type 2 diabetes' },
         };
         const condition  = lead.clinical && lead.clinical.condition;
-        const condPhrase = condLabels[condition];
+        const condPhrase = (condLabels[lang] || condLabels.es)[condition];
         if (condPhrase) {
-            document.getElementById('gracias-sub').textContent =
-                `Recibimos tu información sobre ${condPhrase}. Nuestro equipo la revisará y te contactará pronto para orientarte en español.`;
+            const subEl = document.getElementById('gracias-sub');
+            subEl.removeAttribute('data-i18n'); // prevent override by applyTranslations
+            subEl.textContent = lang === 'en'
+                ? `We received your information about ${condPhrase}. Our team will review it and contact you soon.`
+                : `Recibimos tu información sobre ${condPhrase}. Nuestro equipo la revisará y te contactará pronto para orientarte en español.`;
         }
 
         // ── Score-based banner (A or B only) ───────────────────
-        const score   = lead.scoring  && lead.scoring.label;
-        const phone   = lead.personal && lead.personal.phone;
-        const name    = lead.personal && lead.personal.name;
+        const score     = lead.scoring  && lead.scoring.label;
+        const phone     = lead.personal && lead.personal.phone;
+        const name      = lead.personal && lead.personal.name;
         const firstName = name ? name.split(' ')[0] : '';
 
         if (score === 'A' || score === 'B') {
             const banner     = document.getElementById('score-banner');
             const bannerText = document.getElementById('score-banner-text');
             banner.style.display = 'flex';
-            bannerText.textContent = score === 'A'
-                ? `${firstName ? firstName + ', tus' : 'Tus'} respuestas iniciales indican un perfil que podría corresponder bien con los criterios de elegibilidad. Nos esforzaremos en contactarte pronto.`
-                : `Tus respuestas muestran posibilidades iniciales. Nuestro equipo revisará tu información con atención.`;
+            const scoreKey = score === 'A' ? 'thanks_score_a' : 'thanks_score_b';
+            bannerText.textContent = i18n ? i18n.t(scoreKey) : (score === 'A'
+                ? `${firstName ? firstName + ', tus' : 'Tus'} respuestas iniciales indican un perfil que podría corresponder bien.`
+                : `Tus respuestas muestran posibilidades iniciales.`);
         }
 
         // ── Adjust step 2 if phone available ───────────────────
         if (phone) {
-            document.getElementById('step2-text').innerHTML =
-                `<strong>Te llamaremos en español</strong> — Si hay una opción disponible para tu perfil, alguien de nuestro equipo te contactará al número que registraste, en español, sin ningún compromiso.`;
+            const step2 = document.getElementById('step2-text');
+            step2.innerHTML = lang === 'en'
+                ? `<strong>We'll call you</strong> — If there's an option available for your profile, our team will contact you at the number you provided, with no commitment on your part.`
+                : `<strong>Te llamaremos en español</strong> — Si hay una opción disponible para tu perfil, alguien de nuestro equipo te contactará al número que registraste, en español, sin ningún compromiso.`;
         }
 
     });

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/community.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
+    <script src="../js/i18n.js" defer></script>
     <script src="../js/crm-adapter.js" defer></script>
     <script src="../js/conversion.js" defer></script>
     <script src="../js/vitalis-community.js" defer></script>
@@ -22,51 +23,53 @@
     <a class="brand" href="../index.html" aria-label="VITALIS USA - Inicio">
       <img src="../images/vitalis-logo.png" alt="VITALIS USA" class="brand-logo" />
     </a>
-    <div style="font-size: .8rem; font-weight: 700; color: var(--naranja);">Estudio Activo Femenino</div>
+    <div style="font-size: .8rem; font-weight: 700; color: var(--naranja);" data-i18n="land_pap_eyebrow">Estudio Activo Femenino</div>
+    <div class="lang-switcher" style="margin-left:auto;">
+      <strong data-lang="es" style="cursor:pointer;">ES</strong> | <a href="#" style="color:inherit;" data-lang="en">EN</a>
+    </div>
   </div>
 </header>
 
 <section class="hero-landing">
   <div class="hero-landing-inner">
-      <span class="eyebrow" style="color:rgba(255,255,255,0.7);">Salud Preventiva / Pap Anormal</span>
-      <h1>¿Recibiste un resultado de Pap anormal y no sabes qué sigue?</h1>
-      <p class="hero-sub">No tienes que pasar este momento con miedo o dudas. Participa en un programa preventivo en Houston con especialistas. Atención en español. Sin costo.</p>
+      <span class="eyebrow" style="color:rgba(255,255,255,0.7);" data-i18n="land_pap_eyebrow">Salud Preventiva / Pap Anormal</span>
+      <h1 data-i18n="land_pap_hero_title">¿Recibiste un resultado de Pap anormal y no sabes qué sigue?</h1>
+      <p class="hero-sub" data-i18n="land_pap_hero_sub">No tienes que pasar este momento con miedo o dudas. Participa en un programa preventivo en Houston con especialistas. Atención en español. Sin costo.</p>
       
       <div class="hero-bullets">
-          <div class="hero-bullet">✅ Ginecología especializada</div>
-          <div class="hero-bullet">✅ Pruebas de seguimiento</div>
-          <div class="hero-bullet">✅ Todo en tu idioma</div>
+          <div class="hero-bullet" data-i18n="land_pap_bullet1">✅ Ginecología especializada</div>
+          <div class="hero-bullet" data-i18n="land_pap_bullet2">✅ Pruebas de seguimiento</div>
+          <div class="hero-bullet" data-i18n="land_pap_bullet3">✅ Todo en tu idioma</div>
       </div>
       
-      <a href="#pre-screen" class="btn btn-primary btn-grande">Ver si califico en 60 segundos</a>
+      <a href="#pre-screen" class="btn btn-primary btn-grande" data-i18n="form_qualify_60s">Ver si califico en 60 segundos</a>
   </div>
 </section>
 
-<!-- ... (Mismo pre-screen que rodillas pero adaptado en JS si fuera necesario) ... -->
 <section id="pre-screen" class="prescreen-section">
     <div class="container" style="text-align: center;">
         <div class="prescreen-box" style="display: inline-block; text-align: left; width: 100%;">
-            <h3 class="step-titulo">Cuestionario rápido</h3>
-            <p class="step-sub">Tu información es privada (HIPAA compliant).</p>
+            <h3 class="step-titulo" data-i18n="land_pap_form_title">Cuestionario rápido</h3>
+            <p class="step-sub" data-i18n="land_pap_form_sub">Tu información es privada (HIPAA compliant).</p>
             <form id="ps-form">
                 <input type="hidden" name="condition" value="pap-anormal">
                 <div class="form-group">
-                    <label class="form-label">Nombre completo</label>
-                    <input type="text" name="nombre" class="form-input" required>
+                    <label class="form-label" data-i18n="form_name_label">Nombre completo</label>
+                    <input type="text" name="nombre" class="form-input" data-i18n-placeholder="form_name_ph" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Teléfono</label>
-                    <input type="tel" name="telefono" class="form-input" required>
+                    <label class="form-label" data-i18n="form_phone_label">Teléfono</label>
+                    <input type="tel" name="telefono" class="form-input" data-i18n-placeholder="form_phone_ph" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">¿Hace cuánto fue tu último Pap?</label>
+                    <label class="form-label" data-i18n="land_pap_pap_q">¿Hace cuánto fue tu último Pap?</label>
                     <select name="ultimo_pap" class="form-select">
-                        <option>Menos de 6 meses</option>
-                        <option>6-12 meses</option>
-                        <option>Más de un año</option>
+                        <option data-i18n="land_pap_opt1">Menos de 6 meses</option>
+                        <option data-i18n="land_pap_opt2">6-12 meses</option>
+                        <option data-i18n="land_pap_opt3">Más de un año</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary btn-full">Postularme ahora →</button>
+                <button type="submit" class="btn btn-primary btn-full" data-i18n="land_pap_submit">Postularme ahora →</button>
             </form>
         </div>
     </div>

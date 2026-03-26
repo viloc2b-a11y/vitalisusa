@@ -141,6 +141,11 @@ function buildLeadData(rawData, condition, scoreResult) {
     const referral_source = sessionStorage.getItem('referral_source_code')
                          || localStorage.getItem('vit_ref_source')       || '';
 
+    const detectedLang = (window.VitalisI18n && window.VitalisI18n.getCurrentLanguage())
+                      || localStorage.getItem('vit_lang')
+                      || _getQueryParam('lang')
+                      || 'es';
+
     const ld = {
         personal: {
             name:     (rawData.nombre   || rawData.name  || '').trim(),
@@ -148,7 +153,7 @@ function buildLeadData(rawData, condition, scoreResult) {
             email:    (rawData.email    || '').trim(),
             city:     (rawData.ciudad   || 'Houston').trim(),
             zip:      (rawData.zip      || '').trim(),
-            language: 'es'
+            language: detectedLang
         },
         clinical: {
             condition:    condition || rawData.condition || 'general',
@@ -332,11 +337,17 @@ function sendInitialFollowup(leadData) {
     const condLabel = CONDITION_LABELS[condition] || condition;
     const refSource = leadData.source.referral_source;
 
-    let message = `Hola ${firstName}, ya recibimos tu información en VITALIS.`;
-    if (condition && condition !== 'general') {
-        message += ` Recibimos tu información sobre ${condLabel}.`;
+    const lang = leadData.personal.language || 'es';
+    let message;
+    if (lang === 'en') {
+        message = `Hi ${firstName}, we received your information at VITALIS.`;
+        if (condition && condition !== 'general') message += ` We received your information about ${condLabel}.`;
+        message += ' Our team will review your details and contact you soon.';
+    } else {
+        message = `Hola ${firstName}, ya recibimos tu información en VITALIS.`;
+        if (condition && condition !== 'general') message += ` Recibimos tu información sobre ${condLabel}.`;
+        message += ' Nuestro equipo revisará tus datos y te contactará pronto para orientarte en español.';
     }
-    message += ' Nuestro equipo revisará tus datos y te contactará pronto para orientarte en español.';
 
     const followupPayload = {
         channel:   phone ? 'whatsapp' : 'email',

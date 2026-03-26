@@ -1,0 +1,19 @@
+{
+  "_note": "Archivo de referencia ES. Las traducciones activas están embebidas en js/i18n.js. Editar aquí y sincronizar.",
+  "nav_how": "Cómo funciona",
+  "nav_news": "Noticias",
+  "nav_researchers": "Para investigadores",
+  "nav_login": "Iniciar sesión",
+  "home_hero_title": "Encuentra opciones médicas para tu dolor en Houston",
+  "home_hero_sub": "Si estás sufriendo un dolor o síntoma, puede haber una opción gratuita disponible para ti ahora mismo — con apoyo en español de principio a fin.",
+  "home_pill_free": "Sin costo para ti",
+  "home_pill_comp": "Posible compensación",
+  "home_pill_esp": "Apoyo en español",
+  "home_cta_qualify": "Ver si califico ahora",
+  "search_title": "¿Cuál es tu dolor o síntoma principal?",
+  "home_ps_title": "¿Para qué condición quieres opciones?",
+  "cond_recruiting": "Reclutando ahora",
+  "thanks_hero_title": "Ya recibimos tu información",
+  "thanks_disclaimer": "El hecho de haber completado este formulario no representa ninguna promesa de admisión, tratamiento, compensación ni enrolamiento en ningún estudio.",
+  "footer_copy": "© 2026 VITALIS Portal"
+}

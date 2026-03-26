@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/community.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
+    <script src="../js/i18n.js" defer></script>
     <script src="../js/crm-adapter.js" defer></script>
     <script src="../js/conversion.js" defer></script>
     <script src="../js/vitalis-community.js" defer></script>
@@ -22,23 +23,26 @@
     <a class="brand" href="../index.html" aria-label="VITALIS USA - Inicio">
       <img src="../images/vitalis-logo.png" alt="VITALIS USA" class="brand-logo" />
     </a>
-    <div style="font-size: .8rem; font-weight: 700; color: var(--naranja);">Estudio Activo: Diabetes</div>
+    <div style="font-size: .8rem; font-weight: 700; color: var(--naranja);" data-i18n="land_diabetes_eyebrow">Estudio Activo: Diabetes</div>
+    <div class="lang-switcher" style="margin-left:auto;">
+      <strong data-lang="es" style="cursor:pointer;">ES</strong> | <a href="#" style="color:inherit;" data-lang="en">EN</a>
+    </div>
   </div>
 </header>
 
 <section class="hero-landing">
   <div class="hero-landing-inner">
-      <span class="eyebrow" style="color:rgba(255,255,255,0.7);">Diabetes / Salud Metabólica</span>
-      <h1>¿Tu azúcar sigue alta a pesar del tratamiento?</h1>
-      <p class="hero-sub">Participa en un nuevo programa médico en Houston especializado en nuestra comunidad. Sin costo para ti y con todo el apoyo en español.</p>
+      <span class="eyebrow" style="color:rgba(255,255,255,0.7);" data-i18n="land_diabetes_eyebrow">Diabetes / Salud Metabólica</span>
+      <h1 data-i18n="land_diabetes_hero_title">¿Tu azúcar sigue alta a pesar del tratamiento?</h1>
+      <p class="hero-sub" data-i18n="land_diabetes_hero_sub">Participa en un nuevo programa médico en Houston especializado en nuestra comunidad. Sin costo para ti y con todo el apoyo en español.</p>
       
       <div class="hero-bullets">
-          <div class="hero-bullet">✅ Pruebas de A1C gratuitas</div>
-          <div class="hero-bullet">✅ Medicamentos nuevos</div>
-          <div class="hero-bullet">✅ Sin costo médico</div>
+          <div class="hero-bullet" data-i18n="land_diabetes_bullet1">✅ Pruebas de A1C gratuitas</div>
+          <div class="hero-bullet" data-i18n="land_diabetes_bullet2">✅ Medicamentos nuevos</div>
+          <div class="hero-bullet" data-i18n="land_diabetes_bullet3">✅ Sin costo médico</div>
       </div>
       
-      <a href="#pre-screen" class="btn btn-primary btn-grande">Ver si califico en 60 segundos</a>
+      <a href="#pre-screen" class="btn btn-primary btn-grande" data-i18n="form_qualify_60s">Ver si califico en 60 segundos</a>
   </div>
 </section>
 
@@ -48,18 +52,18 @@
             <form id="ps-form">
                 <input type="hidden" name="condition" value="diabetes">
                 <div class="form-group">
-                    <label class="form-label">Nombre completo</label>
-                    <input type="text" name="nombre" class="form-input" required>
+                    <label class="form-label" data-i18n="form_name_label">Nombre completo</label>
+                    <input type="text" name="nombre" class="form-input" data-i18n-placeholder="form_name_ph" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Teléfono móvil</label>
-                    <input type="tel" name="telefono" class="form-input" required>
+                    <label class="form-label" data-i18n="form_phone_label">Teléfono móvil</label>
+                    <input type="tel" name="telefono" class="form-input" data-i18n-placeholder="form_phone_ph" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">¿Qué tratamiento tomas actualmente?</label>
-                    <input type="text" name="tratamiento" class="form-input" placeholder="Ej: Metformina, Insulina, nada...">
+                    <label class="form-label" data-i18n="land_diabetes_treat_q">¿Qué tratamiento tomas actualmente?</label>
+                    <input type="text" name="tratamiento" class="form-input" placeholder="Ej: Metformina, Insulina, nada..." data-i18n-placeholder="land_diabetes_treat_ph">
                 </div>
-                <button type="submit" class="btn btn-primary btn-full">Postularme ahora →</button>
+                <button type="submit" class="btn btn-primary btn-full" data-i18n="land_diabetes_submit">Postularme ahora →</button>
             </form>
         </div>
     </div>
