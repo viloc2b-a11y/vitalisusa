@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- HOME -->
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- CORE PAGES -->
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/blog.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/como-funciona.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/para-investigadores.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- LANDINGS ORIGINALES -->
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/dolor-rodillas-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/pap-anormal-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/ansiedad-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/lupus-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/diabetes-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- HUB SALUD ÍNTIMA FEMENINA -->
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/salud-intima-femenina-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- LANDINGS SALUD ÍNTIMA -->
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/candidiasis-vaginal-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/infeccion-vaginal-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/flujo-vaginal-anormal-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/enfermedades-transmision-sexual-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- BLOG: SALUD ÍNTIMA FEMENINA -->
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/blog/como-saber-si-tengo-infeccion-vaginal.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/blog/picazon-vaginal-causas-comunes.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/blog/flujo-vaginal-anormal-cuando-preocuparse.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/blog/candidiasis-vaginal-es-grave.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/blog/sintomas-de-ets-en-mujeres.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
