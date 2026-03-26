@@ -9,10 +9,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" /><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="¿Sabes cuáles son los síntomas de las ETS en mujeres? Muchas no tienen señales visibles. Información clara y sin juicio en español para mujeres en Houston.">
   <title>Síntomas de ETS en Mujeres: Lo que Debes Saber | VITALIS Houston</title>
   <link rel="canonical" href="https://viloc2b-a11y.github.io/vitalisusa/blog/sintomas-de-ets-en-mujeres.html">
+    <meta property="og:title" content="Sintomas de ETS en Mujeres | VITALIS" />
+    <meta property="og:description" content="Informacion clara sobre sintomas de ETS en mujeres y opciones de orientacion en Houston." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://viloc2b-a11y.github.io/vitalisusa/blog/sintomas-de-ets-en-mujeres.html" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "VITALIS Portal",
+  "url": "https://viloc2b-a11y.github.io/vitalisusa/blog/sintomas-de-ets-en-mujeres.html",
+  "description": "Plataforma de orientacion y pre-registro para opciones de ensayos clinicos en Houston, con atencion en espanol.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Houston",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "availableLanguage": ["es", "en"]
+}
+</script>
   <meta name="geo.region" content="US-TX" />
   <meta name="geo.placename" content="Houston" />
 
@@ -25,6 +46,9 @@
 
   <script src="../js/i18n.js" defer></script>
   <script src="../js/crm-adapter.js" defer></script>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Sintomas de ETS en Mujeres | VITALIS" />
+    <meta name="twitter:description" content="Informacion clara sobre sintomas de ETS en mujeres y opciones de orientacion en Houston." />
 </head>
 <body>
 
@@ -67,7 +91,7 @@
   <img src="../images/mujer-hispana-salud-sexual-houston.jpg"
        alt="Mujer hispana buscando información sobre síntomas de ETS en español en Houston"
        class="article-img-hero"
-       onerror="this.style.display='none'" />
+       onerror="this.style.display='none'" / loading="lazy">
 </div>
 
 <div class="article-body">
@@ -149,7 +173,7 @@
     <img src="../images/mujeres-hispanas-confianza-salud.jpg"
          alt="Mujeres hispanas compartiendo sobre salud íntima con confianza en Houston"
          style="width:100%;border-radius:14px;margin:12px 0 32px;max-height:240px;object-fit:cover;"
-         onerror="this.parentElement.querySelector('img').style.display='none'" />
+         onerror="this.parentElement.querySelector('img').style.display='none'" / loading="lazy">
 
     <!-- INLINE CTA -->
     <div class="cta-inline">
@@ -225,11 +249,11 @@
         <input type="hidden" name="condition" value="salud-sexual-femenina">
         <div class="form-group">
           <label class="form-label">Nombre</label>
-          <input type="text" name="nombre" class="form-input" placeholder="Tu nombre" required>
+          <input type="text" name="nombre" class="form-input" placeholder="Tu nombre" required autocomplete="name" aria-label="Nombre completo">
         </div>
         <div class="form-group">
           <label class="form-label">Teléfono móvil</label>
-          <input type="tel" name="telefono" class="form-input" placeholder="(713) 555-0000" required>
+          <input type="tel" name="telefono" class="form-input" placeholder="(713) 555-0000" required autocomplete="tel" inputmode="tel" aria-label="Telefono">
         </div>
         <button type="submit" class="btn btn-primary btn-full" style="background:var(--verde-salud);">Hablar con alguien en español →</button>
       </form>
@@ -240,8 +264,9 @@
 
 <footer class="footer-confianza">
   <div class="footer-inner">
-    <p class="footer-legal">VITALIS Portal no es un proveedor médico. Participación voluntaria y confidencial. IRB-aprobado.</p>
-    <p class="footer-copy">© 2026 VITALIS Portal | Houston, TX</p>
+            <p class="footer-legal disclaimer-mvp">Aviso MVP/HIPAA: VITALIS Portal es un sitio de demostracion para orientacion y pre-registro clinico. No es proveedor medico, no ofrece diagnosticos y no reemplaza la atencion profesional. La participacion es voluntaria, sujeta a criterios de elegibilidad e IRB. La version productiva se implementara con controles alineados a HIPAA.</p>
+    <p class="legal-links" style="margin:10px 0 0;font-size:.82rem;"><a href="../privacidad.html">Privacidad</a> &middot; <a href="../terminos.html">Terminos</a> &middot; <a href="../politica-cookies.html">Cookies</a> &middot; <a href="../aviso-no-discriminacion.html">No discriminacion</a></p>
+            <p class="footer-copy">© 2026 VITALIS Portal | Houston, TX</p>
   </div>
 </footer>
 

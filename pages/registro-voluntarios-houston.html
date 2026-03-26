@@ -9,11 +9,35 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" /><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Regístrate en VITALIS para recibir información sobre estudios clínicos y biocollections en Houston. En español, voluntario y sin compromiso.">
   <meta name="description" lang="en" content="Register with VITALIS to receive information about clinical studies and biocollections in Houston. In Spanish, voluntary and no commitment.">
   <title>Registro de Voluntarios para Estudios Clínicos en Houston | VITALIS</title>
   <link rel="canonical" href="https://viloc2b-a11y.github.io/vitalisusa/pages/registro-voluntarios-houston.html" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "VITALIS Portal",
+  "url": "https://viloc2b-a11y.github.io/vitalisusa/pages/registro-voluntarios-houston.html",
+  "description": "Plataforma de orientacion y pre-registro para opciones de ensayos clinicos en Houston, con atencion en espanol.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Houston",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "availableLanguage": ["es", "en"]
+}
+</script>
+    <meta property="og:title" content="Registro de Voluntarios en Houston | Estudios Clínicos en Español | VITALIS" />
+    <meta property="og:description" content="Regístrate como voluntario para estudios clínicos en Houston. Atención en español, sin costo, posible compensación." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://viloc2b-a11y.github.io/vitalisusa/pages/registro-voluntarios-houston.html" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Registro de Voluntarios en Houston" />
+    <meta name="twitter:description" content="Regístrate como voluntario para estudios clínicos en Houston. Atención en español, sin costo, posible compensación." />
   <meta name="geo.region" content="US-TX" />
   <meta name="geo.placename" content="Houston" />
 
@@ -141,7 +165,7 @@
 <body>
 
 <!-- WA FLOAT -->
-<a href="https://wa.me/17135550000?text=Hola%2C+quisiera+registrarme+como+voluntario+en+los+programas+de+VITALIS" target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp">
+<a href="https://wa.me/13468761439?text=Hola%2C+quisiera+registrarme+como+voluntario+en+los+programas+de+VITALIS" target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp">
   <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span class="es-text">Preguntas</span><span class="en-text" style="display:none;">Questions</span>
 </a>
 
@@ -149,6 +173,9 @@
 <div class="sticky-cta-reg">
   <a href="#form"><span class="es-text">Registrarme como voluntario</span><span class="en-text" style="display:none;">Register as volunteer</span> →</a>
 </div>
+
+<!-- Tagline strip -->
+<div class="topbar-announce">100% en español &nbsp;·&nbsp; Houston &nbsp;·&nbsp; Privado</div>
 
 <!-- TOPBAR -->
 <header class="topbar">
@@ -401,14 +428,14 @@
               <span class="es-text">Nombre completo *</span>
               <span class="en-text" style="display:none;">Full name *</span>
             </label>
-            <input type="text" name="nombre" class="form-input" placeholder="Tu nombre" required>
+            <input type="text" name="nombre" class="form-input" placeholder="Tu nombre" required autocomplete="name" aria-label="Nombre completo">
           </div>
           <div class="form-group">
             <label class="form-label">
               <span class="es-text">Teléfono / WhatsApp *</span>
               <span class="en-text" style="display:none;">Phone / WhatsApp *</span>
             </label>
-            <input type="tel" name="telefono" class="form-input" placeholder="(713) 555-0000" required>
+            <input type="tel" name="telefono" class="form-input" placeholder="(713) 555-0000" required autocomplete="tel" inputmode="tel" aria-label="Telefono">
           </div>
         </div>
         <div class="form-group">
@@ -416,7 +443,7 @@
             <span class="es-text">Correo electrónico</span>
             <span class="en-text" style="display:none;">Email address</span>
           </label>
-          <input type="email" name="email" class="form-input" placeholder="tucorreo@email.com">
+          <input type="email" name="email" class="form-input" placeholder="tucorreo@email.com" autocomplete="email" aria-label="Correo electronico">
         </div>
         <div class="form-row-2">
           <div class="form-group">
@@ -424,14 +451,14 @@
               <span class="es-text">Ciudad o código ZIP</span>
               <span class="en-text" style="display:none;">City or ZIP code</span>
             </label>
-            <input type="text" name="zip" class="form-input" placeholder="Houston / 77021">
+            <input type="text" name="zip" class="form-input" placeholder="Houston / 77021" autocomplete="postal-code" inputmode="numeric">
           </div>
           <div class="form-group">
             <label class="form-label">
               <span class="es-text">Edad</span>
               <span class="en-text" style="display:none;">Age</span>
             </label>
-            <input type="number" name="edad" class="form-input" placeholder="Ej: 38" min="18" max="99">
+            <input type="number" name="edad" class="form-input" placeholder="Ej: 38" min="18" max="99" autocomplete="off" inputmode="numeric">
           </div>
         </div>
         <div class="form-group">
@@ -722,8 +749,9 @@
 
 <footer class="footer-confianza">
   <div class="footer-inner">
-    <p class="footer-legal">VITALIS Portal no es un proveedor médico. Programas aprobados por comités de ética (IRB). Participación voluntaria.</p>
-    <p class="footer-copy">© 2026 VITALIS Portal | Houston, TX</p>
+            <p class="footer-legal disclaimer-mvp">Aviso MVP/HIPAA: VITALIS Portal es un sitio de demostracion para orientacion y pre-registro clinico. No es proveedor medico, no ofrece diagnosticos y no reemplaza la atencion profesional. La participacion es voluntaria, sujeta a criterios de elegibilidad e IRB. La version productiva se implementara con controles alineados a HIPAA.</p>
+    <p class="legal-links" style="margin:10px 0 0;font-size:.82rem;"><a href="../privacidad.html">Privacidad</a> &middot; <a href="../terminos.html">Terminos</a> &middot; <a href="../politica-cookies.html">Cookies</a> &middot; <a href="../aviso-no-discriminacion.html">No discriminacion</a></p>
+            <p class="footer-copy">© 2026 VITALIS Portal | Houston, TX</p>
   </div>
 </footer>
 

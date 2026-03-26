@@ -3,24 +3,7 @@
    Conversion-focused UI components for Pre-screening.
    ===================================================== */
 
-/* Sticky CTA (Mobile) */
-.sticky-cta {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    z-index: 90;
-    display: none;
-    animation: slideUp 0.4s ease-out;
-}
-@media (max-width: 768px) {
-    .sticky-cta { display: block; }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(100px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
+/* NOTE: .sticky-cta is defined in styles.css (global). Do not duplicate here. */
 
 /* Exit Intent / Scroll Trigger Modal */
 .modal-overlay {

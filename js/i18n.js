@@ -142,7 +142,7 @@
       footer_link_login:          'Iniciar sesión',
       footer_link_privacy:        'Política de privacidad',
       footer_link_terms:          'Términos y condiciones',
-      footer_link_nondiscrim:     'Aviso de no discriminación',
+      footer_link_nondiscrim:     'Aviso de no discriminacion',
       footer_disclaimer:          'Aviso MVP: Este es un sitio de demostración. Actualmente no recolectamos ni almacenamos información médica protegida. La versión final cumplirá con HIPAA y RGPD. VITALIS Portal no es un proveedor médico, no da diagnósticos ni reemplaza la atención de su médico. Todos los estudios mostrados son aprobados por comités de revisión institucional (IRB).',
       footer_copy:                '© 2026 VITALIS Portal',
 

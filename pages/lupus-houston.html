@@ -2,8 +2,32 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" /><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://viloc2b-a11y.github.io/vitalisusa/pages/lupus-houston.html" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "VITALIS Portal",
+  "url": "https://viloc2b-a11y.github.io/vitalisusa/pages/lupus-houston.html",
+  "description": "Plataforma de orientacion y pre-registro para opciones de ensayos clinicos en Houston, con atencion en espanol.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Houston",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "availableLanguage": ["es", "en"]
+}
+</script>
+    <meta property="og:title" content="Lupus en Houston | Opciones Médicas Gratuitas en Español | VITALIS" />
+    <meta property="og:description" content="¿Tu lupus te causa fatiga extrema? Participa en un estudio clínico en Houston con especialistas y atención en español." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://viloc2b-a11y.github.io/vitalisusa/pages/lupus-houston.html" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Lupus en Houston" />
+    <meta name="twitter:description" content="¿Tu lupus te causa fatiga extrema? Participa en un estudio clínico en Houston con especialistas y atención en español." />
   <meta name="geo.region" content="US-TX" />
   <meta name="geo.placename" content="Houston" />
     <meta name="description" content="¿Vives con Lupus en Houston? Encuentra especialistas y nuevas opciones médicas sin costo. Atención en español y acompañamiento cercano.">
@@ -18,6 +42,19 @@
     <script src="../js/crm-adapter.js" defer></script>
     <script src="../js/conversion.js" defer></script>
     <script src="../js/vitalis-community.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"¿Debo tener diagnostico confirmado para iniciar?","acceptedAnswer":{"@type":"Answer","text":"No siempre. Puedes iniciar el pre-screen y el equipo validara si hay opciones acordes a tu perfil."}},
+    {"@type":"Question","name":"¿VITALIS da diagnosticos?","acceptedAnswer":{"@type":"Answer","text":"No. VITALIS no diagnostica ni sustituye atencion medica profesional."}},
+    {"@type":"Question","name":"¿Hay atencion en espanol?","acceptedAnswer":{"@type":"Answer","text":"Si, el proceso de orientacion se realiza en espanol."}},
+    {"@type":"Question","name":"¿La participacion es voluntaria?","acceptedAnswer":{"@type":"Answer","text":"Si, siempre es voluntaria y con consentimiento informado."}}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -56,11 +93,11 @@
                 <input type="hidden" name="condition" value="lupus">
                 <div class="form-group">
                     <label class="form-label" data-i18n="form_name_label">Nombre completo</label>
-                    <input type="text" name="nombre" class="form-input" data-i18n-placeholder="form_name_ph" required>
+                    <input type="text" name="nombre" class="form-input" data-i18n-placeholder="form_name_ph" required autocomplete="name" aria-label="Nombre completo">
                 </div>
                 <div class="form-group">
                     <label class="form-label" data-i18n="form_phone_label">Teléfono móvil</label>
-                    <input type="tel" name="telefono" class="form-input" data-i18n-placeholder="form_phone_ph" required>
+                    <input type="tel" name="telefono" class="form-input" data-i18n-placeholder="form_phone_ph" required autocomplete="tel" inputmode="tel" aria-label="Telefono">
                 </div>
                 <div class="form-group">
                     <label class="form-label" data-i18n="land_lupus_diag_q">¿Ya tienes un diagnóstico de Lupus?</label>
@@ -77,7 +114,7 @@
 </section>
 
 <!-- WA FLOTANTE -->
-<a href="https://wa.me/17135550000?text=Hola%2C+vi+la+p%C3%A1gina+de+VITALIS+sobre+lupus+y+quisiera+m%C3%A1s+informaci%C3%B3n" target="_blank" rel="noopener" class="wa-float" style="position:fixed;bottom:66px;right:20px;z-index:999;background:#25D366;color:white;border-radius:50px;padding:12px 20px;font-weight:700;font-size:.9rem;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;display:flex;align-items:center;gap:8px;">
+<a href="https://wa.me/13468761439?text=Hola%2C+vi+la+p%C3%A1gina+de+VITALIS+sobre+lupus+y+quisiera+m%C3%A1s+informaci%C3%B3n" target="_blank" rel="noopener" class="wa-float" style="position:fixed;bottom:66px;right:20px;z-index:999;background:#25D366;color:white;border-radius:50px;padding:12px 20px;font-weight:700;font-size:.9rem;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;display:flex;align-items:center;gap:8px;">
   <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Escríbenos
 </a>
 <div class="sticky-cta"><a href="#pre-screen">Ver opciones disponibles →</a></div>
@@ -134,7 +171,8 @@
 <div id="wa-strip-container"></div>
 
 <footer class="footer-confianza">
-    <div class="footer-inner"><p class="footer-legal">VITALIS Portal no es un proveedor médico. Programas aprobados por IRB. Participación voluntaria.</p><p class="footer-copy">© 2026 VITALIS Portal | Houston, TX</p></div>
+            <p class="footer-legal disclaimer-mvp">Aviso MVP/HIPAA: VITALIS Portal es un sitio de demostracion para orientacion y pre-registro clinico. No es proveedor medico, no ofrece diagnosticos y no reemplaza la atencion profesional. La participacion es voluntaria, sujeta a criterios de elegibilidad e IRB. La version productiva se implementara con controles alineados a HIPAA.</p>
+            <p class="footer-copy">© 2026 VITALIS Portal | Houston, TX</p></div>
 </footer>
 
 <script>

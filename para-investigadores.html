@@ -2,9 +2,37 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon.ico" sizes="any" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Investigadores | VITALIS Portal</title>
+    <title>Para Investigadores | VITALIS Portal - Pacientes Pre-calificados en Houston</title>
+    <meta name="description" content="Acelera reclutamiento clínico en Houston con pacientes hispanos pre-calificados y dashboard operativo de referrals.">
+    <link rel="canonical" href="https://viloc2b-a11y.github.io/vitalisusa/para-investigadores.html" />
+    <meta property="og:title" content="Para Investigadores | VITALIS Portal - Pacientes Pre-calificados en Houston" />
+    <meta property="og:description" content="Solución B2B para centros clínicos: pre-screening protocolizado, enfoque hispano y pipeline en tiempo real." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://viloc2b-a11y.github.io/vitalisusa/para-investigadores.html" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Para Investigadores | VITALIS Portal" />
+    <meta name="twitter:description" content="Pacientes pre-calificados en Houston para acelerar screening y enrolamiento." />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "VITALIS Portal",
+  "url": "https://viloc2b-a11y.github.io/vitalisusa/para-investigadores.html",
+  "description": "Plataforma de orientacion y pre-registro para opciones de ensayos clinicos en Houston, con atencion en espanol.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Houston",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "availableLanguage": ["es", "en"]
+}
+</script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -14,63 +42,906 @@
                 <img src="images/vitalis-logo.png" alt="VITALIS USA" class="brand-logo" />
             </a>
             <nav class="nav-links">
+                <a href="index.html">Inicio</a>
                 <a href="como-funciona.html">Cómo funciona</a>
                 <a href="blog.html">Noticias</a>
-                <a href="para-investigadores.html">Para investigadores</a>
+                <a href="para-investigadores.html" class="nav-current">Para Investigadores</a>
                 <a href="login.html">Iniciar sesión</a>
             </nav>
         </div>
     </header>
 
-    <main class="section">
-        <div class="container" style="max-width: 900px;">
-            <span class="eyebrow">Soluciones B2B para Centros Clínicos</span>
-            <h1>Acelera tu reclutamiento con VITALIS Portal</h1>
-            <p style="margin-top: 10px; font-size: 1.1rem; color: var(--texto-suave);">Somos expertos en acercar la ciencia a la población hispana en Houston. Nuestra plataforma no solo genera leads, sino que los califica clínicamente y asegura que el primer contacto sea en su idioma.</p>
-            
-            <div class="grid-3" style="margin-top: 50px;">
-                <div class="card-condicion" style="text-align: left; padding: 30px;">
-                    <h3>Pre-screening</h3>
-                    <p style="font-size: 0.9rem;">Cuestionarios diseñados para filtrar candidatos antes de que lleguen a su centro. Menos tiempo perdido para su equipo.</p>
-                </div>
-                <div class="card-condicion" style="text-align: left; padding: 30px;">
-                    <h3>En español</h3>
-                    <p style="font-size: 0.9rem;">Eliminamos la barrera del idioma. Facilitamos el consentimiento informado y la adherencia al protocolo.</p>
-                </div>
-                <div class="card-condicion" style="text-align: left; padding: 30px;">
-                    <h3>Dashboard</h3>
-                    <p style="font-size: 0.9rem;">Gestione sus leads en tiempo real con scoring clínico y seguimiento de contacto desde un solo lugar.</p>
-                </div>
-            </div>
+    <section class="hero-investigadores">
+        <div class="container">
+            <span class="badge-orange">SOLUCIONES B2B PARA CENTROS CLÍNICOS EN HOUSTON</span>
+            <h1>Acelera tu reclutamiento con pacientes <strong>pre-calificados</strong> y listos para screening</h1>
+            <p class="subtitle">
+                Entregamos pacientes hispanos que ya pasaron un prescreener clínico estructurado según protocolo.
+                Menos screen failures. Mejor tasa de enrolamiento. Primer contacto en español.
+            </p>
+            <p class="hero-proof">Not leads. Pre-qualified patients ready for screening.</p>
+            <a href="#activate-site" class="btn-primary large">Start Receiving Patients</a>
+        </div>
+    </section>
 
-            <div style="margin-top: 60px; background: white; padding: 40px; border-radius: 24px; box-shadow: var(--sombra-md);">
-                <h2>¿Quiere incluir su estudio en el Portal?</h2>
-                <p style="margin-bottom: 30px;">Hablemos de cómo podemos ayudarle a alcanzar sus metas de diversidad y reclutamiento en Houston.</p>
-                <form onsubmit="event.preventDefault(); alert('Gracias. Un asesor se pondrá en contacto.');">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Nombre del Centro / Empresa</label>
-                            <input type="text" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Correo profesional</label>
-                            <input type="email" class="form-input" required>
-                        </div>
-                    </div>
-                     <div class="form-group">
-                        <label class="form-label">Mensaje</label>
-                        <textarea class="form-input" rows="4" placeholder="Cuéntenos sobre sus estudios activos..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-grande">Solicitar Demo</button>
-                </form>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Por qué los sitios de investigación eligen VITALIS?</h2>
+            <div class="grid-beneficios">
+                <div class="card-beneficio">
+                    <h3>Pre-screening Protocolizado</h3>
+                    <p>Cuestionarios diseñados según los criterios específicos del estudio. Filtramos candidatos antes de que lleguen a tu equipo, reduciendo significativamente el tiempo perdido y los screen failures.</p>
+                </div>
+                <div class="card-beneficio">
+                    <h3>Enfoque Hispano Real</h3>
+                    <p>Pacientes hispanos pre-calificados con primera interacción en su idioma. Mayor confianza, mejor tasa de respuesta y adherencia al protocolo.</p>
+                </div>
+                <div class="card-beneficio">
+                    <h3>Dashboard con Visibilidad Total</h3>
+                    <p>Gestiona referrals con scoring, alertas, status y próxima acción desde un solo flujo operativo.</p>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- NEW SECTION: How It Works -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Cómo funciona para tu sitio</h2>
+            <div class="how-grid">
+                <article class="how-card">
+                    <span class="how-step">Paso 1</span>
+                    <h3>Prescreener por protocolo</h3>
+                    <p>El paciente completa un flujo específico del estudio con validaciones clínicas iniciales.</p>
+                </article>
+                <article class="how-card">
+                    <span class="how-step">Paso 2</span>
+                    <h3>Scoring y calificación</h3>
+                    <p>VITALIS prioriza candidatos con mayor ajuste clínico para reducir screen failures.</p>
+                </article>
+                <article class="how-card">
+                    <span class="how-step">Paso 3</span>
+                    <h3>Routing al sitio correcto</h3>
+                    <p>Cada referral se asigna según distancia, idioma y criterios del protocolo activo.</p>
+                </article>
+                <article class="how-card">
+                    <span class="how-step">Paso 4</span>
+                    <h3>Agendamiento de screening</h3>
+                    <p>Tu coordinador agenda cita desde el panel con soporte para sincronizar calendario.</p>
+                </article>
+                <article class="how-card">
+                    <span class="how-step">Paso 5</span>
+                    <h3>Seguimiento y accountability</h3>
+                    <p>Monitorea contacto, programación y cumplimiento para mejorar el pipeline semanal.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="section bg-crema">
+        <div class="container">
+            <h2 class="section-title">Dashboard operativo para investigadores</h2>
+            <p class="text-center mb-4">Visibilidad real del pipeline: calificación, contacto, agenda y estado clínico.</p>
+
+            <div class="dashboard-preview">
+                <div class="alert-banner">
+                    <strong>⚠️ Tienes 3 referrals con contacto pendiente hace más de 48 horas.</strong>
+                    Actualiza su estado lo antes posible.
+                </div>
+
+                <div class="kpi-grid" aria-label="Resumen de indicadores">
+                    <article class="kpi-card">
+                        <p class="kpi-label">New Referrals</p>
+                        <p class="kpi-value" id="kpiNewReferrals">0</p>
+                    </article>
+                    <article class="kpi-card kpi-card-warning">
+                        <p class="kpi-label">Contact Pending &gt;48h</p>
+                        <p class="kpi-value" id="kpiPending">0</p>
+                    </article>
+                    <article class="kpi-card">
+                        <p class="kpi-label">Scheduled This Week</p>
+                        <p class="kpi-value" id="kpiScheduled">0</p>
+                    </article>
+                    <article class="kpi-card">
+                        <p class="kpi-label">High-Score Patients</p>
+                        <p class="kpi-value" id="kpiHighScore">0</p>
+                    </article>
+                </div>
+
+                <div class="trial-header">
+                    <h3>Trial Stride - A HOPE4OA™ STUDY</h3>
+                    <span class="status-active">Activo • Aceptando Referrals</span>
+                    <p><strong>Sitio:</strong> Vilo Research Group • Houston, TX • Site ID: 30</p>
+                </div>
+
+                <div class="filters-bar">
+                    <input id="searchReferrals" type="text" placeholder="Buscar por nombre o ID..." aria-label="Buscar por nombre o ID">
+                    <select id="statusFilter" aria-label="Filtro de estado">
+                        <option value="">Todos los estados</option>
+                        <option value="new_referral">Nuevo</option>
+                        <option value="contacted">Contactado</option>
+                        <option value="scheduled">Programado</option>
+                        <option value="screened">Screening completado</option>
+                        <option value="randomized">Randomizado</option>
+                        <option value="ineligible">No elegible</option>
+                        <option value="unreachable">No localizable</option>
+                        <option value="no_show">No asistió</option>
+                    </select>
+                    <button id="applyFiltersBtn" class="btn-small" type="button">Aplicar filtros</button>
+                </div>
+
+                <table class="referrals-table">
+                    <thead>
+                        <tr>
+                            <th>Paciente</th>
+                            <th>Edad / Etnia</th>
+                            <th>Distancia</th>
+                            <th>Referral hace</th>
+                            <th>Estado</th>
+                            <th>Calificación</th>
+                            <th>Score</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="referralsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Site Accountability Strip -->
+    <section class="section section-alt section-compact">
+        <div class="container">
+            <div class="accountability-strip">
+                <article>
+                    <p class="metric-label">Avg. time to first contact</p>
+                    <p class="metric-value" id="metricFirstContact">--</p>
+                </article>
+                <article>
+                    <p class="metric-label">% scheduled</p>
+                    <p class="metric-value" id="metricScheduled">--</p>
+                </article>
+                <article>
+                    <p class="metric-label">% screened</p>
+                    <p class="metric-value" id="metricScreened">--</p>
+                </article>
+                <article>
+                    <p class="metric-label">Follow-up compliance</p>
+                    <p class="metric-value" id="metricCompliance">--</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="activate-site" class="cta-final">
+        <div class="container">
+            <h2>Activa tu sitio y empieza a recibir pacientes pre-calificados</h2>
+            <p>Comparte tu contexto operativo y te habilitamos un onboarding con criterios por protocolo.</p>
+            <form id="b2bIntakeForm" class="b2b-intake-form">
+                <!-- Future integration hook: submit to Supabase + CRM pipeline -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="siteName">Site Name</label>
+                        <input id="siteName" type="text" class="form-input" autocomplete="organization" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contactName">Contact Name</label>
+                        <input id="contactName" type="text" class="form-input" autocomplete="name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="contactEmail">Email</label>
+                        <input id="contactEmail" type="email" class="form-input" autocomplete="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="studyInterest">Study Interest</label>
+                        <input id="studyInterest" type="text" class="form-input" placeholder="Ej. Osteoartritis, Diabetes, Lupus" required>
+                    </div>
+                </div>
+                <div class="form-row b2b-intake-last-row">
+                    <div class="form-group">
+                        <label class="form-label" for="monthlyGoal">Monthly Enrollment Goal</label>
+                        <input id="monthlyGoal" type="number" class="form-input" inputmode="numeric" min="1" placeholder="Ej. 20" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="therapeuticArea">Therapeutic Area</label>
+                        <input id="therapeuticArea" type="text" class="form-input" placeholder="Ej. Musculoesquelético" required>
+                    </div>
+                </div>
+                <div class="form-row b2b-intake-last-row">
+                    <div class="form-group">
+                        <label class="form-label" for="preferredContactMethod">Preferred Contact Method</label>
+                        <select id="preferredContactMethod" class="form-select" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Llamada</option>
+                            <option value="whatsapp">WhatsApp</option>
+                        </select>
+                    </div>
+                    <div class="form-group b2b-intake-submit">
+                        <button type="submit" class="btn btn-primary btn-grande">Activate Your Site</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div id="patientModal" class="modal" aria-hidden="true">
+        <div class="modal-content modal-content-wide" role="dialog" aria-modal="true" aria-label="Detalle del paciente">
+            <span class="close-modal" id="closePatientModalBtn" role="button" tabindex="0">×</span>
+            <h2 id="modalPatientName">Detalle del Paciente</h2>
+            <p class="modal-status-line">
+                <span id="modalPatientStatus" class="status-new">Nuevo</span>
+                <span id="modalPatientQualification" class="qualification-chip">Alta</span>
+            </p>
+            <div class="modal-demographics">
+                <p><strong>Edad:</strong> <span id="modalPatientAge">--</span></p>
+                <p><strong>Etnia:</strong> <span id="modalPatientEthnicity">--</span></p>
+                <p><strong>Distancia:</strong> <span id="modalPatientDistance">--</span></p>
+                <p><strong>Idioma:</strong> <span id="modalPatientLanguage">--</span></p>
+            </div>
+            <p><strong>Score de calificación:</strong> <span id="modalPatientScore" class="score-high">--</span></p>
+
+            <div class="modal-block">
+                <h3>Resumen de Prescreener</h3>
+                <ul class="modal-list" id="modalPrescreenerList"></ul>
+            </div>
+
+            <div class="modal-block">
+                <h3>Flags y notas</h3>
+                <ul class="modal-list" id="modalFlagsList"></ul>
+            </div>
+
+            <div class="modal-block modal-scheduling">
+                <h3>Scheduling</h3>
+                <p><strong>Next available slot:</strong> <span id="modalNextSlot">--</span></p>
+                <p><strong>Preferred time:</strong> <span id="modalPreferredTime">--</span></p>
+                <p class="modal-scheduling-note">El agendamiento puede sincronizarse con el calendario operativo del sitio.</p>
+                <!-- Future integration hook: Calendly / site calendar sync -->
+            </div>
+
+            <div class="modal-actions">
+                <a id="modalWhatsAppLink" class="btn btn-primary" href="https://wa.me/13468761439" target="_blank" rel="noopener noreferrer">Contact by WhatsApp</a>
+                <button id="modalScheduleBtn" class="btn-secondary" type="button">Schedule Screening</button>
+                <button id="modalMarkContactedBtn" class="btn-secondary" type="button">Mark as Contacted</button>
+                <button id="modalMarkScheduledBtn" class="btn-secondary" type="button">Mark as Scheduled</button>
+                <button id="modalMarkIneligibleBtn" class="btn-secondary" type="button">Mark as Ineligible</button>
+                <button id="modalMarkUnreachableBtn" class="btn-secondary" type="button">Mark as Unreachable</button>
+                <button id="modalMarkScreenedBtn" class="btn-secondary" type="button">Mark as Screened</button>
+                <button id="modalMarkRandomizedBtn" class="btn-secondary" type="button">Mark as Randomized</button>
+            </div>
+            <!-- Future integration hook: CRM status sync (Kommo / HubSpot / etc.) -->
+        </div>
+    </div>
 
     <footer class="footer-confianza">
         <div class="footer-inner">
-            <p class="footer-copy">© 2026 VITALIS Portal | Houston Investigator Portal</p>
+            <p class="legal-links legal-links-inline"><a href="privacidad.html">Privacidad</a> &middot; <a href="terminos.html">Terminos</a> &middot; <a href="politica-cookies.html">Cookies</a> &middot; <a href="aviso-no-discriminacion.html">No discriminacion</a></p>
+            <p class="footer-legal disclaimer-mvp">Aviso MVP/HIPAA: VITALIS Portal es un sitio de demostracion para orientacion y pre-registro clinico. No es proveedor medico, no ofrece diagnosticos y no reemplaza la atencion profesional. La participacion es voluntaria, sujeta a criterios de elegibilidad e IRB. La version productiva se implementara con controles alineados a HIPAA.</p>
+            <p class="footer-copy">© 2026 VITALIS Portal</p>
         </div>
     </footer>
+
+    <script>
+        // ===== 1) Canonical constants and mock/initial data =====
+        const REFERRAL_STATUS = Object.freeze({
+            NEW_REFERRAL: "new_referral",
+            CONTACTED: "contacted",
+            SCHEDULED: "scheduled",
+            SCREENED: "screened",
+            RANDOMIZED: "randomized",
+            INELIGIBLE: "ineligible",
+            UNREACHABLE: "unreachable",
+            NO_SHOW: "no_show"
+        });
+
+        const STATUS_LABELS_ES = Object.freeze({
+            [REFERRAL_STATUS.NEW_REFERRAL]: "Nuevo",
+            [REFERRAL_STATUS.CONTACTED]: "Contactado",
+            [REFERRAL_STATUS.SCHEDULED]: "Programado",
+            [REFERRAL_STATUS.SCREENED]: "Screening completado",
+            [REFERRAL_STATUS.RANDOMIZED]: "Randomizado",
+            [REFERRAL_STATUS.INELIGIBLE]: "No elegible",
+            [REFERRAL_STATUS.UNREACHABLE]: "No localizable",
+            [REFERRAL_STATUS.NO_SHOW]: "No asistió"
+        });
+
+        const STATUS_BADGE_CLASSES = Object.freeze({
+            [REFERRAL_STATUS.NEW_REFERRAL]: "status-new",
+            [REFERRAL_STATUS.CONTACTED]: "status-contact",
+            [REFERRAL_STATUS.SCHEDULED]: "status-active",
+            [REFERRAL_STATUS.SCREENED]: "status-screened",
+            [REFERRAL_STATUS.RANDOMIZED]: "status-randomized",
+            [REFERRAL_STATUS.INELIGIBLE]: "status-ineligible",
+            [REFERRAL_STATUS.UNREACHABLE]: "status-unreachable",
+            [REFERRAL_STATUS.NO_SHOW]: "status-no-show"
+        });
+
+        const MOCK_DATA = {
+            studies: [
+                { id: "study_hope4oa_001", slug: "hope4oa", name: "Trial Stride - A HOPE4OA Study", condition: "Osteoartritis", status: "active" }
+            ],
+            sites: [
+                {
+                    id: "site_vilo_hou_30",
+                    name: "Vilo Research Group",
+                    city: "Houston",
+                    state: "TX",
+                    contactName: "Dr. Jorge Mendes",
+                    contactEmail: "investigators@vitalisportal.com",
+                    calendarLink: "https://example.com/site-calendar",
+                    languages: ["es", "en"],
+                    active: true
+                }
+            ],
+            patients: [
+                {
+                    id: "pat_2048",
+                    firstName: "Matilde",
+                    lastName: "Peña",
+                    age: 75,
+                    gender: "F",
+                    ethnicity: "Hispana",
+                    language: "Español",
+                    zipCode: "77008",
+                    phone: "+1 346 876 1439",
+                    email: "matilde.pena@example.com",
+                    distanceMiles: 3,
+                    source: "Landing OA",
+                    referredAt: "2026-03-25T10:15:00Z",
+                    prescreenerSummary: {
+                        diagnosisConfirmed: true,
+                        severityLabel: "Severo (8/10)",
+                        durationLabel: "7 años",
+                        priorTreatmentsFailed: true,
+                        bmi: 29.4,
+                        exclusionFlags: []
+                    },
+                    notes: ["Pendiente de primer contacto", "Prefiere llamada por la tarde"]
+                },
+                {
+                    id: "pat_1993",
+                    firstName: "Robert",
+                    lastName: "Reyes",
+                    age: 46,
+                    gender: "M",
+                    ethnicity: "Hispano",
+                    language: "Bilingüe",
+                    zipCode: "77019",
+                    phone: "+1 713 401 2099",
+                    email: "robert.reyes@example.com",
+                    distanceMiles: 4,
+                    source: "Referido médico",
+                    referredAt: "2026-03-13T14:10:00Z",
+                    prescreenerSummary: {
+                        diagnosisConfirmed: true,
+                        severityLabel: "Moderado (6/10)",
+                        durationLabel: "3 años",
+                        priorTreatmentsFailed: false,
+                        bmi: 27.1,
+                        exclusionFlags: ["Documentación incompleta"]
+                    },
+                    notes: ["Pendiente confirmar documentación", "Solicitó cita matutina"]
+                },
+                {
+                    id: "pat_1870",
+                    firstName: "William",
+                    lastName: "Thayer",
+                    age: 63,
+                    gender: "M",
+                    ethnicity: "Blanco",
+                    language: "Inglés",
+                    zipCode: "77007",
+                    phone: "+1 713 900 1010",
+                    email: "william.thayer@example.com",
+                    distanceMiles: 1,
+                    source: "Google Search",
+                    referredAt: "2026-02-26T18:40:00Z",
+                    prescreenerSummary: {
+                        diagnosisConfirmed: true,
+                        severityLabel: "Severo",
+                        durationLabel: "6 años",
+                        priorTreatmentsFailed: true,
+                        bmi: 31.2,
+                        exclusionFlags: []
+                    },
+                    notes: ["Contacto >48h", "Requiere seguimiento hoy"]
+                },
+                {
+                    id: "pat_2111",
+                    firstName: "Laura",
+                    lastName: "Sánchez",
+                    age: 58,
+                    gender: "F",
+                    ethnicity: "Hispana",
+                    language: "Español",
+                    zipCode: "77025",
+                    phone: "+1 713 889 3321",
+                    email: "laura.sanchez@example.com",
+                    distanceMiles: 5,
+                    source: "Landing OA",
+                    referredAt: "2026-03-24T09:20:00Z",
+                    prescreenerSummary: {
+                        diagnosisConfirmed: true,
+                        severityLabel: "Severo",
+                        durationLabel: "5 años",
+                        priorTreatmentsFailed: true,
+                        bmi: 28.3,
+                        exclusionFlags: []
+                    },
+                    notes: ["Cita confirmada para esta semana"]
+                }
+            ],
+            referrals: [
+                {
+                    id: "ref_2048",
+                    patientId: "pat_2048",
+                    studyId: "study_hope4oa_001",
+                    siteId: "site_vilo_hou_30",
+                    status: REFERRAL_STATUS.NEW_REFERRAL,
+                    qualificationScore: 9.2,
+                    qualificationLevel: "high",
+                    lastUpdated: "2026-03-25T10:15:00Z",
+                    flags: ["follow_up_required"],
+                    scheduling: {
+                        readyThisWeek: true,
+                        preferredTime: "Tarde (2:00 PM - 5:00 PM)",
+                        nextAvailableSlot: "Lun 10:30 AM",
+                        calendarSynced: false
+                    }
+                },
+                {
+                    id: "ref_1993",
+                    patientId: "pat_1993",
+                    studyId: "study_hope4oa_001",
+                    siteId: "site_vilo_hou_30",
+                    status: REFERRAL_STATUS.CONTACTED,
+                    qualificationScore: 7.8,
+                    qualificationLevel: "medium",
+                    lastUpdated: "2026-03-24T15:00:00Z",
+                    flags: ["docs_pending"],
+                    scheduling: {
+                        readyThisWeek: true,
+                        preferredTime: "Mañana (8:00 AM - 11:00 AM)",
+                        nextAvailableSlot: "Mié 9:00 AM",
+                        calendarSynced: false
+                    }
+                },
+                {
+                    id: "ref_1870",
+                    patientId: "pat_1870",
+                    studyId: "study_hope4oa_001",
+                    siteId: "site_vilo_hou_30",
+                    status: REFERRAL_STATUS.UNREACHABLE,
+                    qualificationScore: 8.5,
+                    qualificationLevel: "high",
+                    lastUpdated: "2026-03-20T11:45:00Z",
+                    flags: ["contact_overdue"],
+                    scheduling: {
+                        readyThisWeek: false,
+                        preferredTime: "Mediodía (12:00 PM - 3:00 PM)",
+                        nextAvailableSlot: "Jue 1:30 PM",
+                        calendarSynced: false
+                    }
+                },
+                {
+                    id: "ref_2111",
+                    patientId: "pat_2111",
+                    studyId: "study_hope4oa_001",
+                    siteId: "site_vilo_hou_30",
+                    status: REFERRAL_STATUS.SCHEDULED,
+                    qualificationScore: 9.0,
+                    qualificationLevel: "high",
+                    lastUpdated: "2026-03-26T08:40:00Z",
+                    flags: [],
+                    scheduling: {
+                        readyThisWeek: true,
+                        preferredTime: "Mañana (9:00 AM - 12:00 PM)",
+                        nextAvailableSlot: "Vie 11:00 AM",
+                        calendarSynced: true
+                    }
+                }
+            ]
+        };
+
+        // ===== 2) Selectors and helpers =====
+        const dom = {
+            tableBody: document.getElementById("referralsTableBody"),
+            searchInput: document.getElementById("searchReferrals"),
+            statusFilter: document.getElementById("statusFilter"),
+            applyFiltersBtn: document.getElementById("applyFiltersBtn"),
+            patientModal: document.getElementById("patientModal"),
+            b2bIntakeForm: document.getElementById("b2bIntakeForm")
+        };
+
+        const HOURS_48_MS = 48 * 60 * 60 * 1000;
+
+        function toDate(value) {
+            return value instanceof Date ? value : new Date(value);
+        }
+
+        function nowISO() {
+            return new Date().toISOString();
+        }
+
+        function isOlderThanHours(dateValue, hours) {
+            return Date.now() - toDate(dateValue).getTime() > hours * 60 * 60 * 1000;
+        }
+
+        function isInCurrentWeek(dateValue) {
+            const date = toDate(dateValue);
+            const now = new Date();
+            const start = new Date(now);
+            start.setHours(0, 0, 0, 0);
+            start.setDate(now.getDate() - now.getDay());
+            const end = new Date(start);
+            end.setDate(start.getDate() + 7);
+            return date >= start && date < end;
+        }
+
+        function formatReferralAge(referredAt) {
+            const diffMs = Date.now() - toDate(referredAt).getTime();
+            const hours = Math.max(1, Math.floor(diffMs / (1000 * 60 * 60)));
+            if (hours < 24) return `${hours}h`;
+            const days = Math.floor(hours / 24);
+            return `${days} día${days > 1 ? "s" : ""}`;
+        }
+
+        function average(values) {
+            if (!values.length) return 0;
+            return values.reduce((sum, item) => sum + item, 0) / values.length;
+        }
+
+        function isActiveReferralStatus(status) {
+            return ![REFERRAL_STATUS.INELIGIBLE, REFERRAL_STATUS.UNREACHABLE, REFERRAL_STATUS.NO_SHOW].includes(status);
+        }
+
+        function getQualificationClass(level, score) {
+            if (level === "high" || score >= 8) return "qualification-high";
+            if (level === "medium" || score >= 6) return "qualification-medium";
+            return "qualification-low";
+        }
+
+        // ===== 3) State =====
+        const appState = {
+            studies: [],
+            sites: [],
+            patients: [],
+            referrals: [],
+            filters: {
+                query: "",
+                status: ""
+            },
+            ui: {
+                selectedReferralId: null
+            }
+        };
+
+        // ===== 4) Data access layer placeholders =====
+        // TODO: Replace mock-return with Supabase client calls when configured.
+        async function fetchStudies() { return structuredClone(MOCK_DATA.studies); }
+        async function fetchSites() { return structuredClone(MOCK_DATA.sites); }
+        async function fetchPatients() { return structuredClone(MOCK_DATA.patients); }
+        async function fetchReferrals() { return structuredClone(MOCK_DATA.referrals); }
+
+        async function updateReferralStatus(referralId, nextStatus) {
+            // TODO Supabase: await supabase.from("referrals").update({ status: nextStatus, last_updated: nowISO() }).eq("id", referralId);
+            return { referralId, nextStatus, updatedAt: nowISO() };
+        }
+
+        // ===== 5) Derived data =====
+        function getPatientById(patientId) {
+            return appState.patients.find((patient) => patient.id === patientId) || null;
+        }
+
+        function getStudyById(studyId) {
+            return appState.studies.find((study) => study.id === studyId) || null;
+        }
+
+        function getSiteById(siteId) {
+            return appState.sites.find((site) => site.id === siteId) || null;
+        }
+
+        function buildReferralView(referral) {
+            const patient = getPatientById(referral.patientId);
+            const study = getStudyById(referral.studyId);
+            const site = getSiteById(referral.siteId);
+            if (!patient || !study || !site) return null;
+
+            return {
+                referral,
+                patient,
+                study,
+                site,
+                patientFullName: `${patient.firstName} ${patient.lastName}`,
+                referralAgeLabel: formatReferralAge(patient.referredAt),
+                distanceLabel: `${patient.distanceMiles} milla${patient.distanceMiles === 1 ? "" : "s"}`
+            };
+        }
+
+        function getAllReferralViews() {
+            return appState.referrals.map(buildReferralView).filter(Boolean);
+        }
+
+        function getFilteredReferralViews() {
+            const query = appState.filters.query.trim().toLowerCase();
+            const status = appState.filters.status;
+
+            return getAllReferralViews().filter((view) => {
+                const matchesQuery =
+                    !query ||
+                    view.patientFullName.toLowerCase().includes(query) ||
+                    view.patient.id.toLowerCase().includes(query) ||
+                    view.referral.id.toLowerCase().includes(query);
+                const matchesStatus = !status || view.referral.status === status;
+                return matchesQuery && matchesStatus;
+            });
+        }
+
+        function getKpiSnapshot() {
+            const referrals = appState.referrals;
+            return {
+                newReferrals: referrals.filter((ref) => ref.status === REFERRAL_STATUS.NEW_REFERRAL).length,
+                pending48h: referrals.filter((ref) => {
+                    const patient = getPatientById(ref.patientId);
+                    return ref.status === REFERRAL_STATUS.NEW_REFERRAL && patient && isOlderThanHours(patient.referredAt, 48);
+                }).length,
+                scheduledThisWeek: referrals.filter((ref) => ref.status === REFERRAL_STATUS.SCHEDULED && isInCurrentWeek(ref.lastUpdated)).length,
+                highScorePatients: referrals.filter((ref) => ref.qualificationLevel === "high" || ref.qualificationScore >= 8).length
+            };
+        }
+
+        function getAccountabilityMetrics() {
+            const contactStatuses = [
+                REFERRAL_STATUS.CONTACTED,
+                REFERRAL_STATUS.SCHEDULED,
+                REFERRAL_STATUS.SCREENED,
+                REFERRAL_STATUS.RANDOMIZED
+            ];
+            const contactDurationsHours = appState.referrals
+                .filter((ref) => contactStatuses.includes(ref.status))
+                .map((ref) => {
+                    const patient = getPatientById(ref.patientId);
+                    if (!patient) return null;
+                    return (toDate(ref.lastUpdated).getTime() - toDate(patient.referredAt).getTime()) / (1000 * 60 * 60);
+                })
+                .filter((value) => value !== null && value >= 0);
+
+            const activeReferrals = appState.referrals.filter((ref) => isActiveReferralStatus(ref.status));
+            const totalActive = Math.max(activeReferrals.length, 1);
+
+            const nonCompliant = appState.referrals.filter((ref) => {
+                const patient = getPatientById(ref.patientId);
+                return patient && ref.status === REFERRAL_STATUS.NEW_REFERRAL && (Date.now() - toDate(patient.referredAt).getTime()) > HOURS_48_MS;
+            }).length;
+
+            // NOTE: simple formulas for front-end preview; backend can replace with audited metrics.
+            return {
+                avgTimeToFirstContactHours: Math.round(average(contactDurationsHours)),
+                scheduledPct: Math.round((activeReferrals.filter((ref) => ref.status === REFERRAL_STATUS.SCHEDULED).length / totalActive) * 100),
+                screenedPct: Math.round((activeReferrals.filter((ref) => ref.status === REFERRAL_STATUS.SCREENED).length / totalActive) * 100),
+                followUpCompliancePct: Math.max(0, Math.round(((appState.referrals.length - nonCompliant) / Math.max(appState.referrals.length, 1)) * 100))
+            };
+        }
+
+        // ===== 6) Render functions =====
+        function renderKpis() {
+            const kpis = getKpiSnapshot();
+            document.getElementById("kpiNewReferrals").textContent = kpis.newReferrals;
+            document.getElementById("kpiPending").textContent = kpis.pending48h;
+            document.getElementById("kpiScheduled").textContent = kpis.scheduledThisWeek;
+            document.getElementById("kpiHighScore").textContent = kpis.highScorePatients;
+        }
+
+        function renderAccountabilityMetrics() {
+            const metrics = getAccountabilityMetrics();
+            document.getElementById("metricFirstContact").textContent = `${metrics.avgTimeToFirstContactHours || 0}h`;
+            document.getElementById("metricScheduled").textContent = `${metrics.scheduledPct}%`;
+            document.getElementById("metricScreened").textContent = `${metrics.screenedPct}%`;
+            document.getElementById("metricCompliance").textContent = `${metrics.followUpCompliancePct}%`;
+        }
+
+        function renderTable() {
+            const views = getFilteredReferralViews();
+            dom.tableBody.innerHTML = "";
+
+            if (!views.length) {
+                dom.tableBody.innerHTML = '<tr><td colspan="8" class="table-empty">No hay referrals con estos filtros.</td></tr>';
+                return;
+            }
+
+            views.forEach((view) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td><strong>${view.patientFullName}</strong><span class="ref-id">${view.referral.id}</span></td>
+                    <td>${view.patient.age} años • ${view.patient.ethnicity}</td>
+                    <td>${view.distanceLabel}</td>
+                    <td>${view.referralAgeLabel}</td>
+                    <td><span class="${STATUS_BADGE_CLASSES[view.referral.status]}">${STATUS_LABELS_ES[view.referral.status]}</span></td>
+                    <td><span class="qualification-chip ${getQualificationClass(view.referral.qualificationLevel, view.referral.qualificationScore)}">${view.referral.qualificationLevel === "high" ? "Alta" : view.referral.qualificationLevel === "medium" ? "Media" : "Baja"}</span></td>
+                    <td><strong>${view.referral.qualificationScore.toFixed(1)}/10</strong></td>
+                    <td><button class="btn-small" type="button" data-referral-id="${view.referral.id}">Ver detalle</button></td>
+                `;
+                dom.tableBody.appendChild(row);
+            });
+
+            dom.tableBody.querySelectorAll("button[data-referral-id]").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    appState.ui.selectedReferralId = btn.dataset.referralId;
+                    openModal();
+                    renderModal();
+                });
+            });
+        }
+
+        function renderModalList(listElementId, items) {
+            const list = document.getElementById(listElementId);
+            list.innerHTML = "";
+            items.forEach((item) => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+
+        function getSelectedReferralView() {
+            if (!appState.ui.selectedReferralId) return null;
+            const referral = appState.referrals.find((ref) => ref.id === appState.ui.selectedReferralId);
+            return referral ? buildReferralView(referral) : null;
+        }
+
+        function renderModal() {
+            const view = getSelectedReferralView();
+            if (!view) return;
+
+            const { patient, referral } = view;
+            document.getElementById("modalPatientName").textContent = `${patient.firstName} ${patient.lastName} (${referral.id})`;
+            document.getElementById("modalPatientAge").textContent = `${patient.age} años`;
+            document.getElementById("modalPatientEthnicity").textContent = patient.ethnicity;
+            document.getElementById("modalPatientDistance").textContent = `${patient.distanceMiles} millas`;
+            document.getElementById("modalPatientLanguage").textContent = patient.language;
+            document.getElementById("modalPatientScore").textContent = `${referral.qualificationScore.toFixed(1)} / 10`;
+            document.getElementById("modalNextSlot").textContent = referral.scheduling.nextAvailableSlot || "Pendiente";
+            document.getElementById("modalPreferredTime").textContent = referral.scheduling.preferredTime || "Sin preferencia";
+
+            const statusEl = document.getElementById("modalPatientStatus");
+            statusEl.className = STATUS_BADGE_CLASSES[referral.status];
+            statusEl.textContent = STATUS_LABELS_ES[referral.status];
+
+            const qualificationEl = document.getElementById("modalPatientQualification");
+            qualificationEl.className = `qualification-chip ${getQualificationClass(referral.qualificationLevel, referral.qualificationScore)}`;
+            qualificationEl.textContent = referral.qualificationLevel === "high" ? "Alta" : referral.qualificationLevel === "medium" ? "Media" : "Baja";
+
+            const prescreenerItems = [
+                `Diagnóstico confirmado: ${patient.prescreenerSummary.diagnosisConfirmed ? "Sí" : "No"}`,
+                `Severidad: ${patient.prescreenerSummary.severityLabel}`,
+                `Duración: ${patient.prescreenerSummary.durationLabel}`,
+                `Tratamientos previos fallidos: ${patient.prescreenerSummary.priorTreatmentsFailed ? "Sí" : "No"}`,
+                `BMI: ${patient.prescreenerSummary.bmi}`
+            ];
+            if (patient.prescreenerSummary.exclusionFlags.length) {
+                prescreenerItems.push(`Flags de exclusión: ${patient.prescreenerSummary.exclusionFlags.join(", ")}`);
+            } else {
+                prescreenerItems.push("Sin criterios mayores de exclusión.");
+            }
+            renderModalList("modalPrescreenerList", prescreenerItems);
+            renderModalList("modalFlagsList", patient.notes.length ? patient.notes : ["Sin notas adicionales."]);
+
+            const whatsappMessage = encodeURIComponent(`Hola ${patient.firstName}, te contactamos de VITALIS para coordinar tu screening.`);
+            document.getElementById("modalWhatsAppLink").href = `https://wa.me/13468761439?text=${whatsappMessage}`;
+        }
+
+        function renderApp() {
+            renderKpis();
+            renderAccountabilityMetrics();
+            renderTable();
+            if (dom.patientModal.getAttribute("aria-hidden") === "false") {
+                renderModal();
+            }
+        }
+
+        // ===== 7) Event handlers and status transitions =====
+        function openModal() {
+            dom.patientModal.style.display = "flex";
+            dom.patientModal.setAttribute("aria-hidden", "false");
+        }
+
+        function closeModal() {
+            dom.patientModal.style.display = "none";
+            dom.patientModal.setAttribute("aria-hidden", "true");
+        }
+
+        async function transitionReferralStatus(nextStatus) {
+            const selectedId = appState.ui.selectedReferralId;
+            if (!selectedId) return;
+
+            const referral = appState.referrals.find((ref) => ref.id === selectedId);
+            if (!referral) return;
+
+            referral.status = nextStatus;
+            referral.lastUpdated = nowISO();
+
+            if (nextStatus === REFERRAL_STATUS.SCHEDULED) {
+                referral.scheduling.calendarSynced = false;
+            }
+
+            await updateReferralStatus(selectedId, nextStatus);
+            renderApp();
+        }
+
+        function applyFiltersFromUI() {
+            appState.filters.query = dom.searchInput.value;
+            appState.filters.status = dom.statusFilter.value;
+            renderApp();
+        }
+
+        function handleB2BFormSubmit(event) {
+            event.preventDefault();
+            const payload = {
+                siteName: document.getElementById("siteName").value.trim(),
+                contactName: document.getElementById("contactName").value.trim(),
+                email: document.getElementById("contactEmail").value.trim(),
+                studyInterest: document.getElementById("studyInterest").value.trim(),
+                monthlyEnrollmentGoal: Number(document.getElementById("monthlyGoal").value),
+                therapeuticArea: document.getElementById("therapeuticArea").value.trim(),
+                preferredContactMethod: document.getElementById("preferredContactMethod").value
+            };
+
+            if (!payload.siteName || !payload.contactName || !payload.email || !payload.studyInterest || !payload.therapeuticArea || !payload.preferredContactMethod) {
+                alert("Completa todos los campos requeridos.");
+                return;
+            }
+            if (payload.monthlyEnrollmentGoal < 1) {
+                alert("El objetivo mensual debe ser mayor a 0.");
+                return;
+            }
+
+            logB2BIntakePayload(payload);
+            alert("Gracias. Nuestro equipo B2B te contactará para activar tu sitio.");
+        }
+
+        function logB2BIntakePayload(payload) {
+            console.log("b2b_intake_submission", payload);
+            // TODO Supabase: insert payload into intake_requests table.
+            // TODO CRM: push payload to Kommo/HubSpot pipeline stage "new_site_lead".
+        }
+
+        function bindEvents() {
+            document.getElementById("closePatientModalBtn").addEventListener("click", closeModal);
+            dom.patientModal.addEventListener("click", (event) => {
+                if (event.target === dom.patientModal) closeModal();
+            });
+            document.addEventListener("keydown", (event) => {
+                if (event.key === "Escape" && dom.patientModal.getAttribute("aria-hidden") === "false") closeModal();
+            });
+
+            dom.applyFiltersBtn.addEventListener("click", applyFiltersFromUI);
+            dom.searchInput.addEventListener("input", applyFiltersFromUI);
+            dom.statusFilter.addEventListener("change", applyFiltersFromUI);
+
+            document.getElementById("modalScheduleBtn").addEventListener("click", () => transitionReferralStatus(REFERRAL_STATUS.SCHEDULED));
+            document.getElementById("modalMarkContactedBtn").addEventListener("click", () => transitionReferralStatus(REFERRAL_STATUS.CONTACTED));
+            document.getElementById("modalMarkScheduledBtn").addEventListener("click", () => transitionReferralStatus(REFERRAL_STATUS.SCHEDULED));
+            document.getElementById("modalMarkIneligibleBtn").addEventListener("click", () => transitionReferralStatus(REFERRAL_STATUS.INELIGIBLE));
+            document.getElementById("modalMarkUnreachableBtn").addEventListener("click", () => transitionReferralStatus(REFERRAL_STATUS.UNREACHABLE));
+            document.getElementById("modalMarkScreenedBtn").addEventListener("click", () => transitionReferralStatus(REFERRAL_STATUS.SCREENED));
+            document.getElementById("modalMarkRandomizedBtn").addEventListener("click", () => transitionReferralStatus(REFERRAL_STATUS.RANDOMIZED));
+
+            dom.b2bIntakeForm.addEventListener("submit", handleB2BFormSubmit);
+        }
+
+        // ===== 8) App initialization =====
+        async function initApp() {
+            appState.studies = await fetchStudies();
+            appState.sites = await fetchSites();
+            appState.patients = await fetchPatients();
+            appState.referrals = await fetchReferrals();
+            bindEvents();
+            renderApp();
+        }
+
+        initApp();
+    </script>
 </body>
 </html>

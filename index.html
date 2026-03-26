@@ -7,11 +7,17 @@
     <meta name="keywords" content="opciones médicas Houston, estudios médicos Houston, pacientes hispanos, salud en español Houston, salud femenina Houston" />
     <meta name="geo.region" content="US-TX" />
     <meta name="geo.placename" content="Houston" />
-    <link rel="canonical" href="https://viloc2b-a11y.github.io/vitalisusa/" />
+    <meta name="robots" content="index, follow" />
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon.ico" sizes="any" /><link rel="canonical" href="https://viloc2b-a11y.github.io/vitalisusa/" />
     <meta property="og:title" content="Opciones médicas en Houston para mujeres | Síntomas y orientación en español | VITALIS" />
     <meta property="og:description" content="¿Tienes síntomas como dolor, flujo vaginal, ansiedad o resultados anormales en Houston? Encuentra opciones médicas en español. Privado y sin costo." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://viloc2b-a11y.github.io/vitalisusa/" />
+    <meta property="og:image" content="https://viloc2b-a11y.github.io/vitalisusa/images/vitalis-logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Opciones médicas en Houston para mujeres | VITALIS" />
+    <meta name="twitter:description" content="¿Tienes síntomas como dolor, flujo vaginal, ansiedad o resultados anormales en Houston? Encuentra opciones médicas en español." />
     <title data-i18n="page_title_home">Opciones médicas en Houston para mujeres | Síntomas, dolor y orientación en español | VITALIS</title>
     <script type="application/ld+json">
     {
@@ -30,6 +36,20 @@
       "priceRange": "Free"
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "VITALIS Portal",
+      "url": "https://viloc2b-a11y.github.io/vitalisusa/",
+      "inLanguage": "es",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://viloc2b-a11y.github.io/vitalisusa/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
@@ -40,8 +60,25 @@
     <script src="js/i18n.js" defer></script>
     <script src="js/crm-adapter.js" defer></script>
     <script src="js/conversion.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"¿Tiene costo participar?","acceptedAnswer":{"@type":"Answer","text":"La evaluacion inicial en VITALIS no tiene costo para la paciente. La participacion final depende del estudio y sus criterios."}},
+    {"@type":"Question","name":"¿Atienden en espanol?","acceptedAnswer":{"@type":"Answer","text":"Si. El proceso de orientacion y seguimiento de VITALIS esta disenado para la comunidad hispana y se realiza en espanol."}},
+    {"@type":"Question","name":"¿Necesito seguro medico?","acceptedAnswer":{"@type":"Answer","text":"En muchos casos no es necesario seguro para iniciar el pre-screen. La elegibilidad final depende de cada protocolo clinico."}},
+    {"@type":"Question","name":"¿Cuanto tarda el proceso?","acceptedAnswer":{"@type":"Answer","text":"El pre-screen toma alrededor de 1 a 2 minutos. Si hay match inicial, el equipo puede contactarte en 24 a 48 horas."}},
+    {"@type":"Question","name":"¿Hay compensacion?","acceptedAnswer":{"@type":"Answer","text":"Algunos estudios pueden incluir compensacion por tiempo y traslados. Esto varia segun el estudio y su protocolo."}}
+  ]
+}
+</script>
 </head>
 <body>
+
+<!-- Tagline strip -->
+<div class="topbar-announce">100% en español &nbsp;·&nbsp; Houston &nbsp;·&nbsp; Privado</div>
 
 <!-- ═══════════════ TOPBAR ═══════════════ -->
 <header class="topbar">
@@ -62,7 +99,7 @@
       <div class="lang-switcher">
         <strong data-lang="es" style="cursor:pointer;" title="Español">ES</strong> | <a href="#" style="color:inherit;" data-lang="en" title="English">EN</a>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -360,7 +397,7 @@
       <h2 data-i18n="cta_title">¿Tienes dudas o quieres más información?</h2>
       <p data-i18n="cta_sub">Nuestro equipo en español está listo. Te contactamos hoy mismo. Sin presión, sin compromiso.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://wa.me/17135551234?text=Hola%2C%20vi%20VITALIS%20Portal%20y%20quiero%20saber%20si%20califico%20para%20opciones%20m%C3%A9dicas"
+        <a href="https://wa.me/13468761439?text=Hola%2C%20vi%20VITALIS%20Portal%20y%20quiero%20saber%20si%20califico%20para%20opciones%20m%C3%A9dicas"
            target="_blank" rel="noopener" class="btn btn-primary btn-grande" style="background:#25d366;color:white;gap:8px;display:flex;align-items:center;">
           <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span data-i18n="cta_wa_btn">Hablar ahora con coordinadora en español</span>
         </a>
@@ -373,11 +410,10 @@
 </section>
 
 <!-- ═══════════════ WHATSAPP FLOAT ═══════════════ -->
-<a href="https://wa.me/17135551234?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20VITALIS"
-   class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+<a href="https://wa.me/13468761439?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20VITALIS"
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp en español">
   <i class="fab fa-whatsapp"></i>
 </a>
-<span class="whatsapp-tooltip" data-i18n="wa_tooltip">¡Escríbenos en español!</span>
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <footer class="footer-confianza">
@@ -389,9 +425,9 @@
         </div>
         <p class="footer-brand-text" data-i18n="footer_brand_text">Conectando pacientes hispanos con opciones médicas en Houston. Todo en español. Sin costo.</p>
         <div style="margin-top:16px;display:flex;gap:12px;">
-          <a href="#" style="color:rgba(255,255,255,.6);font-size:1.2rem;"><i class="fab fa-facebook"></i></a>
-          <a href="#" style="color:rgba(255,255,255,.6);font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/17135551234" target="_blank" style="color:rgba(255,255,255,.6);font-size:1.2rem;"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/vitalisportal" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.6);font-size:1.2rem;" aria-label="Facebook VITALIS"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/vitalisportal" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.6);font-size:1.2rem;" aria-label="Instagram VITALIS"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/13468761439" target="_blank" style="color:rgba(255,255,255,.6);font-size:1.2rem;"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
       <div class="footer-col">
@@ -419,8 +455,8 @@
         <h5 data-i18n="footer_col_legal">Legal</h5>
         <ul>
           <li><a href="privacidad.html" data-i18n="footer_link_privacy">Política de privacidad</a></li>
-          <li><a href="#" data-i18n="footer_link_terms">Términos y condiciones</a></li>
-          <li><a href="#" data-i18n="footer_link_nondiscrim">Aviso de no discriminación</a></li>
+          <li><a href="terminos.html" data-i18n="footer_link_terms">Términos y condiciones</a></li>
+          <li><a href="aviso-no-discriminacion.html" data-i18n="footer_link_nondiscrim">Aviso de no discriminacion</a></li>
         </ul>
       </div>
     </div>
@@ -437,11 +473,9 @@
       </ul>
     </div>
     <div class="footer-bottom">
-      <p class="footer-legal" data-i18n="footer_disclaimer">
-        Aviso MVP: Este es un sitio de demostración. Actualmente no recolectamos ni almacenamos información médica protegida. La versión final cumplirá con HIPAA y RGPD.
-        VITALIS Portal no es un proveedor médico, no da diagnósticos ni reemplaza la atención de su médico. Todos los estudios mostrados son aprobados por comités de revisión institucional (IRB).
-      </p>
-      <p class="footer-copy" data-i18n="footer_copy">© 2026 VITALIS Portal</p>
+            <p class="footer-legal disclaimer-mvp">Aviso MVP/HIPAA: VITALIS Portal es un sitio de demostracion para orientacion y pre-registro clinico. No es proveedor medico, no ofrece diagnosticos y no reemplaza la atencion profesional. La participacion es voluntaria, sujeta a criterios de elegibilidad e IRB. La version productiva se implementara con controles alineados a HIPAA.</p>
+      <p class="legal-links" style="margin:10px 0 0;font-size:.82rem;"><a href="privacidad.html">Privacidad</a> &middot; <a href="terminos.html">Terminos</a> &middot; <a href="politica-cookies.html">Cookies</a> &middot; <a href="aviso-no-discriminacion.html">No discriminacion</a></p>
+            <p class="footer-copy" data-i18n="footer_copy">© 2026 VITALIS Portal</p>
     </div>
   </div>
 </footer>
@@ -450,7 +484,10 @@
 /* ── Hamburger menu ── */
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobileNav');
-hamburger.addEventListener('click', () => { mobileNav.classList.toggle('open'); });
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileNav.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
 
 /* ── Search buscador ── */
 const searchInput = document.getElementById('search-input');
@@ -479,14 +516,21 @@ function hipsSubmit(e){
   const url      = document.getElementById('hips-condicion').value;
   const edad     = document.getElementById('hips-edad').value || '';
   const zip      = document.getElementById('hips-zip').value  || '';
+  if (!url) {
+    document.getElementById('hips-condicion').focus();
+    return;
+  }
   const condMap  = { 'pages/dolor-rodillas-houston.html':'rodillas', 'pages/pap-anormal-houston.html':'pap-anormal',
                      'pages/ansiedad-houston.html':'ansiedad', 'pages/lupus-houston.html':'lupus', 'pages/diabetes-houston.html':'diabetes' };
-  if (url && window.VCrm) {
+  if (window.VCrm) {
     window.VCrm.sendLeadToCRM(
       window.VCrm.buildLeadData({ edad, zip }, condMap[url] || 'general', { label: 'C', value: 0 })
     );
   }
-  if(url) window.location.href = url + '?edad=' + edad + '&zip=' + zip;
+  const params = new URLSearchParams();
+  if (edad) params.set('edad', edad);
+  if (zip)  params.set('zip', zip);
+  window.location.href = url + (params.toString() ? '?' + params.toString() : '');
 }
 
 /* ── Contadores animados ── */

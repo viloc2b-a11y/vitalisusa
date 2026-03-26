@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon.ico" sizes="any" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto para Investigadores | VITALIS Portal</title>
+    <meta name="description" content="Solicita acceso al portal de investigadores de VITALIS para gestionar pacientes pre-calificados en Houston.">
+    <link rel="canonical" href="https://viloc2b-a11y.github.io/vitalisusa/contacto-investigadores.html" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="index.html" aria-label="VITALIS USA - Inicio">
+                <img src="images/vitalis-logo.png" alt="VITALIS USA" class="brand-logo" />
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="como-funciona.html">Cómo funciona</a>
+                <a href="blog.html">Noticias</a>
+                <a href="para-investigadores.html">Para investigadores</a>
+                <a href="login.html">Iniciar sesión</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container contacto-investigadores-container">
+            <h1>Solicitar acceso al portal de investigadores</h1>
+            <p class="contacto-investigadores-intro">Comparte tus datos y nuestro equipo te contactará para mostrar la demo y activar tu acceso.</p>
+
+            <div class="contacto-investigadores-card">
+                <form onsubmit="event.preventDefault(); alert('Gracias. Te contactaremos pronto.');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="centro">Centro de investigación</label>
+                            <input id="centro" class="form-input" type="text" autocomplete="organization" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="nombre">Nombre del contacto</label>
+                            <input id="nombre" class="form-input" type="text" autocomplete="name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="email">Correo profesional</label>
+                            <input id="email" class="form-input" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="telefono">Teléfono</label>
+                            <input id="telefono" class="form-input" type="tel" autocomplete="tel" inputmode="tel" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="mensaje">Estudios activos (opcional)</label>
+                        <textarea id="mensaje" class="form-input" rows="4" placeholder="Comparte criterios clave o áreas terapéuticas."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-grande">Enviar solicitud</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-confianza">
+        <div class="footer-inner">
+            <p class="legal-links legal-links-inline"><a href="privacidad.html">Privacidad</a> &middot; <a href="terminos.html">Terminos</a> &middot; <a href="politica-cookies.html">Cookies</a> &middot; <a href="aviso-no-discriminacion.html">No discriminacion</a></p>
+            <p class="footer-legal disclaimer-mvp">Aviso MVP/HIPAA: VITALIS Portal es un sitio de demostracion para orientacion y pre-registro clinico. No es proveedor medico, no ofrece diagnosticos y no reemplaza la atencion profesional. La participacion es voluntaria, sujeta a criterios de elegibilidad e IRB. La version productiva se implementara con controles alineados a HIPAA.</p>
+            <p class="footer-copy">© 2026 VITALIS Portal</p>
+        </div>
+    </footer>
+</body>
+</html>

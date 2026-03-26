@@ -511,7 +511,7 @@ KOMMO_TOKEN=xxxxx
 Buscar y reemplazar en todos los archivos:
 
 ```
-17135551234  →  1[TU_NUMERO_WA_REAL]
+13468761439  →  1[TU_NUMERO_WA_REAL]
 ```
 
 ---
@@ -543,6 +543,25 @@ cp -r VITALISUSA/* /var/www/html/vitalis/
 ```
 
 No se requiere ningún build step. El proyecto es 100% vanilla HTML/CSS/JS.
+
+---
+
+## Favicon (MVP)
+
+Actualmente el sitio usa `assets/favicon.svg` como favicon principal.
+
+Para reemplazarlo por un favicon real de producción:
+
+1. Exporta un `favicon.ico` de 32x32 y 16x16.
+2. Súbelo a `assets/favicon.ico`.
+3. Actualiza los `<head>` para incluir:
+
+```html
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+```
+
+En páginas dentro de `pages/` y `blog/`, usa la ruta relativa `../assets/...`.
 
 ---
 

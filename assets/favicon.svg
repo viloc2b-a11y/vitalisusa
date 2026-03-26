@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">VITALIS Portal</title>
+  <desc id="desc">Monograma VITALIS en azul marino y naranja</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e2a5a"/>
+      <stop offset="100%" stop-color="#154a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <path d="M16 18l10 28h4l10-28h-5.2L28 37 21.2 18H16z" fill="#ffffff"/>
+  <circle cx="47" cy="19" r="6" fill="#e8622a"/>
+</svg>
