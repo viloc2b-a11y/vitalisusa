@@ -61,6 +61,14 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- REGISTRO VOLUNTARIOS -->
+  <url>
+    <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/registro-voluntarios-houston.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- HUB SALUD ÍNTIMA FEMENINA -->
   <url>
     <loc>https://viloc2b-a11y.github.io/vitalisusa/pages/salud-intima-femenina-houston.html</loc>

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<!--
+  SEO_TARGET:
+  - Primary keyword: voluntarios estudios clinicos houston
+  - Secondary: registro estudios clinicos houston español, biocollections houston, clinical trial volunteers houston spanish
+  - Search intent: informacional + conversión
+  - COMPLIANCE: FDA/IRB language — no promises, no coercion, fully voluntary
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Regístrate en VITALIS para recibir información sobre estudios clínicos y biocollections en Houston. En español, voluntario y sin compromiso.">
+  <meta name="description" lang="en" content="Register with VITALIS to receive information about clinical studies and biocollections in Houston. In Spanish, voluntary and no commitment.">
+  <title>Registro de Voluntarios para Estudios Clínicos en Houston | VITALIS</title>
+  <link rel="canonical" href="https://viloc2b-a11y.github.io/vitalisusa/pages/registro-voluntarios-houston.html" />
+  <meta name="geo.region" content="US-TX" />
+  <meta name="geo.placename" content="Houston" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/conversion.css">
+  <link rel="stylesheet" href="../css/blog.css">
+
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/crm-adapter.js" defer></script>
+
+  <!-- Schema: MedicalOrganization + VolunteerRegistration context -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Al registrarme entro automáticamente a un estudio?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Registrarte solo nos autoriza a contactarte cuando haya un estudio que podría ser adecuado para ti. La participación en cualquier estudio es completamente voluntaria y requiere un proceso separado de elegibilidad." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo registrarme si estoy sano?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Muchos estudios clínicos necesitan voluntarios sanos como grupo de comparación o referencia. Al registrarte puedes indicar que eres voluntario sano y te contactaremos si hay estudios apropiados." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es una biocollection?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Una biocollection es un estudio donde se recolectan muestras biológicas (sangre, saliva u otras) para investigación. No implica recibir tratamiento ni medicamento. Puede incluir compensación por tiempo." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Me pagan por participar?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Algunos estudios ofrecen compensación por tiempo y traslado. Esto varía según el estudio específico. La compensación nunca es condición para inscribirse ni debe ser la razón principal para participar." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo cambiar de opinión después de registrarme?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Puedes retirarte del registro en cualquier momento sin consecuencias. Si decides participar en un estudio, también puedes abandonarlo en cualquier momento durante el proceso." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* === PAGE-SPECIFIC STYLES === */
+    .subhero { font-size:1.15rem; color:rgba(255,255,255,.88); max-width:600px; margin:12px auto 8px; line-height:1.65; }
+    .micro-trust { font-size:.82rem; color:rgba(255,255,255,.6); letter-spacing:.04em; margin:0 0 24px; }
+    .micro-trust-dark { font-size:.78rem; color:var(--texto-light); text-align:center; margin-top:14px; line-height:1.5; }
+
+    /* Type cards */
+    .type-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; margin-top:24px; }
+    .type-card { background:white; border-radius:14px; padding:20px 16px; text-align:center; box-shadow:var(--sombra-xs); transition:transform .2s,box-shadow .2s; cursor:default; }
+    .type-card:hover { transform:translateY(-3px); box-shadow:var(--sombra-sm); }
+    .type-card .type-icon { font-size:1.9rem; margin-bottom:10px; }
+    .type-card h4 { font-size:.88rem; color:var(--azul-marino); font-weight:700; margin:0; }
+    .type-card p { font-size:.76rem; color:var(--texto-suave); margin:6px 0 0; line-height:1.4; }
+
+    /* Steps */
+    .steps-row { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:24px; }
+    @media(max-width:600px){ .steps-row { grid-template-columns:1fr; } }
+    .step-box { background:white; border-radius:16px; padding:24px 20px; text-align:center; box-shadow:var(--sombra-xs); position:relative; }
+    .step-num { width:40px; height:40px; border-radius:50%; background:var(--azul-marino); color:white; font-weight:800; font-size:1.1rem; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; }
+    .step-box h3 { font-size:1rem; color:var(--azul-marino); margin:0 0 8px; }
+    .step-box p { font-size:.85rem; color:var(--texto-suave); margin:0; line-height:1.5; }
+
+    /* Explanation cards */
+    .explain-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:24px; }
+    @media(max-width:680px){ .explain-grid { grid-template-columns:1fr; } }
+    .explain-card { border-radius:14px; padding:22px 20px; }
+    .explain-card.bio { background:#e0f2fe; border-top:3px solid #0284c7; }
+    .explain-card.med { background:#fef3c7; border-top:3px solid var(--naranja); }
+    .explain-card.obs { background:#f0fdf4; border-top:3px solid var(--verde-salud); }
+    .explain-card h3 { font-size:.95rem; margin:0 0 8px; }
+    .explain-card p { font-size:.85rem; margin:0; color:var(--texto-suave); line-height:1.5; }
+
+    /* Form styles */
+    .reg-form-wrap { background:white; border-radius:24px; padding:36px 32px; box-shadow:var(--sombra-md); max-width:680px; margin:0 auto; }
+    @media(max-width:560px){ .reg-form-wrap { padding:24px 18px; } }
+    .form-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media(max-width:500px){ .form-row-2 { grid-template-columns:1fr; } }
+    .form-select { width:100%; padding:13px 16px; border:2px solid var(--gris-borde); border-radius:10px; font-size:.95rem; color:var(--texto); background:white; margin-bottom:0; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M6 8L0 0h12z' fill='%236b7280'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; cursor:pointer; transition:border-color .15s; }
+    .form-select:focus { outline:none; border-color:var(--azul-marino); }
+    .form-divider { border:none; border-top:1px solid var(--gris-borde); margin:20px 0; }
+    .consent-block { background:var(--crema); border-radius:12px; padding:18px 16px; margin-top:4px; }
+    .consent-item { display:flex; gap:12px; align-items:flex-start; margin-bottom:14px; }
+    .consent-item:last-child { margin-bottom:0; }
+    .consent-item input[type="checkbox"] { margin-top:2px; width:18px; height:18px; flex-shrink:0; accent-color:var(--azul-marino); cursor:pointer; }
+    .consent-label { font-size:.85rem; color:var(--texto); line-height:1.45; }
+    .consent-label .en { color:var(--texto-suave); font-style:italic; font-size:.8rem; display:block; margin-top:2px; }
+    .cta-submit { width:100%; background:var(--verde-salud); color:white; border:none; border-radius:12px; padding:16px; font-size:1.05rem; font-weight:700; cursor:pointer; margin-top:20px; box-shadow:0 4px 16px rgba(42,157,143,.35); transition:transform .15s, box-shadow .15s; }
+    .cta-submit:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(42,157,143,.45); }
+    .cta-submit:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+    .form-section-title { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--naranja); margin:20px 0 12px; }
+
+    /* Trust & compliance */
+    .compliance-banner { background:linear-gradient(135deg,var(--azul-marino),#1a4f6e); border-radius:16px; padding:24px 20px; text-align:center; }
+    .compliance-banner p { color:rgba(255,255,255,.9); margin:6px 0; font-size:.95rem; }
+    .compliance-banner .icon { font-size:2rem; margin-bottom:10px; }
+    .faq-minimal h3 { color:var(--azul-marino); font-size:.98rem; font-weight:700; margin:0 0 6px; }
+    .faq-minimal p { color:var(--texto-suave); font-size:.9rem; margin:0 0 20px; }
+
+    /* Sticky CTA mobile */
+    .sticky-cta-reg { display:none; }
+    @media(max-width:768px){
+      .sticky-cta-reg { display:flex; position:fixed; bottom:0; left:0; right:0; z-index:990;
+        background:var(--verde-salud); padding:14px 20px; justify-content:center; }
+      .sticky-cta-reg a { color:white; font-weight:700; font-size:.95rem; text-decoration:none; }
+    }
+
+    /* WA float */
+    .wa-float { position:fixed; bottom:66px; right:20px; z-index:999; background:#25D366; color:white; border-radius:50px; padding:12px 20px; font-weight:700; font-size:.9rem; box-shadow:0 4px 20px rgba(37,211,102,.45); text-decoration:none; display:flex; align-items:center; gap:8px; transition:transform .2s; }
+    .wa-float:hover { transform:translateY(-3px); color:white; }
+    @media(max-width:768px){ .wa-float { bottom:72px; } }
+
+    /* Bilingual badge */
+    .bilingual-badge { display:inline-flex; gap:8px; align-items:center; background:rgba(255,255,255,.15); border-radius:20px; padding:5px 14px; font-size:.78rem; color:rgba(255,255,255,.85); margin-bottom:16px; }
+  </style>
+</head>
+<body>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/17135550000?text=Hola%2C+quisiera+registrarme+como+voluntario+en+los+programas+de+VITALIS" target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp">
+  <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span class="es-text">Preguntas</span><span class="en-text" style="display:none;">Questions</span>
+</a>
+
+<!-- STICKY CTA MOBILE -->
+<div class="sticky-cta-reg">
+  <a href="#form"><span class="es-text">Registrarme como voluntario</span><span class="en-text" style="display:none;">Register as volunteer</span> →</a>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html" aria-label="VITALIS USA - Inicio">
+      <img src="../images/vitalis-logo.png" alt="VITALIS USA" class="brand-logo" />
+    </a>
+    <div style="font-size:.75rem;font-weight:700;color:var(--naranja);display:flex;gap:4px;align-items:center;">
+      <span class="es-text">100% en español · Houston · Privado</span>
+      <span class="en-text" style="display:none;">100% in Spanish · Houston · Private</span>
+    </div>
+    <div class="lang-switcher" style="margin-left:auto;">
+      <strong data-lang="es" style="cursor:pointer;">ES</strong> | <a href="#" style="color:inherit;" data-lang="en">EN</a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb">
+  <a href="../index.html"><span class="es-text">Inicio</span><span class="en-text" style="display:none;">Home</span></a>
+  <span>›</span>
+  <span><span class="es-text">Registro de Voluntarios</span><span class="en-text" style="display:none;">Volunteer Registration</span></span>
+</nav>
+
+<!-- ══ 1. HERO ══ -->
+<section class="hero-landing" style="background:linear-gradient(135deg,#00365c 0%,#005f8e 50%,#2a9d8f 100%);">
+  <div class="hero-landing-inner">
+    <div class="bilingual-badge">
+      <span>🇪🇸 Español</span><span style="opacity:.5">|</span><span>🇺🇸 English</span>
+    </div>
+    <span class="eyebrow" style="color:rgba(255,255,255,.7);">
+      <span class="es-text">Voluntarios · Houston, TX</span>
+      <span class="en-text" style="display:none;">Volunteers · Houston, TX</span>
+    </span>
+    <h1>
+      <span class="es-text">Regístrate como voluntario para estudios clínicos en Houston</span>
+      <span class="en-text" style="display:none;">Register as a volunteer for clinical studies in Houston</span>
+    </h1>
+    <p class="subhero">
+      <span class="es-text">Podemos avisarte sobre estudios y oportunidades que podrían ser adecuadas para ti. Todo en español y de forma completamente voluntaria.</span>
+      <span class="en-text" style="display:none;">We can notify you about studies and opportunities that may be right for you. Everything in Spanish and completely voluntary.</span>
+    </p>
+    <p class="micro-trust">
+      <span class="es-text">Privado &nbsp;•&nbsp; En español &nbsp;•&nbsp; Sin compromiso &nbsp;•&nbsp; Participación voluntaria</span>
+      <span class="en-text" style="display:none;">Private &nbsp;•&nbsp; In Spanish &nbsp;•&nbsp; No commitment &nbsp;•&nbsp; Voluntary participation</span>
+    </p>
+    <a href="#form" class="btn btn-primary btn-grande" style="box-shadow:0 10px 30px rgba(0,0,0,.3);">
+      <span class="es-text">Quiero registrarme</span>
+      <span class="en-text" style="display:none;">I want to register</span>
+    </a>
+  </div>
+</section>
+
+<!-- ══ 2. QUÉ ES VITALIS Y QUÉ SIGNIFICA REGISTRARSE ══ -->
+<section class="section" style="background:var(--crema);">
+  <div class="container" style="max-width:900px;">
+    <div class="section-header centered">
+      <span class="eyebrow">
+        <span class="es-text">Antes de registrarte</span>
+        <span class="en-text" style="display:none;">Before you register</span>
+      </span>
+      <h2>
+        <span class="es-text">¿Qué significa registrarse en VITALIS?</span>
+        <span class="en-text" style="display:none;">What does registering with VITALIS mean?</span>
+      </h2>
+      <p>
+        <span class="es-text">VITALIS es una plataforma que conecta pacientes hispanos en Houston con opciones médicas y estudios clínicos aprobados. <strong>Registrarte no te inscribe automáticamente en ningún estudio.</strong></span>
+        <span class="en-text" style="display:none;">VITALIS is a platform that connects Hispanic patients in Houston with approved medical options and clinical studies. <strong>Registering does not automatically enroll you in any study.</strong></span>
+      </p>
+    </div>
+
+    <div class="explain-grid">
+      <!-- A: Biocollections -->
+      <div class="explain-card bio">
+        <div style="font-size:1.6rem;margin-bottom:10px;">🧪</div>
+        <h3 style="color:#0c4a6e;">
+          <span class="es-text">A) Biocollections</span>
+          <span class="en-text" style="display:none;">A) Biocollections</span>
+        </h3>
+        <p>
+          <span class="es-text">Algunos estudios solo recolectan muestras biológicas (sangre, saliva u otras) para investigación. No implican recibir ningún tratamiento. Pueden incluir compensación por tu tiempo.</span>
+          <span class="en-text" style="display:none;">Some studies only collect biological samples (blood, saliva or others) for research. They do not involve receiving any treatment. May include compensation for your time.</span>
+        </p>
+      </div>
+      <!-- B: Estudios con medicamento -->
+      <div class="explain-card med">
+        <div style="font-size:1.6rem;margin-bottom:10px;">💊</div>
+        <h3 style="color:#78350f;">
+          <span class="es-text">B) Estudios con medicamento</span>
+          <span class="en-text" style="display:none;">B) Medication studies</span>
+        </h3>
+        <p>
+          <span class="es-text">Otros estudios evalúan tratamientos o intervenciones médicas. Requieren un proceso más completo de elegibilidad, consentimiento informado y seguimiento médico.</span>
+          <span class="en-text" style="display:none;">Other studies evaluate treatments or medical interventions. They require a more complete eligibility process, informed consent, and medical follow-up.</span>
+        </p>
+      </div>
+      <!-- C: Registro -->
+      <div class="explain-card obs">
+        <div style="font-size:1.6rem;margin-bottom:10px;">📋</div>
+        <h3 style="color:#14532d;">
+          <span class="es-text">C) Solo registro</span>
+          <span class="en-text" style="display:none;">C) Registration only</span>
+        </h3>
+        <p>
+          <span class="es-text">Al registrarte hoy, <strong>no entras automáticamente a ningún estudio.</strong> Solo creamos tu perfil para avisarte cuando haya una oportunidad que se adapte a ti.</span>
+          <span class="en-text" style="display:none;">By registering today, <strong>you are not automatically enrolled in any study.</strong> We only create your profile to notify you when there is an opportunity that fits you.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. CÓMO FUNCIONA (3 PASOS) ══ -->
+<section class="section">
+  <div class="container" style="max-width:900px;">
+    <div class="section-header centered">
+      <span class="eyebrow">
+        <span class="es-text">El proceso</span>
+        <span class="en-text" style="display:none;">The process</span>
+      </span>
+      <h2>
+        <span class="es-text">Cómo funciona</span>
+        <span class="en-text" style="display:none;">How it works</span>
+      </h2>
+    </div>
+    <div class="steps-row">
+      <div class="step-box">
+        <div class="step-num">1</div>
+        <h3>
+          <span class="es-text">Te registras</span>
+          <span class="en-text" style="display:none;">You register</span>
+        </h3>
+        <p>
+          <span class="es-text">Completas el formulario con tu información básica y áreas de interés. Sin compromiso.</span>
+          <span class="en-text" style="display:none;">You complete the form with your basic information and areas of interest. No commitment.</span>
+        </p>
+      </div>
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <h3>
+          <span class="es-text">Revisamos tu perfil</span>
+          <span class="en-text" style="display:none;">We review your profile</span>
+        </h3>
+        <p>
+          <span class="es-text">Nuestro equipo revisa tu información para identificar estudios que podrían ser relevantes para ti.</span>
+          <span class="en-text" style="display:none;">Our team reviews your information to identify studies that may be relevant for you.</span>
+        </p>
+      </div>
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <h3>
+          <span class="es-text">Te contactamos si hay match</span>
+          <span class="en-text" style="display:none;">We contact you if there's a match</span>
+        </h3>
+        <p>
+          <span class="es-text">Si hay una oportunidad que se adapta a tu perfil, te contactamos en español para darte información detallada.</span>
+          <span class="en-text" style="display:none;">If there is an opportunity that fits your profile, we contact you in Spanish to give you detailed information.</span>
+        </p>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.85rem;color:var(--texto-suave);margin-top:20px;">
+      <span class="es-text"><strong>Importante:</strong> Registrarte no garantiza participación en ningún estudio.</span>
+      <span class="en-text" style="display:none;"><strong>Important:</strong> Registering does not guarantee participation in any study.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ══ 4. TIPOS DE VOLUNTARIOS ══ -->
+<section class="section-alt">
+  <div class="container" style="max-width:900px;">
+    <div class="section-header centered">
+      <span class="eyebrow">
+        <span class="es-text">Áreas de investigación</span>
+        <span class="en-text" style="display:none;">Research areas</span>
+      </span>
+      <h2>
+        <span class="es-text">¿En qué tipo de estudios podrías participar?</span>
+        <span class="en-text" style="display:none;">What types of studies could you participate in?</span>
+      </h2>
+    </div>
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="type-icon">🌸</div>
+        <h4><span class="es-text">Salud femenina</span><span class="en-text" style="display:none;">Women's health</span></h4>
+        <p><span class="es-text">Salud íntima, ginecología, hormonas</span><span class="en-text" style="display:none;">Intimate health, gynecology, hormones</span></p>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">🧠</div>
+        <h4><span class="es-text">Salud mental</span><span class="en-text" style="display:none;">Mental health</span></h4>
+        <p><span class="es-text">Ansiedad, depresión, insomnio</span><span class="en-text" style="display:none;">Anxiety, depression, insomnia</span></p>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">🦴</div>
+        <h4><span class="es-text">Dolor / movilidad</span><span class="en-text" style="display:none;">Pain / mobility</span></h4>
+        <p><span class="es-text">Articulaciones, rodillas, columna</span><span class="en-text" style="display:none;">Joints, knees, spine</span></p>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">🍎</div>
+        <h4><span class="es-text">Diabetes / metabolismo</span><span class="en-text" style="display:none;">Diabetes / metabolism</span></h4>
+        <p><span class="es-text">Glucosa, peso, síndrome metabólico</span><span class="en-text" style="display:none;">Glucose, weight, metabolic syndrome</span></p>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">🔬</div>
+        <h4><span class="es-text">Lupus / autoinmune</span><span class="en-text" style="display:none;">Lupus / autoimmune</span></h4>
+        <p><span class="es-text">Lupus, artritis reumatoide, inflamación</span><span class="en-text" style="display:none;">Lupus, rheumatoid arthritis, inflammation</span></p>
+      </div>
+      <div class="type-card" style="border:2px solid var(--verde-salud);">
+        <div class="type-icon">💚</div>
+        <h4 style="color:var(--verde-salud);"><span class="es-text">Voluntarios sanos</span><span class="en-text" style="display:none;">Healthy volunteers</span></h4>
+        <p><span class="es-text">Sin condición médica — muy solicitados</span><span class="en-text" style="display:none;">No medical condition — in high demand</span></p>
+      </div>
+      <div class="type-card" style="border:2px solid #0284c7;">
+        <div class="type-icon">🧪</div>
+        <h4 style="color:#0284c7;"><span class="es-text">Biocollections</span><span class="en-text" style="display:none;">Biocollections</span></h4>
+        <p><span class="es-text">Solo muestras, sin tratamiento</span><span class="en-text" style="display:none;">Samples only, no treatment</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. FORMULARIO ══ -->
+<section class="prescreen-section" id="form">
+  <div class="container" style="display:flex;justify-content:center;">
+    <div class="reg-form-wrap">
+
+      <span class="eyebrow" style="color:var(--verde-salud);">
+        <span class="es-text">Formulario de registro</span>
+        <span class="en-text" style="display:none;">Registration form</span>
+      </span>
+      <h2 style="color:var(--azul-marino);margin:6px 0 4px;">
+        <span class="es-text">Crea tu perfil de voluntario</span>
+        <span class="en-text" style="display:none;">Create your volunteer profile</span>
+      </h2>
+      <p style="color:var(--texto-suave);font-size:.88rem;margin-bottom:24px;">
+        <span class="es-text">Todos los campos con * son obligatorios. El resto es opcional pero ayuda a encontrarte mejores opciones.</span>
+        <span class="en-text" style="display:none;">All fields marked * are required. The rest is optional but helps us find better options for you.</span>
+      </p>
+
+      <form id="reg-form" novalidate>
+        <input type="hidden" name="condition" value="registro-voluntarios">
+
+        <!-- Bloque 1: Datos personales -->
+        <div class="form-section-title">
+          <span class="es-text">Información personal</span>
+          <span class="en-text" style="display:none;">Personal information</span>
+        </div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">
+              <span class="es-text">Nombre completo *</span>
+              <span class="en-text" style="display:none;">Full name *</span>
+            </label>
+            <input type="text" name="nombre" class="form-input" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              <span class="es-text">Teléfono / WhatsApp *</span>
+              <span class="en-text" style="display:none;">Phone / WhatsApp *</span>
+            </label>
+            <input type="tel" name="telefono" class="form-input" placeholder="(713) 555-0000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            <span class="es-text">Correo electrónico</span>
+            <span class="en-text" style="display:none;">Email address</span>
+          </label>
+          <input type="email" name="email" class="form-input" placeholder="tucorreo@email.com">
+        </div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">
+              <span class="es-text">Ciudad o código ZIP</span>
+              <span class="en-text" style="display:none;">City or ZIP code</span>
+            </label>
+            <input type="text" name="zip" class="form-input" placeholder="Houston / 77021">
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              <span class="es-text">Edad</span>
+              <span class="en-text" style="display:none;">Age</span>
+            </label>
+            <input type="number" name="edad" class="form-input" placeholder="Ej: 38" min="18" max="99">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            <span class="es-text">Sexo biológico</span>
+            <span class="en-text" style="display:none;">Biological sex</span>
+          </label>
+          <select name="sexo" class="form-select">
+            <option value=""><span class="es-text">Selecciona</span></option>
+            <option value="femenino">Femenino / Female</option>
+            <option value="masculino">Masculino / Male</option>
+            <option value="prefiero-no-decir">Prefiero no decir / Prefer not to say</option>
+          </select>
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- Bloque 2: Preferencias de estudio -->
+        <div class="form-section-title">
+          <span class="es-text">Tus preferencias</span>
+          <span class="en-text" style="display:none;">Your preferences</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            <span class="es-text">¿Te interesa participar como?</span>
+            <span class="en-text" style="display:none;">You're interested in participating as?</span>
+          </label>
+          <select name="tipo_voluntario" class="form-select">
+            <option value="">
+              <span class="es-text">Selecciona una opción</span>
+            </option>
+            <option value="voluntario-sano">Voluntario sano / Healthy volunteer</option>
+            <option value="con-condicion">Con condición médica / With medical condition</option>
+            <option value="no-estoy-seguro">No estoy seguro/a / I'm not sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            <span class="es-text">Área de interés principal</span>
+            <span class="en-text" style="display:none;">Primary area of interest</span>
+          </label>
+          <select name="sintoma_principal" class="form-select">
+            <option value="">
+              <span class="es-text">Selecciona una opción</span>
+            </option>
+            <option value="salud-femenina">Salud femenina / Women's health</option>
+            <option value="salud-mental">Salud mental / Mental health</option>
+            <option value="dolor">Dolor / Pain</option>
+            <option value="diabetes">Diabetes / Metabolismo</option>
+            <option value="lupus">Lupus / Autoinmune</option>
+            <option value="biocollections">Biocollections</option>
+            <option value="no-estoy-seguro">No estoy seguro/a / Not sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            <span class="es-text">Tipo de estudio</span>
+            <span class="en-text" style="display:none;">Type of study</span>
+          </label>
+          <select name="tipo_estudio" class="form-select">
+            <option value="">
+              <span class="es-text">Selecciona una opción</span>
+            </option>
+            <option value="biocollection">Biocollection (solo muestras / samples only)</option>
+            <option value="medicamento">Con medicamento / With medication</option>
+            <option value="ambos">Ambos / Both</option>
+            <option value="no-se">No lo sé aún / I don't know yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            <span class="es-text">Contacto preferido</span>
+            <span class="en-text" style="display:none;">Preferred contact method</span>
+          </label>
+          <select name="contacto_preferido" class="form-select">
+            <option value="">
+              <span class="es-text">Selecciona una opción</span>
+            </option>
+            <option value="llamada">Llamada / Phone call</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="email">Email</option>
+          </select>
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- Bloque 3: Consentimiento bilingüe -->
+        <div class="form-section-title" style="color:var(--azul-marino);">
+          <span class="es-text">Autorización y consentimiento</span>
+          <span class="en-text" style="display:none;">Authorization and consent</span>
+        </div>
+        <div class="consent-block">
+          <div class="consent-item">
+            <input type="checkbox" name="acepta_contacto" id="check-contacto" required>
+            <label class="consent-label" for="check-contacto">
+              <span class="es-text"><strong>Acepto ser contactado/a</strong> por VITALIS para recibir información sobre estudios clínicos relevantes para mi perfil.</span>
+              <span class="en" lang="en">I consent to be contacted by VITALIS to receive information about clinical studies relevant to my profile.</span>
+            </label>
+          </div>
+          <div class="consent-item">
+            <input type="checkbox" name="entiende_no_garantia" id="check-garantia" required>
+            <label class="consent-label" for="check-garantia">
+              <span class="es-text"><strong>Entiendo que registrarme no garantiza</strong> mi participación en ningún estudio clínico.</span>
+              <span class="en" lang="en">I understand that registering does not guarantee my participation in any clinical study.</span>
+            </label>
+          </div>
+          <div class="consent-item">
+            <input type="checkbox" name="participacion_voluntaria" id="check-voluntaria" required>
+            <label class="consent-label" for="check-voluntaria">
+              <span class="es-text"><strong>Entiendo que mi participación es voluntaria</strong> y puedo retirarme en cualquier momento sin consecuencias.</span>
+              <span class="en" lang="en">I understand that my participation is voluntary and I may withdraw at any time without consequence.</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="cta-submit" id="reg-submit">
+          <span class="es-text">Crear mi perfil de voluntario</span>
+          <span class="en-text" style="display:none;">Create my volunteer profile</span>
+        </button>
+        <p class="micro-trust-dark">
+          <span class="es-text">Privado &nbsp;•&nbsp; Sin compromiso &nbsp;•&nbsp; Respuesta en 24–48 horas<br>
+          <em>Private • No commitment • Response within 24–48 hours</em></span>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6. BLOQUE DE CONFIANZA (COMPLIANCE) ══ -->
+<section class="section" style="background:var(--crema);">
+  <div class="container" style="max-width:860px;">
+    <div class="compliance-banner">
+      <div class="icon">🔐</div>
+      <h2 style="color:white;font-size:1.3rem;margin:0 0 12px;">
+        <span class="es-text">No estás aceptando un estudio al registrarte</span>
+        <span class="en-text" style="display:none;">You are not accepting a study by registering</span>
+      </h2>
+      <p>
+        <span class="es-text">Solo nos autorizas a contactarte si hay opciones relevantes para tu perfil.</span>
+        <span class="en-text" style="display:none;">You only authorize us to contact you if there are relevant options for your profile.</span>
+      </p>
+      <p>
+        <span class="es-text">Cualquier participación en un estudio requiere un proceso separado de elegibilidad y consentimiento informado.</span>
+        <span class="en-text" style="display:none;">Any participation in a study requires a separate eligibility process and informed consent.</span>
+      </p>
+      <p style="font-size:.8rem;opacity:.7;margin-top:14px;">
+        <span class="es-text">Programas aprobados por comités de ética (IRB) · Cumplimiento regulatorio FDA</span>
+        <span class="en-text" style="display:none;">Programs approved by ethics committees (IRB) · FDA regulatory compliance</span>
+      </p>
+    </div>
+
+    <div class="trust-box" style="margin-top:20px;">
+      <p>
+        <span class="es-text">Tu información personal es completamente confidencial y nunca se comparte sin tu permiso.</span>
+        <span class="en-text" style="display:none;">Your personal information is completely confidential and never shared without your permission.</span>
+      </p>
+      <p>
+        <span class="es-text">Puedes solicitar que eliminemos tus datos en cualquier momento.</span>
+        <span class="en-text" style="display:none;">You can request that we delete your data at any time.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7. FAQ ══ -->
+<section class="section-alt">
+  <div class="container" style="max-width:860px;">
+    <div class="section-header centered">
+      <span class="eyebrow">FAQ</span>
+      <h2>
+        <span class="es-text">Preguntas frecuentes</span>
+        <span class="en-text" style="display:none;">Frequently asked questions</span>
+      </h2>
+    </div>
+    <div class="faq-minimal">
+
+      <h3>
+        <span class="es-text">¿Al registrarme entro automáticamente a un estudio?</span>
+        <span class="en-text" style="display:none;">Does registering automatically enroll me in a study?</span>
+      </h3>
+      <p>
+        <span class="es-text">No. Registrarte solo crea tu perfil en nuestra base de datos. Si hay un estudio que se adapta a ti, te contactaremos con información detallada. Cualquier participación requiere un proceso separado con consentimiento informado.</span>
+        <span class="en-text" style="display:none;">No. Registering only creates your profile in our database. If there is a study that fits you, we will contact you with detailed information. Any participation requires a separate process with informed consent.</span>
+      </p>
+
+      <h3>
+        <span class="es-text">¿Puedo registrarme si estoy sano/a?</span>
+        <span class="en-text" style="display:none;">Can I register if I'm healthy?</span>
+      </h3>
+      <p>
+        <span class="es-text">Sí. Los voluntarios sanos son muy solicitados para grupos de control y algunos tipos de biocollections. Al registrarte, selecciona "Voluntario sano" en el formulario.</span>
+        <span class="en-text" style="display:none;">Yes. Healthy volunteers are in high demand for control groups and some types of biocollections. When registering, select "Healthy volunteer" in the form.</span>
+      </p>
+
+      <h3>
+        <span class="es-text">¿Qué es exactamente una biocollection?</span>
+        <span class="en-text" style="display:none;">What exactly is a biocollection?</span>
+      </h3>
+      <p>
+        <span class="es-text">Es un estudio donde se recolectan muestras biológicas (generalmente sangre o saliva) para análisis de investigación. No implica tomar ningún medicamento ni recibir tratamiento. Suele requerir solo una o pocas visitas y puede incluir compensación.</span>
+        <span class="en-text" style="display:none;">It is a study where biological samples (usually blood or saliva) are collected for research analysis. It does not involve taking any medication or receiving treatment. It usually requires only one or a few visits and may include compensation.</span>
+      </p>
+
+      <h3>
+        <span class="es-text">¿Me pagan por participar?</span>
+        <span class="en-text" style="display:none;">Am I paid for participating?</span>
+      </h3>
+      <p>
+        <span class="es-text">Algunos estudios ofrecen compensación por tiempo y traslados. Esto varía según el estudio específico y nunca es una condición para inscribirse. La compensación no debería ser la razón principal para participar en un estudio clínico.</span>
+        <span class="en-text" style="display:none;">Some studies offer compensation for time and travel. This varies by specific study and is never a condition for enrollment. Compensation should not be the primary reason to participate in a clinical study.</span>
+      </p>
+
+      <h3>
+        <span class="es-text">¿Puedo cambiar de opinión después de registrarme?</span>
+        <span class="en-text" style="display:none;">Can I change my mind after registering?</span>
+      </h3>
+      <p>
+        <span class="es-text">Sí, en cualquier momento. Puedes solicitar que eliminemos tus datos enviándonos un mensaje. Si decides participar en un estudio, también puedes retirarte en cualquier momento del proceso sin ninguna consecuencia.</span>
+        <span class="en-text" style="display:none;">Yes, at any time. You can request that we delete your data by sending us a message. If you decide to participate in a study, you can also withdraw at any time during the process without any consequences.</span>
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8. INTERNAL LINKS ══ -->
+<section class="section">
+  <div class="container" style="max-width:860px;">
+    <h3 style="margin-bottom:18px;text-align:center;">
+      <span class="es-text">También te puede interesar</span>
+      <span class="en-text" style="display:none;">You may also be interested in</span>
+    </h3>
+    <div class="grid-3" style="gap:14px;">
+      <a href="salud-intima-femenina-houston.html" style="background:var(--crema);border-radius:12px;padding:16px;display:block;border-left:3px solid #0284c7;text-decoration:none;">
+        <span style="font-size:.72rem;color:var(--naranja);font-weight:700;text-transform:uppercase;">Hub</span>
+        <h4 style="font-size:.9rem;margin:6px 0 0;color:var(--azul-marino);">
+          <span class="es-text">Salud íntima femenina en Houston</span>
+          <span class="en-text" style="display:none;">Women's intimate health in Houston</span>
+        </h4>
+      </a>
+      <a href="pap-anormal-houston.html" style="background:var(--crema);border-radius:12px;padding:16px;display:block;border-left:3px solid var(--naranja);text-decoration:none;">
+        <span style="font-size:.72rem;color:var(--naranja);font-weight:700;text-transform:uppercase;">Landing</span>
+        <h4 style="font-size:.9rem;margin:6px 0 0;color:var(--azul-marino);">
+          <span class="es-text">Resultado de Pap anormal</span>
+          <span class="en-text" style="display:none;">Abnormal Pap result</span>
+        </h4>
+      </a>
+      <a href="candidiasis-vaginal-houston.html" style="background:var(--crema);border-radius:12px;padding:16px;display:block;border-left:3px solid var(--verde-salud);text-decoration:none;">
+        <span style="font-size:.72rem;color:var(--naranja);font-weight:700;text-transform:uppercase;">Landing</span>
+        <h4 style="font-size:.9rem;margin:6px 0 0;color:var(--azul-marino);">
+          <span class="es-text">Candidiasis vaginal en Houston</span>
+          <span class="en-text" style="display:none;">Vaginal candidiasis in Houston</span>
+        </h4>
+      </a>
+    </div>
+    <div class="grid-2" style="gap:14px;margin-top:14px;max-width:580px;margin-left:auto;margin-right:auto;">
+      <a href="ansiedad-houston.html" style="background:var(--crema);border-radius:12px;padding:16px;display:block;border-left:3px solid var(--azul-claro);text-decoration:none;">
+        <span style="font-size:.72rem;color:var(--naranja);font-weight:700;text-transform:uppercase;">Landing</span>
+        <h4 style="font-size:.9rem;margin:6px 0 0;color:var(--azul-marino);">
+          <span class="es-text">Ansiedad en Houston</span>
+          <span class="en-text" style="display:none;">Anxiety in Houston</span>
+        </h4>
+      </a>
+      <a href="../blog.html" style="background:var(--crema);border-radius:12px;padding:16px;display:block;border-left:3px solid var(--verde-salud);text-decoration:none;">
+        <span style="font-size:.72rem;color:var(--naranja);font-weight:700;text-transform:uppercase;">Blog</span>
+        <h4 style="font-size:.9rem;margin:6px 0 0;color:var(--azul-marino);">
+          <span class="es-text">Artículos de salud en español</span>
+          <span class="en-text" style="display:none;">Health articles in Spanish</span>
+        </h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DISCLAIMER ══ -->
+<div style="background:var(--gris-claro);padding:24px 20px;">
+  <div class="container" style="max-width:860px;">
+    <div class="disclaimer-box">
+      <strong>
+        <span class="es-text">Aviso legal y regulatorio:</span>
+        <span class="en-text" style="display:none;">Legal and regulatory notice:</span>
+      </strong>
+      <span class="es-text"> Esta página es informativa. Registrarte no garantiza elegibilidad ni participación en ningún estudio clínico. La participación es completamente voluntaria y está sujeta a criterios médicos y regulatorios. Esta página no reemplaza atención médica profesional. Los estudios clínicos disponibles están aprobados por comités de ética independientes (IRB) y cumplen con las regulaciones de la FDA.</span>
+      <span class="en-text" style="display:none;"> This page is informational. Registering does not guarantee eligibility or participation in any clinical study. Participation is completely voluntary and subject to medical and regulatory criteria. This page does not replace professional medical care. Available clinical studies are approved by independent ethics committees (IRB) and comply with FDA regulations.</span>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-confianza">
+  <div class="footer-inner">
+    <p class="footer-legal">VITALIS Portal no es un proveedor médico. Programas aprobados por comités de ética (IRB). Participación voluntaria.</p>
+    <p class="footer-copy">© 2026 VITALIS Portal | Houston, TX</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ─── Language toggle for es-text / en-text ─── */
+  const langBtns = document.querySelectorAll('[data-lang]');
+  const esEls = document.querySelectorAll('.es-text');
+  const enEls = document.querySelectorAll('.en-text');
+
+  function applyLang(lang) {
+    if (lang === 'en') {
+      esEls.forEach(el => el.style.display = 'none');
+      enEls.forEach(el => el.style.display = '');
+      document.documentElement.lang = 'en';
+    } else {
+      esEls.forEach(el => el.style.display = '');
+      enEls.forEach(el => el.style.display = 'none');
+      document.documentElement.lang = 'es';
+    }
+    langBtns.forEach(b => {
+      b.style.fontWeight = (b.dataset.lang === lang) ? '800' : '400';
+    });
+    localStorage.setItem('vitalis_lang', lang);
+  }
+
+  const savedLang = localStorage.getItem('vitalis_lang') || 'es';
+  applyLang(savedLang);
+
+  langBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      applyLang(btn.dataset.lang);
+    });
+  });
+
+  /* ─── Form submit ─── */
+  const form = document.getElementById('reg-form');
+  const submitBtn = document.getElementById('reg-submit');
+  if (!form) return;
+
+  form.onsubmit = (e) => {
+    e.preventDefault();
+
+    const checks = ['acepta_contacto', 'entiende_no_garantia', 'participacion_voluntaria'];
+    const unchecked = checks.filter(n => !form[n].checked);
+    if (unchecked.length) {
+      alert(document.documentElement.lang === 'en'
+        ? 'Please check all required consent boxes before submitting.'
+        : 'Por favor marca todas las casillas de autorización antes de continuar.');
+      return;
+    }
+
+    const rawData = Object.fromEntries(new FormData(form).entries());
+    submitBtn.textContent = document.documentElement.lang === 'en' ? 'Sending...' : 'Enviando...';
+    submitBtn.disabled = true;
+
+    if (window.VCrm) {
+      const leadData = window.VCrm.buildLeadData(rawData, 'registro-voluntarios', { label: 'A', value: 45 });
+      window.VCrm.sendLeadToCRM(leadData)
+        .then(r => window.VCrm.runAutomationAfterCRM(r, leadData))
+        .catch(() => window.VCrm.fallbackAutomation(leadData))
+        .finally(() => { window.location.href = '../gracias.html?id=' + leadData.metadata.lead_id; });
+    } else {
+      window.location.href = '../gracias.html';
+    }
+  };
+});
+</script>
+</body>
+</html>
