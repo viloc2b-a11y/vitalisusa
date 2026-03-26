@@ -792,3 +792,50 @@ p  { color: var(--texto-suave); }
   padding: 9px 16px;
   border-radius: 20px;
 }
+
+/* ══ GLOBAL UX ENHANCEMENTS ══ */
+
+/* Sticky CTA — mobile only */
+.sticky-cta { display:none; }
+@media(max-width:768px){
+  .sticky-cta {
+    display:flex; position:fixed; bottom:0; left:0; right:0; z-index:990;
+    background:var(--naranja); padding:14px 20px; justify-content:center;
+    box-shadow:0 -2px 12px rgba(0,0,0,.2);
+  }
+  .sticky-cta a {
+    color:white; font-weight:700; font-size:.95rem; text-decoration:none;
+    display:flex; align-items:center; gap:8px;
+  }
+}
+
+/* Inline CTA — blog articles */
+.cta-inline {
+  background:var(--crema); border-radius:14px; padding:22px 24px;
+  margin:28px 0; border-left:4px solid var(--naranja);
+}
+.cta-inline p { font-size:.95rem; color:var(--texto); margin:0 0 12px; font-weight:500; }
+.cta-inline a.btn { display:inline-block; }
+
+/* Emotional hook — hub retention */
+.emotional-hook {
+  background:linear-gradient(135deg,var(--azul-marino),#1a4f6e);
+  border-radius:20px; padding:32px 28px; color:white; text-align:center;
+}
+.emotional-hook h2 { color:white; margin-bottom:10px; }
+.emotional-hook p { color:rgba(255,255,255,.85); margin:0; font-size:.97rem; line-height:1.6; }
+
+/* SEO block — home internal links */
+.seo-block { background:var(--crema); border-radius:16px; padding:28px 24px; }
+.seo-block h2 { font-size:1.1rem; color:var(--azul-marino); margin-bottom:16px; }
+.seo-block ul {
+  list-style:none; padding:0;
+  display:grid; grid-template-columns:1fr 1fr; gap:10px;
+}
+.seo-block ul li a {
+  color:var(--azul-marino); font-weight:600; font-size:.92rem;
+  text-decoration:none; display:flex; align-items:center; gap:6px;
+}
+.seo-block ul li a:hover { color:var(--naranja); }
+.seo-block ul li a::before { content:"→"; color:var(--naranja); font-size:.8rem; }
+@media(max-width:560px){ .seo-block ul { grid-template-columns:1fr; } }
