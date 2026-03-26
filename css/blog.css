@@ -1,0 +1,256 @@
+/* =====================================================
+   VITALIS — Blog / Article Styles (v1.0)
+   Importar junto a styles.css en artículos de blog.
+   ===================================================== */
+
+/* ── Article Layout ── */
+.article-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Article Header ── */
+.article-header {
+  padding: 48px 20px 36px;
+  background: linear-gradient(160deg, var(--azul-marino) 0%, var(--azul-medio) 100%);
+  color: white;
+  text-align: center;
+}
+.article-header .eyebrow {
+  color: rgba(255,255,255,.75);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+.article-header h1 {
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  max-width: 680px;
+  margin: 0 auto 16px;
+}
+.article-meta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: .8rem;
+  color: rgba(255,255,255,.65);
+  margin-top: 14px;
+}
+.article-meta span { display: flex; align-items: center; gap: 4px; }
+
+/* ── Article Image ── */
+.article-img-hero {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 0 0 16px 16px;
+  display: block;
+}
+.article-img-placeholder {
+  width: 100%;
+  height: 260px;
+  background: linear-gradient(135deg, var(--azul-suave), var(--crema-medio));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  color: var(--texto-light);
+  font-size: .85rem;
+}
+
+/* ── Article Body Typography ── */
+.article-body {
+  padding: 48px 20px 64px;
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+.article-body h2 {
+  font-size: 1.45rem;
+  margin: 40px 0 16px;
+  color: var(--azul-marino);
+}
+.article-body h3 {
+  font-size: 1.15rem;
+  margin: 28px 0 12px;
+  color: var(--azul-marino);
+}
+.article-body p {
+  margin-bottom: 18px;
+  color: var(--texto-suave);
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 20px 0;
+  padding-left: 24px;
+  list-style: disc;
+}
+.article-body li {
+  margin-bottom: 8px;
+  color: var(--texto-suave);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.article-body strong { color: var(--texto); font-weight: 700; }
+.article-body em { font-style: italic; }
+
+/* ── Callout Box ── */
+.callout-box {
+  background: var(--azul-suave);
+  border-left: 4px solid var(--azul-claro);
+  border-radius: 0 var(--radio-md) var(--radio-md) 0;
+  padding: 18px 20px;
+  margin: 28px 0;
+}
+.callout-box p { color: var(--azul-marino); margin: 0; font-size: .95rem; }
+.callout-box strong { color: var(--azul-marino); }
+
+/* ── Warning Box ── */
+.warning-box {
+  background: #fff7ed;
+  border-left: 4px solid var(--naranja);
+  border-radius: 0 var(--radio-md) var(--radio-md) 0;
+  padding: 18px 20px;
+  margin: 28px 0;
+}
+.warning-box p { color: #7c2d12; margin: 0; font-size: .95rem; }
+
+/* ── Symptom List ── */
+.symptom-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+.symptom-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: var(--crema);
+  border-radius: var(--radio-sm);
+  margin-bottom: 10px !important;
+}
+.symptom-list li::before {
+  content: "⚠️";
+  flex-shrink: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* ── CTA Card (in-article) ── */
+.article-cta-card {
+  background: linear-gradient(135deg, var(--azul-marino), var(--azul-medio));
+  color: white;
+  border-radius: 20px;
+  padding: 28px 28px;
+  margin: 40px 0;
+  text-align: center;
+}
+.article-cta-card h3 { color: white; margin-bottom: 10px; font-size: 1.25rem; }
+.article-cta-card p  { color: rgba(255,255,255,.85); margin-bottom: 20px; font-size: .9rem; }
+
+/* ── Internal Links Block ── */
+.related-links {
+  background: var(--crema-medio);
+  border-radius: var(--radio-lg);
+  padding: 24px 28px;
+  margin: 40px 0;
+}
+.related-links h4 {
+  color: var(--azul-marino);
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+.related-links ul { list-style: none; padding: 0; }
+.related-links li { margin-bottom: 10px; }
+.related-links a {
+  color: var(--azul-claro);
+  font-weight: 600;
+  font-size: .92rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.related-links a:hover { color: var(--naranja); }
+.related-links a::before { content: "→"; }
+
+/* ── Author / Trust line ── */
+.article-trust {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gris-claro);
+  border-radius: var(--radio-md);
+  padding: 12px 16px;
+  margin: 32px 0;
+  font-size: .82rem;
+  color: var(--texto-light);
+}
+
+/* ── Trust Box (landings + blog) ── */
+.trust-box {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border: 1px solid #86efac;
+  border-radius: var(--radio-lg);
+  padding: 24px 28px;
+  margin: 32px 0;
+  text-align: center;
+}
+.trust-box p {
+  color: #166534;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: .95rem;
+}
+.trust-box p:last-child { margin-bottom: 0; }
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  font-size: .78rem;
+  color: var(--texto-light);
+  padding: 10px 20px;
+  background: var(--blanco);
+  border-bottom: 1px solid var(--gris-borde);
+}
+.breadcrumb a { color: var(--azul-claro); font-weight: 600; }
+.breadcrumb span { margin: 0 6px; color: var(--gris-borde); }
+
+/* ── FAQ Section ── */
+.faq-list { margin: 0; }
+.faq-item {
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 20px 0;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-question {
+  font-weight: 700;
+  color: var(--azul-marino);
+  font-size: 1rem;
+  margin-bottom: 8px;
+  font-family: 'Merriweather', Georgia, serif;
+}
+.faq-answer { color: var(--texto-suave); font-size: .92rem; line-height: 1.65; margin: 0; }
+
+/* ── Disclaimer Box ── */
+.disclaimer-box {
+  background: #f8fafc;
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio-sm);
+  padding: 14px 18px;
+  font-size: .78rem;
+  color: var(--texto-light);
+  margin: 32px 0 0;
+  text-align: left;
+}
+.disclaimer-box strong { color: var(--texto-suave); }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .article-body { padding: 32px 16px 48px; font-size: .97rem; }
+  .article-header { padding: 36px 16px 28px; }
+  .article-cta-card { padding: 22px 18px; }
+  .related-links { padding: 18px 18px; }
+}
