@@ -124,6 +124,8 @@ p  { color: var(--texto-suave); }
 }
 .brand-v { color: var(--naranja); }
 .brand img { height: 38px; width: auto; border-radius: 6px; }
+.brand-logo { height: 44px; width: auto; border-radius: 8px; display: block; }
+.footer-logo { height: 52px; width: auto; border-radius: 8px; display: block; }
 
 .nav-links {
   display: flex;
