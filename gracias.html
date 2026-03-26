@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/community.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="js/crm-adapter.js" defer></script>
     <script src="js/vitalis-community.js" defer></script>
 </head>
 <body style="background: var(--crema);">
@@ -64,12 +65,30 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Setup WA link on conversion
-            const shareMsg = window.VC.getShareMessage();
-            document.getElementById('wa-share-btn').href = `https://wa.me/?text=${shareMsg}`;
-            
-            // Minimal point logic update on conversion page itself
-            // window.VC.addPoints(50); // Points for converting? No, only for referring.
+            // WA share link
+            if (window.VC) {
+                const shareMsg = window.VC.getShareMessage();
+                document.getElementById('wa-share-btn').href = `https://wa.me/?text=${shareMsg}`;
+            }
+
+            // ── CRM confirmation debug block ──────────────────────────────
+            const leadId = new URLSearchParams(window.location.search).get('id');
+            if (leadId) {
+                try {
+                    const pending = JSON.parse(localStorage.getItem('vit_pending_leads') || '[]');
+                    const lead    = pending.find(l => l.metadata && l.metadata.lead_id === leadId)
+                                 || JSON.parse(localStorage.getItem('vit_leads') || '[]').find(l => l.id === leadId);
+
+                    if (lead) {
+                        console.log('[VITALIS] Lead confirmado en gracias.html:', lead);
+                        // Inject ID visually for internal team
+                        const idEl = document.createElement('p');
+                        idEl.style.cssText = 'font-size:.72rem;color:var(--texto-light);margin-top:8px;';
+                        idEl.textContent = `Ref. interna: ${leadId}`;
+                        document.querySelector('h1').after(idEl);
+                    }
+                } catch(e) { /* silent */ }
+            }
         });
     </script>
 </body>

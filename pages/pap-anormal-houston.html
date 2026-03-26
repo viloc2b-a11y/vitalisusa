@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/community.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
+    <script src="../js/crm-adapter.js" defer></script>
     <script src="../js/conversion.js" defer></script>
     <script src="../js/vitalis-community.js" defer></script>
 </head>
@@ -81,7 +82,15 @@
         form.onsubmit = (e) => {
             e.preventDefault();
             const formData = new FormData(form);
-            const lead = window.VITALIS.captureLead(Object.fromEntries(formData.entries()));
+            const rawData = Object.fromEntries(formData.entries());
+            const lead = window.VITALIS.captureLead(rawData);
+            if (window.VCrm) {
+                const scoreVal = lead.score || 0;
+                const scoreLabel = scoreVal >= 30 ? 'A' : scoreVal >= 20 ? 'B' : 'C';
+                window.VCrm.sendLeadToCRM(
+                    window.VCrm.buildLeadData(rawData, 'pap-anormal', { label: scoreLabel, value: scoreVal })
+                );
+            }
             window.location.href = '../gracias.html?id=' + lead.id;
         };
 
