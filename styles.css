@@ -123,9 +123,13 @@ p  { color: var(--texto-suave); }
   white-space: nowrap;
 }
 .brand-v { color: var(--naranja); }
-.brand img { height: 38px; width: auto; border-radius: 6px; }
-.brand-logo { height: 44px; width: auto; border-radius: 8px; display: block; }
-.footer-logo { height: 52px; width: auto; border-radius: 8px; display: block; }
+.brand img { height: 52px; width: auto; border-radius: 8px; }
+.brand-logo { height: 52px; width: auto; border-radius: 8px; display: block; }
+.footer-logo { height: 64px; width: auto; border-radius: 10px; display: block; }
+@media (max-width: 600px) {
+  .brand-logo { height: 40px; }
+  .footer-logo { height: 48px; }
+}
 
 .nav-links {
   display: flex;
