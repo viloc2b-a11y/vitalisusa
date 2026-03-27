@@ -21,8 +21,8 @@
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
   "name": "VITALIS Portal",
-  "url": "https://viloc2b-a11y.github.io/vitalisusa/login.html",
-  "description": "Plataforma de orientacion y pre-registro para opciones de ensayos clinicos en Houston, con atencion en espanol.",
+  "url": "https://viloc2b-a11y.github.io/vitalisusa/es/iniciar-sesion/",
+  "description": "Acceso seguro al portal VITALIS para revisar estudios y novedades (entorno de demostración).",
   "areaServed": {
     "@type": "City",
     "name": "Houston",
@@ -41,13 +41,14 @@
 <body style="background: var(--azul-suave); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;">
     
     <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: var(--sombra-lg); width: 100%; max-width: 400px; text-align: center;">
+        <p style="margin:0 0 12px;font-size:.85rem;"><a href="../../en/login/" hreflang="en" style="color:var(--azul-medio);font-weight:600;">English</a></p>
         <a href="../../index.html" class="brand" style="justify-content: center; margin-bottom: 28px;" aria-label="VITALIS USA - Inicio">
             <img src="../../images/vitalis-logo.png" alt="VITALIS USA" class="brand-logo" style="height:56px;" />
         </a>
         <h2>Bienvenido de nuevo</h2>
         <p style="margin-bottom: 30px; font-size: 0.9rem;">Accede a tu portal para ver tus estudios y comunidad.</p>
         
-        <form onsubmit="event.preventDefault(); window.location.href='dashboard-paciente.html';">
+        <form onsubmit="event.preventDefault(); window.location.href='../../dashboard-paciente.html';">
             <div class="form-group" style="text-align: left;">
                 <label class="form-label">Correo electrónico</label>
                 <input type="email" class="form-input" placeholder="tu@email.com" required>
@@ -60,7 +61,7 @@
         </form>
 
         <p style="margin-top: 30px; font-size: 0.85rem; color: var(--texto-light);">
-            ¿Eres investigador? <a href="../../dashboard-investigador.html" style="color: var(--azul-medio); font-weight: 600;">Acceso investigador</a>
+            ¿Eres investigador? <a href="../../es/para-investigadores/" style="color: var(--azul-medio); font-weight: 600;">Acceso investigador</a>
         </p>
     </div>
 

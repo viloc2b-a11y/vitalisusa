@@ -11,16 +11,133 @@
     NO_SHOW: "no_show"
   });
 
-  const STATUS_LABELS_ES = Object.freeze({
-    [REFERRAL_STATUS.NEW_REFERRAL]: "Nuevo",
-    [REFERRAL_STATUS.CONTACTED]: "Contactado",
-    [REFERRAL_STATUS.SCHEDULED]: "Programado",
-    [REFERRAL_STATUS.SCREENED]: "Screening completado",
-    [REFERRAL_STATUS.RANDOMIZED]: "Randomizado",
-    [REFERRAL_STATUS.INELIGIBLE]: "No elegible",
-    [REFERRAL_STATUS.UNREACHABLE]: "No localizable",
-    [REFERRAL_STATUS.NO_SHOW]: "No asistió"
+  const DASHBOARD_LOCALE = /^en\b/i.test(String(document.documentElement.getAttribute("lang") || "").trim()) ? "en" : "es";
+
+  const STRINGS = Object.freeze({
+    es: {
+      statusLabels: {
+        [REFERRAL_STATUS.NEW_REFERRAL]: "Nuevo",
+        [REFERRAL_STATUS.CONTACTED]: "Contactado",
+        [REFERRAL_STATUS.SCHEDULED]: "Programado",
+        [REFERRAL_STATUS.SCREENED]: "Screening completado",
+        [REFERRAL_STATUS.RANDOMIZED]: "Randomizado",
+        [REFERRAL_STATUS.INELIGIBLE]: "No elegible",
+        [REFERRAL_STATUS.UNREACHABLE]: "No localizable",
+        [REFERRAL_STATUS.NO_SHOW]: "No asistió"
+      },
+      transitionError: "Transición no permitida para el estado actual.",
+      updateStatusError: "No se pudo actualizar el estado. Intenta de nuevo.",
+      loadingReferrals: "Cargando referrals...",
+      fallbackLocal: "Vista en modo local (fallback). Configura Supabase para datos en vivo.",
+      supabaseLoadError: "No se pudieron cargar datos de Supabase. Mostrando fallback local.",
+      bulkSelectError: "Selecciona al menos un referral para acción masiva.",
+      bulkUpdated: (n) => `${n} referral(s) actualizados.`,
+      tableEmpty: "No hay referrals con estos filtros.",
+      qualHigh: "Alta",
+      qualMed: "Media",
+      qualLow: "Baja",
+      viewDetail: "Ver detalle",
+      selectAllAria: "Seleccionar todos",
+      selectReferralAria: (id) => `Seleccionar referral ${id}`,
+      ageSuffix: "años",
+      mileSingular: "milla",
+      milePlural: "millas",
+      unassignedSite: "Sin sitio asignado",
+      modalPending: "Pendiente",
+      modalNoPreference: "Sin preferencia",
+      modalMilesWord: "millas",
+      presDiagnosis: (v) => `Diagnóstico confirmado: ${v ? "Sí" : "No"}`,
+      presSeverity: (v) => `Severidad: ${v}`,
+      presDuration: (v) => `Duración: ${v}`,
+      presPriorTx: (v) => `Tratamientos previos fallidos: ${v ? "Sí" : "No"}`,
+      presBmi: (v) => `BMI: ${v}`,
+      presExclusion: (v) => (v ? `Flags de exclusión: ${v}` : "Sin criterios mayores de exclusión."),
+      autoContactLine: (phone) => `Auto-contacto listo (SMS/WhatsApp): ${phone || "Sin teléfono"}`,
+      routingLine: (score) => `Routing score: ${score}`,
+      slaContactFlag: "SLA: Contacto pendiente >24h",
+      slaScheduleFlag: "SLA: Agendamiento pendiente >72h",
+      noNotes: "Sin notas adicionales.",
+      waTemplate: (name) => `Hola ${name}, te contactamos de VITALIS para coordinar tu screening.`,
+      autoContactMsg: (name) =>
+        `Hola ${name}, te contactamos de VITALIS. Tu perfil fue priorizado y podemos ayudarte a agendar screening.`,
+      slaContactChip: "Contacto >24h",
+      slaScheduleChip: "Agendamiento >72h",
+      slaOnTrack: "En tiempo",
+      b2bRequired: "Completa todos los campos requeridos.",
+      b2bMonthly: "El objetivo mensual debe ser mayor a 0.",
+      b2bSuccess: "Solicitud enviada. Nuestro equipo te contactará pronto.",
+      b2bError: "No se pudo enviar la solicitud. Intenta nuevamente.",
+      billingLabels: { pending: "Pendiente", billed: "Facturado", paid: "Pagado" },
+      notAvailable: "N/D"
+    },
+    en: {
+      statusLabels: {
+        [REFERRAL_STATUS.NEW_REFERRAL]: "New",
+        [REFERRAL_STATUS.CONTACTED]: "Contacted",
+        [REFERRAL_STATUS.SCHEDULED]: "Scheduled",
+        [REFERRAL_STATUS.SCREENED]: "Screened",
+        [REFERRAL_STATUS.RANDOMIZED]: "Randomized",
+        [REFERRAL_STATUS.INELIGIBLE]: "Ineligible",
+        [REFERRAL_STATUS.UNREACHABLE]: "Unreachable",
+        [REFERRAL_STATUS.NO_SHOW]: "No-show"
+      },
+      transitionError: "This status change is not allowed from the current state.",
+      updateStatusError: "Could not update status. Please try again.",
+      loadingReferrals: "Loading referrals...",
+      fallbackLocal: "Local preview (fallback). Configure Supabase for live data.",
+      supabaseLoadError: "Could not load Supabase data. Showing local fallback.",
+      bulkSelectError: "Select at least one referral for bulk action.",
+      bulkUpdated: (n) => `${n} referral(s) updated.`,
+      tableEmpty: "No referrals match these filters.",
+      qualHigh: "High",
+      qualMed: "Medium",
+      qualLow: "Low",
+      viewDetail: "View detail",
+      selectAllAria: "Select all",
+      selectReferralAria: (id) => `Select referral ${id}`,
+      ageSuffix: "years",
+      mileSingular: "mile",
+      milePlural: "miles",
+      unassignedSite: "Unassigned site",
+      modalPending: "Pending",
+      modalNoPreference: "No preference",
+      modalMilesWord: "miles",
+      presDiagnosis: (v) => `Diagnosis confirmed: ${v ? "Yes" : "No"}`,
+      presSeverity: (v) => `Severity: ${v}`,
+      presDuration: (v) => `Duration: ${v}`,
+      presPriorTx: (v) => `Prior treatments failed: ${v ? "Yes" : "No"}`,
+      presBmi: (v) => `BMI: ${v}`,
+      presExclusion: (v) => (v ? `Exclusion flags: ${v}` : "No major exclusion criteria flagged."),
+      autoContactLine: (phone) => `Auto-contact ready (SMS/WhatsApp): ${phone || "No phone on file"}`,
+      routingLine: (score) => `Routing score: ${score}`,
+      slaContactFlag: "SLA: Contact overdue >24h",
+      slaScheduleFlag: "SLA: Scheduling overdue >72h",
+      noNotes: "No additional notes.",
+      waTemplate: (name) => `Hi ${name}, we're reaching out from VITALIS to coordinate your screening.`,
+      autoContactMsg: (name) =>
+        `Hi ${name}, we're reaching out from VITALIS. Your profile was prioritized and we can help schedule screening.`,
+      slaContactChip: "Contact >24h",
+      slaScheduleChip: "Scheduling >72h",
+      slaOnTrack: "On track",
+      b2bRequired: "Please complete all required fields.",
+      b2bMonthly: "Monthly goal must be greater than 0.",
+      b2bSuccess: "Request sent. Our team will contact you soon.",
+      b2bError: "Could not send the request. Please try again.",
+      billingLabels: { pending: "Pending", billed: "Billed", paid: "Paid" },
+      notAvailable: "N/A"
+    }
   });
+
+  const t = STRINGS[DASHBOARD_LOCALE];
+
+  function billingDisplay(status) {
+    const key = String(status || "pending").toLowerCase();
+    return (t.billingLabels && t.billingLabels[key]) || status || key;
+  }
+
+  function statusDisplay(status) {
+    return t.statusLabels[status] || status;
+  }
 
   const STATUS_BADGE_CLASSES = Object.freeze({
     [REFERRAL_STATUS.NEW_REFERRAL]: "status-new",
@@ -139,7 +256,6 @@
   };
 
   const HOURS_48_MS = 48 * 60 * 60 * 1000;
-  const TRANSITION_ERROR_MSG = "Transición no permitida para el estado actual.";
 
   function nowISO() {
     return new Date().toISOString();
@@ -169,6 +285,7 @@
     const hours = Math.max(1, Math.floor(diffMs / (1000 * 60 * 60)));
     if (hours < 24) return `${hours}h`;
     const days = Math.floor(hours / 24);
+    if (DASHBOARD_LOCALE === "en") return `${days} day${days === 1 ? "" : "s"}`;
     return `${days} día${days > 1 ? "s" : ""}`;
   }
 
@@ -486,7 +603,7 @@
   function buildAutoContactPayload(patient, referral) {
     if ((referral.qualificationScore || 0) < 7) return null;
     const fullName = `${patient.firstName} ${patient.lastName}`.trim();
-    const text = `Hola ${patient.firstName}, te contactamos de VITALIS. Tu perfil fue priorizado y podemos ayudarte a agendar screening.`;
+    const text = t.autoContactMsg(patient.firstName);
     return {
       referralId: referral.id,
       patientName: fullName,
@@ -520,9 +637,9 @@
 
   function getSlaLabels(sla) {
     const labels = [];
-    if (sla.contactOverdue) labels.push("Contacto >24h");
-    if (sla.scheduleOverdue) labels.push("Agendamiento >72h");
-    if (!labels.length) labels.push("En tiempo");
+    if (sla.contactOverdue) labels.push(t.slaContactChip);
+    if (sla.scheduleOverdue) labels.push(t.slaScheduleChip);
+    if (!labels.length) labels.push(t.slaOnTrack);
     return labels;
   }
 
@@ -531,7 +648,7 @@
     const study = getStudyById(referral.studyId);
     const site = getSiteById(referral.siteId);
     if (!patient || !study) return null;
-    const safeSite = site || { id: "site_unassigned", name: "Sin sitio asignado", calendarLink: "" };
+    const safeSite = site || { id: "site_unassigned", name: t.unassignedSite, calendarLink: "" };
     const sla = getSlaFlags(referral);
     const contactPayload = buildAutoContactPayload(patient, referral);
     return {
@@ -544,7 +661,8 @@
       contactPayload,
       patientFullName: `${patient.firstName} ${patient.lastName}`,
       referralAgeLabel: formatReferralAge(referral.referredAt),
-      distanceLabel: `${referral.distanceMiles} milla${referral.distanceMiles === 1 ? "" : "s"}`
+      distanceLabel:
+        `${referral.distanceMiles} ${referral.distanceMiles === 1 ? t.mileSingular : t.milePlural}`
     };
   }
 
@@ -714,13 +832,18 @@
     dom.tableBody.innerHTML = "";
 
     if (!views.length) {
-      dom.tableBody.innerHTML = '<tr><td colspan="11" class="table-empty">No hay referrals con estos filtros.</td></tr>';
+      dom.tableBody.innerHTML = `<tr><td colspan="11" class="table-empty">${t.tableEmpty}</td></tr>`;
       if (dom.selectAllReferrals) dom.selectAllReferrals.checked = false;
       return;
     }
 
     views.forEach((view) => {
-      const levelLabel = view.referral.qualificationLevel === "high" ? "Alta" : view.referral.qualificationLevel === "medium" ? "Media" : "Baja";
+      const levelLabel =
+        view.referral.qualificationLevel === "high"
+          ? t.qualHigh
+          : view.referral.qualificationLevel === "medium"
+            ? t.qualMed
+            : t.qualLow;
       const row = document.createElement("tr");
       const billingClass = "billing-" + (view.referral.billingStatus || "pending");
       const selected = appState.ui.selectedReferralIds.has(view.referral.id) ? "checked" : "";
@@ -728,17 +851,17 @@
         .map((label) => `<span class="sla-chip ${view.sla.overdue ? "sla-overdue" : "sla-ok"}">${label}</span>`)
         .join("");
       row.innerHTML = `
-        <td><input type="checkbox" data-select-referral-id="${view.referral.id}" aria-label="Seleccionar referral ${view.referral.id}" ${selected}></td>
+        <td><input type="checkbox" data-select-referral-id="${view.referral.id}" aria-label="${t.selectReferralAria(view.referral.id)}" ${selected}></td>
         <td><strong>${view.patientFullName}</strong><span class="ref-id">${view.referral.id}</span></td>
-        <td>${view.patient.age} años • ${view.patient.ethnicity}</td>
+        <td>${view.patient.age} ${t.ageSuffix} • ${view.patient.ethnicity}</td>
         <td>${view.distanceLabel}</td>
         <td>${view.referralAgeLabel}</td>
-        <td><span class="${STATUS_BADGE_CLASSES[view.referral.status]}">${STATUS_LABELS_ES[view.referral.status]}</span></td>
+        <td><span class="${STATUS_BADGE_CLASSES[view.referral.status]}">${statusDisplay(view.referral.status)}</span></td>
         <td>${slaChips}</td>
         <td><span class="qualification-chip ${getQualificationClass(view.referral.qualificationLevel, view.referral.qualificationScore)}">${levelLabel}</span></td>
         <td><strong>${view.referral.qualificationScore.toFixed(1)}/10</strong></td>
-        <td><strong class="estimated-value">${formatUSD(view.referral.estimatedValue)}</strong><br><span class="billing-badge ${billingClass}">${view.referral.billingStatus || "pending"}</span></td>
-        <td><button class="btn-small" type="button" data-referral-id="${view.referral.id}">Ver detalle</button></td>
+        <td><strong class="estimated-value">${formatUSD(view.referral.estimatedValue)}</strong><br><span class="billing-badge ${billingClass}">${billingDisplay(view.referral.billingStatus)}</span></td>
+        <td><button class="btn-small" type="button" data-referral-id="${view.referral.id}">${t.viewDetail}</button></td>
       `;
       dom.tableBody.appendChild(row);
     });
@@ -791,9 +914,9 @@
     const pres = referral.prescreenerSummary || {};
 
     document.getElementById("modalPatientName").textContent = `${patient.firstName} ${patient.lastName} (${referral.id})`;
-    document.getElementById("modalPatientAge").textContent = `${patient.age} años`;
+    document.getElementById("modalPatientAge").textContent = `${patient.age} ${t.ageSuffix}`;
     document.getElementById("modalPatientEthnicity").textContent = patient.ethnicity;
-    document.getElementById("modalPatientDistance").textContent = `${referral.distanceMiles} millas`;
+    document.getElementById("modalPatientDistance").textContent = `${referral.distanceMiles} ${t.modalMilesWord}`;
     document.getElementById("modalPatientLanguage").textContent = patient.language;
     document.getElementById("modalPatientScore").textContent = `${referral.qualificationScore.toFixed(1)} / 10`;
 
@@ -801,40 +924,42 @@
     const modalBillingEl = document.getElementById("modalBillingStatus");
     if (modalValueEl) modalValueEl.textContent = formatUSD(referral.estimatedValue);
     if (modalBillingEl) {
-      modalBillingEl.textContent = referral.billingStatus || "pending";
+      modalBillingEl.textContent = billingDisplay(referral.billingStatus);
       modalBillingEl.className = "billing-badge billing-" + (referral.billingStatus || "pending");
     }
-    document.getElementById("modalNextSlot").textContent = referral.scheduling.nextAvailableSlot || "Pendiente";
-    document.getElementById("modalPreferredTime").textContent = referral.scheduling.preferredTime || "Sin preferencia";
+    document.getElementById("modalNextSlot").textContent = referral.scheduling.nextAvailableSlot || t.modalPending;
+    document.getElementById("modalPreferredTime").textContent = referral.scheduling.preferredTime || t.modalNoPreference;
 
     const statusEl = document.getElementById("modalPatientStatus");
     statusEl.className = STATUS_BADGE_CLASSES[referral.status];
-    statusEl.textContent = STATUS_LABELS_ES[referral.status];
+    statusEl.textContent = statusDisplay(referral.status);
 
     const qualificationEl = document.getElementById("modalPatientQualification");
     qualificationEl.className = `qualification-chip ${getQualificationClass(referral.qualificationLevel, referral.qualificationScore)}`;
-    qualificationEl.textContent = referral.qualificationLevel === "high" ? "Alta" : referral.qualificationLevel === "medium" ? "Media" : "Baja";
+    qualificationEl.textContent =
+      referral.qualificationLevel === "high" ? t.qualHigh : referral.qualificationLevel === "medium" ? t.qualMed : t.qualLow;
 
+    const na = t.notAvailable;
     const presItems = [
-      `Diagnóstico confirmado: ${pres.diagnosisConfirmed ? "Sí" : "No"}`,
-      `Severidad: ${pres.severityLabel || "N/A"}`,
-      `Duración: ${pres.durationLabel || "N/A"}`,
-      `Tratamientos previos fallidos: ${pres.priorTreatmentsFailed ? "Sí" : "No"}`,
-      `BMI: ${pres.bmi || "N/A"}`
+      t.presDiagnosis(pres.diagnosisConfirmed),
+      t.presSeverity(pres.severityLabel || na),
+      t.presDuration(pres.durationLabel || na),
+      t.presPriorTx(pres.priorTreatmentsFailed),
+      t.presBmi(pres.bmi || na)
     ];
     const exclusionFlags = safeArray(pres.exclusionFlags);
-    presItems.push(exclusionFlags.length ? `Flags de exclusión: ${exclusionFlags.join(", ")}` : "Sin criterios mayores de exclusión.");
+    presItems.push(t.presExclusion(exclusionFlags.length ? exclusionFlags.join(", ") : ""));
     renderModalList("modalPrescreenerList", presItems);
     const extraFlags = safeArray(referral.notes).slice();
-    if (referral.routingScore) extraFlags.push(`Routing score: ${referral.routingScore}`);
+    if (referral.routingScore) extraFlags.push(t.routingLine(referral.routingScore));
     if (contactPayload) {
-      extraFlags.push(`Auto-contact ready (SMS/WhatsApp): ${contactPayload.phone || "Sin teléfono"}`);
+      extraFlags.push(t.autoContactLine(contactPayload.phone));
     }
-    if (sla.contactOverdue) extraFlags.push("SLA: Contacto pendiente >24h");
-    if (sla.scheduleOverdue) extraFlags.push("SLA: Agendamiento pendiente >72h");
-    renderModalList("modalFlagsList", extraFlags.length ? extraFlags : ["Sin notas adicionales."]);
+    if (sla.contactOverdue) extraFlags.push(t.slaContactFlag);
+    if (sla.scheduleOverdue) extraFlags.push(t.slaScheduleFlag);
+    renderModalList("modalFlagsList", extraFlags.length ? extraFlags : [t.noNotes]);
 
-    const waMessage = encodeURIComponent(`Hola ${patient.firstName}, te contactamos de VITALIS para coordinar tu screening.`);
+    const waMessage = encodeURIComponent(t.waTemplate(patient.firstName));
     document.getElementById("modalWhatsAppLink").href = `https://wa.me/13468761439?text=${waMessage}`;
   }
 
@@ -879,7 +1004,7 @@
     if (!referral) return false;
 
     if (!canTransition(referral.status, nextStatus)) {
-      if (!silent) setDashboardState("error", TRANSITION_ERROR_MSG);
+      if (!silent) setDashboardState("error", t.transitionError);
       return false;
     }
 
@@ -894,7 +1019,7 @@
       return true;
     } catch (error) {
       console.error("update status failed", error);
-      if (!silent) setDashboardState("error", "No se pudo actualizar el estado. Intenta de nuevo.");
+      if (!silent) setDashboardState("error", t.updateStatusError);
       return false;
     }
   }
@@ -917,7 +1042,7 @@
   async function runBulkAction(nextStatus) {
     const selectedIds = Array.from(appState.ui.selectedReferralIds);
     if (!selectedIds.length) {
-      setDashboardState("error", "Selecciona al menos un referral para acción masiva.");
+      setDashboardState("error", t.bulkSelectError);
       return;
     }
 
@@ -927,7 +1052,7 @@
       if (ok) updated += 1;
     }
 
-    setDashboardState("", `${updated} referral(s) actualizados.`);
+    setDashboardState("", t.bulkUpdated(updated));
     void syncSitePerformanceScores(getSitePerformanceSnapshot());
     renderApp();
   }
@@ -975,21 +1100,21 @@
     };
 
     if (!payload.siteName || !payload.contactName || !payload.email || !payload.studyInterest || !payload.therapeuticArea || !payload.preferredContactMethod) {
-      setFormFeedback("Completa todos los campos requeridos.", "error");
+      setFormFeedback(t.b2bRequired, "error");
       return;
     }
     if (payload.monthlyEnrollmentGoal < 1) {
-      setFormFeedback("El objetivo mensual debe ser mayor a 0.", "error");
+      setFormFeedback(t.b2bMonthly, "error");
       return;
     }
 
     try {
       await createInvestigatorInquiry(payload);
       dom.b2bIntakeForm.reset();
-      setFormFeedback("Solicitud enviada. Nuestro equipo te contactará pronto.", "success");
+      setFormFeedback(t.b2bSuccess, "success");
     } catch (error) {
       console.error("create inquiry failed", error);
-      setFormFeedback("No se pudo enviar la solicitud. Intenta nuevamente.", "error");
+      setFormFeedback(t.b2bError, "error");
     }
   }
 
@@ -1009,7 +1134,10 @@
     if (dom.filterHighScoreBtn) dom.filterHighScoreBtn.addEventListener("click", () => toggleQuickFilter("highScoreOnly"));
     if (dom.filterNeedsContactBtn) dom.filterNeedsContactBtn.addEventListener("click", () => toggleQuickFilter("needsContact"));
     if (dom.filterOverdueBtn) dom.filterOverdueBtn.addEventListener("click", () => toggleQuickFilter("overdueOnly"));
-    if (dom.selectAllReferrals) dom.selectAllReferrals.addEventListener("change", handleSelectAllVisible);
+    if (dom.selectAllReferrals) {
+      dom.selectAllReferrals.setAttribute("aria-label", t.selectAllAria);
+      dom.selectAllReferrals.addEventListener("change", handleSelectAllVisible);
+    }
     if (dom.bulkMarkContactedBtn) dom.bulkMarkContactedBtn.addEventListener("click", () => runBulkAction(REFERRAL_STATUS.CONTACTED));
     if (dom.bulkMarkScheduledBtn) dom.bulkMarkScheduledBtn.addEventListener("click", () => runBulkAction(REFERRAL_STATUS.SCHEDULED));
 
@@ -1028,7 +1156,7 @@
   async function initApp() {
     bindEvents();
     appState.ui.loading = true;
-    setDashboardState("loading", "Cargando referrals...");
+    setDashboardState("loading", t.loadingReferrals);
     try {
       const [studies, sites, patients, referrals] = await Promise.all([
         fetchStudies(),
@@ -1043,7 +1171,7 @@
 
       appState.ui.usingFallback = !isSupabaseReady();
       if (appState.ui.usingFallback) {
-        setDashboardState("", "Vista en modo local (fallback). Configura Supabase para datos en vivo.");
+        setDashboardState("", t.fallbackLocal);
       } else {
         setDashboardState("", "");
       }
@@ -1057,7 +1185,7 @@
       appState.patients = structuredClone(FALLBACK_DATA.patients);
       appState.referrals = structuredClone(FALLBACK_DATA.referrals);
       appState.ui.usingFallback = true;
-      setDashboardState("error", "No se pudieron cargar datos de Supabase. Mostrando fallback local.");
+      setDashboardState("error", t.supabaseLoadError);
       triggerAutoContactForHighScoreReferrals();
       renderApp();
     } finally {

@@ -27,8 +27,8 @@
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
   "name": "VITALIS Portal",
-  "url": "https://viloc2b-a11y.github.io/vitalisusa/para-investigadores.html",
-  "description": "Plataforma de orientacion y pre-registro para opciones de ensayos clinicos en Houston, con atencion en espanol.",
+  "url": "https://viloc2b-a11y.github.io/vitalisusa/en/for-investigators/",
+  "description": "B2B clinical research recruitment in Houston: protocol-based pre-screening, bilingual patient support, and real-time referral visibility for sites.",
   "areaServed": {
     "@type": "City",
     "name": "Houston",
@@ -54,6 +54,7 @@
                 <a href="../../en/for-investigators/">For investigators</a>
                 <a href="../../en/join-a-study/">Join a study</a>
                 <a href="../../en/login/">Sign in</a>
+                <a href="../../es/para-investigadores/" hreflang="es">Español</a>
             </nav>
         </div>
     </header>
@@ -136,7 +137,7 @@
                     Update their status as soon as possible.
                 </div>
 
-                <div class="kpi-grid" aria-label="Resumen de indicadores">
+                <div class="kpi-grid" aria-label="Key indicators summary">
                     <article class="kpi-card">
                         <p class="kpi-label">New Referrals</p>
                         <p class="kpi-value" id="kpiNewReferrals">0</p>
@@ -152,6 +153,45 @@
                     <article class="kpi-card">
                         <p class="kpi-label">High-Score Patients</p>
                         <p class="kpi-value" id="kpiHighScore">0</p>
+                    </article>
+                </div>
+
+                <div class="revenue-strip" aria-label="Revenue summary">
+                    <article>
+                        <p class="kpi-label">Total Est. Revenue</p>
+                        <p class="kpi-value revenue-value" id="kpiTotalRevenue">$0</p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Revenue Today</p>
+                        <p class="kpi-value revenue-value" id="kpiRevenueToday">$0</p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Revenue by Study</p>
+                        <p class="kpi-value revenue-value" id="kpiRevenueByStudy">$0</p>
+                        <p class="kpi-sublabel" id="kpiRevenueStudyName">--</p>
+                    </article>
+                </div>
+                <div class="site-performance-strip" aria-label="Site performance summary">
+                    <article class="top-site-card">
+                        <p class="kpi-label">Top Performing Site</p>
+                        <p class="kpi-value" id="topSiteName">--</p>
+                        <p class="kpi-sublabel">Network avg score: <span id="networkPerformanceAvg">--</span></p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Performance Score</p>
+                        <p class="kpi-value" id="topSiteScore">--</p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Avg. Time to Contact</p>
+                        <p class="kpi-value" id="topSiteContact">--</p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Screen Rate</p>
+                        <p class="kpi-value" id="topSiteScreen">--</p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Randomization Rate</p>
+                        <p class="kpi-value" id="topSiteRandomization">--</p>
                     </article>
                 </div>
 
@@ -176,18 +216,30 @@
                     </select>
                     <button id="applyFiltersBtn" class="btn-small" type="button">Apply filters</button>
                 </div>
+                <div class="quick-filters-bar" aria-label="Quick filters">
+                    <button id="filterHighScoreBtn" class="btn-small quick-filter-btn" type="button">High score only</button>
+                    <button id="filterNeedsContactBtn" class="btn-small quick-filter-btn" type="button">Needs contact</button>
+                    <button id="filterOverdueBtn" class="btn-small quick-filter-btn" type="button">Overdue</button>
+                </div>
+                <div class="bulk-actions-bar" aria-label="Bulk actions">
+                    <button id="bulkMarkContactedBtn" class="btn-small" type="button">Bulk: Mark Contacted</button>
+                    <button id="bulkMarkScheduledBtn" class="btn-small" type="button">Bulk: Mark Scheduled</button>
+                </div>
                 <p id="dashboardDataState" class="dashboard-state-message" aria-live="polite"></p>
 
                 <table class="referrals-table">
                     <thead>
                         <tr>
+                            <th><input id="selectAllReferrals" type="checkbox" aria-label="Select all"></th>
                             <th>Patient</th>
                             <th>Age / Ethnicity</th>
                             <th>Distance</th>
                             <th>Referral age</th>
                             <th>Status</th>
+                            <th>SLA</th>
                             <th>Qualification</th>
                             <th>Score</th>
+                            <th>Est. value</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -291,6 +343,7 @@
                 <p><strong>Language:</strong> <span id="modalPatientLanguage">--</span></p>
             </div>
             <p><strong>Qualification score:</strong> <span id="modalPatientScore" class="score-high">--</span></p>
+            <p><strong>Estimated value:</strong> <span id="modalEstimatedValue">--</span> &nbsp; <span id="modalBillingStatus" class="billing-badge billing-pending">Pending</span></p>
 
             <div class="modal-block">
                 <h3>Prescreener summary</h3>

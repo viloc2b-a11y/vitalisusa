@@ -54,6 +54,7 @@
                 <a href="../../es/para-investigadores/">Para investigadores</a>
                 <a href="../../es/participar-estudio/">Participar estudio</a>
                 <a href="../../es/iniciar-sesion/">Iniciar sesion</a>
+                <a href="../../en/for-investigators/" hreflang="en">English</a>
             </nav>
         </div>
     </header>
@@ -155,9 +156,48 @@
                     </article>
                 </div>
 
+                <div class="revenue-strip" aria-label="Resumen de ingresos estimados">
+                    <article>
+                        <p class="kpi-label">Total ingresos est.</p>
+                        <p class="kpi-value revenue-value" id="kpiTotalRevenue">$0</p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Ingresos hoy</p>
+                        <p class="kpi-value revenue-value" id="kpiRevenueToday">$0</p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Ingresos por estudio</p>
+                        <p class="kpi-value revenue-value" id="kpiRevenueByStudy">$0</p>
+                        <p class="kpi-sublabel" id="kpiRevenueStudyName">--</p>
+                    </article>
+                </div>
+                <div class="site-performance-strip" aria-label="Rendimiento por sitio">
+                    <article class="top-site-card">
+                        <p class="kpi-label">Sitio con mejor desempeño</p>
+                        <p class="kpi-value" id="topSiteName">--</p>
+                        <p class="kpi-sublabel">Promedio de red: <span id="networkPerformanceAvg">--</span></p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Puntuación de desempeño</p>
+                        <p class="kpi-value" id="topSiteScore">--</p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Tiempo prom. al contacto</p>
+                        <p class="kpi-value" id="topSiteContact">--</p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Tasa de screening</p>
+                        <p class="kpi-value" id="topSiteScreen">--</p>
+                    </article>
+                    <article>
+                        <p class="kpi-label">Tasa de randomización</p>
+                        <p class="kpi-value" id="topSiteRandomization">--</p>
+                    </article>
+                </div>
+
                 <div class="trial-header">
                     <h3>Trial Stride - A HOPE4OA™ STUDY</h3>
-                    <span class="status-active">Activo • Aceptando Referrals</span>
+                    <span class="status-active">Activo • Aceptando referrals</span>
                     <p><strong>Sitio:</strong> Vilo Research Group • Houston, TX • Site ID: 30</p>
                 </div>
 
@@ -176,18 +216,30 @@
                     </select>
                     <button id="applyFiltersBtn" class="btn-small" type="button">Aplicar filtros</button>
                 </div>
+                <div class="quick-filters-bar" aria-label="Filtros rápidos">
+                    <button id="filterHighScoreBtn" class="btn-small quick-filter-btn" type="button">Solo alto score</button>
+                    <button id="filterNeedsContactBtn" class="btn-small quick-filter-btn" type="button">Requieren contacto</button>
+                    <button id="filterOverdueBtn" class="btn-small quick-filter-btn" type="button">Atrasados</button>
+                </div>
+                <div class="bulk-actions-bar" aria-label="Acciones masivas">
+                    <button id="bulkMarkContactedBtn" class="btn-small" type="button">Marcar contactados (lote)</button>
+                    <button id="bulkMarkScheduledBtn" class="btn-small" type="button">Marcar programados (lote)</button>
+                </div>
                 <p id="dashboardDataState" class="dashboard-state-message" aria-live="polite"></p>
 
                 <table class="referrals-table">
                     <thead>
                         <tr>
+                            <th><input id="selectAllReferrals" type="checkbox" aria-label="Seleccionar todos"></th>
                             <th>Paciente</th>
                             <th>Edad / Etnia</th>
                             <th>Distancia</th>
                             <th>Referral hace</th>
                             <th>Estado</th>
+                            <th>SLA</th>
                             <th>Calificación</th>
                             <th>Score</th>
+                            <th>Valor est.</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -291,6 +343,7 @@
                 <p><strong>Idioma:</strong> <span id="modalPatientLanguage">--</span></p>
             </div>
             <p><strong>Score de calificación:</strong> <span id="modalPatientScore" class="score-high">--</span></p>
+            <p><strong>Valor estimado:</strong> <span id="modalEstimatedValue">--</span> &nbsp; <span id="modalBillingStatus" class="billing-badge billing-pending">Pendiente</span></p>
 
             <div class="modal-block">
                 <h3>Resumen de Prescreener</h3>

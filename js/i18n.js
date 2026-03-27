@@ -528,11 +528,25 @@
   // ══════════════════════════════════════════════════════════
 
   function getCurrentLanguage() {
-    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    const path = (window.location.pathname || "").toLowerCase();
+    if (path.includes("/en/")) return "en";
+    if (path.includes("/es/")) return "es";
+    const urlLang = new URLSearchParams(window.location.search).get("lang");
     if (urlLang && SUPPORTED.includes(urlLang)) return urlLang;
-    const stored = localStorage.getItem('vit_lang');
+    const stored = localStorage.getItem("vit_lang");
     if (stored && SUPPORTED.includes(stored)) return stored;
     return DEFAULT_LANG;
+  }
+
+  /** Bilingual blocks: <span class="es-text"> / <span class="en-text"> (e.g. join-a-study). */
+  function applyEsEnSpanVisibility(lang) {
+    const l = lang || getCurrentLanguage();
+    document.querySelectorAll(".es-text").forEach((el) => {
+      el.style.display = l === "es" ? "" : "none";
+    });
+    document.querySelectorAll(".en-text").forEach((el) => {
+      el.style.display = l === "en" ? "" : "none";
+    });
   }
 
   // ══════════════════════════════════════════════════════════
@@ -603,6 +617,7 @@
 
     // Apply translations
     applyTranslations(lang);
+    applyEsEnSpanVisibility(lang);
     document.documentElement.lang = lang;
     _updateSelectorUI(lang);
     _updateSEO(lang);
@@ -668,6 +683,7 @@
     _initSelector();
     const lang = getCurrentLanguage();
     applyTranslations(lang);
+    applyEsEnSpanVisibility(lang);
     document.documentElement.lang = lang;
     _updateSelectorUI(lang);
     _updateSEO(lang);
@@ -681,6 +697,7 @@
     setLanguage,
     getCurrentLanguage,
     applyTranslations,
+    applyEsEnSpanVisibility,
     TRANSLATIONS,
   };
 
