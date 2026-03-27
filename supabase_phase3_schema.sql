@@ -22,6 +22,10 @@ create table if not exists sites (
   calendar_link text,
   languages jsonb not null default '[]'::jsonb,
   active boolean not null default true,
+  performance_score numeric not null default 0,
+  avg_time_to_contact numeric not null default 0,
+  screen_rate numeric not null default 0,
+  randomization_rate numeric not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -67,6 +71,10 @@ create table if not exists referrals (
   next_available_slot text,
   calendar_synced boolean default false,
   notes jsonb not null default '[]'::jsonb,
+  prescreener_data jsonb,
+  routing_score numeric not null default 0,
+  estimated_value numeric not null default 0,
+  billing_status text not null default 'pending' check (billing_status in ('pending','billed','paid')),
   first_contact_at timestamptz,
   scheduled_at timestamptz,
   screened_at timestamptz,
@@ -117,12 +125,40 @@ alter table if exists patients drop column if exists referred_at;
 alter table if exists patients drop column if exists distance_miles;
 alter table if exists patients drop column if exists notes;
 
+-- Intake pipeline: prescreener_data, billing fields
+alter table if exists referrals add column if not exists prescreener_data jsonb;
+alter table if exists referrals add column if not exists routing_score numeric not null default 0;
+alter table if exists referrals add column if not exists estimated_value numeric not null default 0;
+alter table if exists referrals add column if not exists billing_status text not null default 'pending';
+
+-- Site performance columns
+alter table if exists sites add column if not exists performance_score numeric not null default 0;
+alter table if exists sites add column if not exists avg_time_to_contact numeric not null default 0;
+alter table if exists sites add column if not exists screen_rate numeric not null default 0;
+alter table if exists sites add column if not exists randomization_rate numeric not null default 0;
+
+create index if not exists idx_referrals_qualification_score on referrals(qualification_score desc);
+create index if not exists idx_referrals_study_id on referrals(study_id);
+create index if not exists idx_referrals_billing_status on referrals(billing_status);
+create index if not exists idx_referrals_site_id on referrals(site_id);
+create index if not exists idx_referrals_routing_score on referrals(routing_score desc);
+create index if not exists idx_sites_performance_score on sites(performance_score desc);
+
+-- Backfill estimated_value for any existing rows that have score but no value
+update referrals
+set estimated_value = case
+  when qualification_score >= 8 then 120
+  when qualification_score >= 5 then 70
+  else 30
+end
+where estimated_value = 0 and qualification_score is not null;
+
 -- Minimal seed example (aligned ownership)
 insert into studies (id, slug, name, condition, status)
 values ('study_hope4oa_001', 'hope4oa', 'Trial Stride - A HOPE4OA Study', 'Osteoartritis', 'active')
 on conflict (id) do nothing;
 
-insert into sites (id, name, city, state, contact_name, contact_email, calendar_link, languages, active)
+insert into sites (id, name, city, state, contact_name, contact_email, calendar_link, languages, active, performance_score, avg_time_to_contact, screen_rate, randomization_rate)
 values (
   'site_vilo_hou_30',
   'Vilo Research Group',
@@ -132,7 +168,11 @@ values (
   'investigators@vitalisportal.com',
   'https://example.com/site-calendar',
   '["es","en"]'::jsonb,
-  true
+  true,
+  82,
+  16,
+  46,
+  22
 )
 on conflict (id) do nothing;
 
@@ -156,7 +196,7 @@ insert into referrals (
   id, patient_id, study_id, site_id, referred_at, distance_miles, status,
   qualification_score, qualification_level, flags, diagnosis_confirmed,
   severity_label, duration_label, prior_treatments_failed, bmi, exclusion_flags,
-  ready_this_week, preferred_time, next_available_slot, calendar_synced, notes, last_updated
+  ready_this_week, preferred_time, next_available_slot, calendar_synced, notes, routing_score, last_updated
 )
 values (
   'ref_2048',
@@ -180,6 +220,7 @@ values (
   'Lun 10:30 AM',
   false,
   '["Pendiente de primer contacto","Prefiere llamada por la tarde"]'::jsonb,
+  90,
   now()
 )
 on conflict (id) do nothing;

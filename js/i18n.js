@@ -278,7 +278,7 @@
       // ── Navigation ─────────────────────────────────────
       nav_how:           'How it works',
       nav_news:          'News',
-      nav_researchers:   'For researchers',
+      nav_researchers:   'For investigators',
       nav_login:         'Sign in',
       nav_privacy:       'Privacy',
       lang_es:           'ES',
@@ -387,7 +387,7 @@
       footer_link_diabetes:       'Type 2 Diabetes',
       footer_link_how:            'How it works',
       footer_link_blog:           'Medical news',
-      footer_link_researchers:    'For researchers',
+      footer_link_researchers:    'For investigators',
       footer_link_login:          'Sign in',
       footer_link_privacy:        'Privacy policy',
       footer_link_terms:          'Terms and conditions',
