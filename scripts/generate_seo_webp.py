@@ -1,54 +1,76 @@
-"""Generate small SEO-named WebP placeholders for VITALIS (gradients, no stock photos)."""
-from __future__ import annotations
-
 import os
-from pathlib import Path
+import sys
 
-from PIL import Image, ImageDraw
+# Intenta importar Pillow, si no está, informa al usuario
+try:
+    from PIL import Image, ImageDraw
+except ImportError:
+    print("\nError: La librería 'Pillow' no está instalada.")
+    print("Por favor, ejecuta primero: pip install Pillow\n")
+    sys.exit(1)
 
-ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "images"
-W, H = 960, 540  # 16:9, modest size for heroes
+def create_gradient_webp(filename, color_top, color_bottom, width=960, height=540, quality=72):
+    """
+    Genera una imagen WebP con un gradiente vertical simple.
+    """
+    # Crear una nueva imagen RGB
+    base = Image.new('RGB', (width, height), color_top)
+    top = Image.new('RGB', (width, height), color_top)
+    bottom = Image.new('RGB', (width, height), color_bottom)
+    
+    # Crear la máscara para el gradiente
+    mask = Image.new('L', (width, height))
+    mask_data = []
+    for y in range(height):
+        # Calcular la opacidad (0 a 255) basada en la posición vertical
+        opacity = int(255 * (y / height))
+        mask_data.extend([opacity] * width)
+    mask.putdata(mask_data)
+    
+    # Combinar las imágenes usando la máscara
+    gradient = Image.composite(bottom, top, mask)
+    
+    # Asegurar que el directorio de salida existe
+    # Lo guardaremos en 'temp_assets' en la raíz del proyecto
+    output_dir = "temp_assets"
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        
+    filepath = os.path.join(output_dir, filename)
+    
+    # Guardar como WebP
+    try:
+        gradient.save(filepath, 'WEBP', quality=quality)
+        print(f"✅ Imagen generada: {filepath}")
+    except Exception as e:
+        print(f"❌ Error guardando {filename}: {e}")
 
+# --- LISTA DE IMÁGENES A GENERAR (12 archivos) ---
+# (Nombre, Color Superior, Color Inferior)
+images_to_generate = [
+    # Salud General / Ensayos
+    ("knee-osteoarthritis-clinical-trial-houston.webp", "#001F3F", "#38BDF8"),
+    ("clinical-trial-patient-hispanic.webp", "#F1F5F9", "#001F3F"),
+    ("std-testing-confidential-clinic-houston.webp", "#38BDF8", "#F1F5F9"),
 
-def gradient(name: str, c1: tuple[int, int, int], c2: tuple[int, int, int]) -> None:
-    img = Image.new("RGB", (W, H))
-    px = img.load()
-    for y in range(H):
-        t = y / max(H - 1, 1)
-        r = int(c1[0] * (1 - t) + c2[0] * t)
-        g = int(c1[1] * (1 - t) + c2[1] * t)
-        b = int(c1[2] * (1 - t) + c2[2] * t)
-        for x in range(W):
-            px[x, y] = (r, g, b)
-    # Soft vignette (keeps file small, looks less flat)
-    draw = ImageDraw.Draw(img, "RGBA")
-    draw.rectangle([0, 0, W, H], outline=(0, 0, 0, 0))
-    path = OUT / name
-    img.save(path, "WEBP", quality=72, method=6)
-    print(f"Wrote {path} ({path.stat().st_size // 1024} KB)")
+    # Salud Femenina / Ginecología
+    ("pap-smear-screening-women-clinic.webp", "#A855F7", "#F1F5F9"),
+    ("vaginal-yeast-infection-care-houston.webp", "#F472B6", "#FFFFFF"),
+    ("abnormal-vaginal-discharge-education-houston.webp", "#F472B6", "#F1F5F9"),
+    ("womens-intimate-health-hub-houston.webp", "#A855F7", "#38BDF8"),
+    ("gynecologic-consultation-women-houston.webp", "#38BDF8", "#FFFFFF"),
+    ("vaginal-infection-orientation-houston.webp", "#F1F5F9", "#F472B6"),
+    ("intimate-wellbeing-trust-houston.webp", "#FFFFFF", "#A855F7"),
+    ("candidiasis-education-womens-health-houston.webp", "#F472B6", "#A855F7"),
+    ("womens-health-orientation-spanish-houston.webp", "#38BDF8", "#F472B6"),
+]
 
-
-def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
-    # Navy / teal / warm tones — distinct per topic, on-brand
-    specs = [
-        ("knee-osteoarthritis-clinical-trial-houston.webp", (15, 45, 75), (42, 120, 110)),
-        ("pap-smear-screening-women-clinic.webp", (90, 55, 70), (180, 120, 130)),
-        ("std-testing-confidential-clinic-houston.webp", (20, 50, 85), (35, 90, 95)),
-        ("clinical-trial-patient-hispanic.webp", (0, 54, 92), (42, 157, 143)),
-        ("vaginal-yeast-infection-care-houston.webp", (55, 75, 95), (130, 150, 170)),
-        ("abnormal-vaginal-discharge-education-houston.webp", (70, 85, 100), (120, 140, 155)),
-        ("womens-intimate-health-hub-houston.webp", (45, 65, 90), (95, 125, 145)),
-        ("gynecologic-consultation-women-houston.webp", (75, 60, 85), (140, 115, 130)),
-        ("vaginal-infection-orientation-houston.webp", (40, 70, 85), (90, 130, 125)),
-        ("intimate-wellbeing-trust-houston.webp", (50, 80, 95), (100, 145, 140)),
-        ("candidiasis-education-womens-health-houston.webp", (65, 75, 95), (115, 135, 155)),
-        ("womens-health-orientation-spanish-houston.webp", (0, 65, 95), (45, 130, 125)),
-    ]
-    for fname, c1, c2 in specs:
-        gradient(fname, c1, c2)
-
-
+# --- EJECUCIÓN ---
 if __name__ == "__main__":
-    main()
+    print("\n--- Iniciando generación de assets WebP SEO para VITALIS ---\n")
+    print(f"Guardando imágenes en: temp_assets/\n")
+    for filename, color_top, color_bottom in images_to_generate:
+        create_gradient_webp(filename, color_top, color_bottom)
+
+    print("\n✅ Generación completada.")
+    print("Mueve estos archivos de 'temp_assets/' a la carpeta de imágenes que Cursor está utilizando.")

@@ -298,9 +298,28 @@
     );
     const contactPayload = buildContactMessagePayload(formData, score);
 
+    // ── Matching Engine ─────────────────────────────────────────────────
+    var engineResult = null;
+    if (global.VITALIS_ENGINE && typeof global.VITALIS_ENGINE.buildEngineOutput === "function") {
+      var engineState = {
+        sintoma:        formData.answers?.sintoma        || null,
+        duracion:       formData.answers?.duracion       || null,
+        edad:           parseInt(formData.age, 10)       || 0,
+        ubicacion:      formData.answers?.ubicacion      || null,
+        dx:             formData.answers?.dx             || null,
+        disponibilidad: formData.answers?.disponibilidad || null,
+        idioma:         formData.language === "en" ? "en" : "es"
+      };
+      engineResult = global.VITALIS_ENGINE.buildEngineOutput(engineState);
+      console.debug("[VITALIS] Engine →", engineResult);
+    } else {
+      console.warn("[VITALIS] matching-engine.js not loaded — skipping engine");
+    }
+    // ────────────────────────────────────────────────────────────────────
+
     const routing = selectBestSite(
       { language: formData.language, zipCode: formData.zipCode },
-      { id: opts.studyId || null },
+      { id: opts.studyId || (engineResult && engineResult.study_id) || null },
       opts.sites || [],
       { distanceBySite: opts.distanceBySite || {} }
     );
@@ -325,7 +344,7 @@
     const referralRow = {
       id: referralId,
       patient_id: patientId,
-      study_id: opts.studyId || null,
+      study_id: opts.studyId || (engineResult && engineResult.study_id) || null,
       site_id: routing.siteId,
       referred_at: now,
       distance_miles: routing.distanceMiles,
@@ -344,7 +363,15 @@
       prescreener_data: prescreenerData,
       estimated_value: pricingFromScore(score),
       billing_status: "pending",
-      last_updated: now
+      last_updated: now,
+      // ── Engine columns ──────────────────────────────────────────────
+      matched_study_id: engineResult ? engineResult.study_id   : null,
+      match_found:      engineResult ? engineResult.match       : false,
+      engine_action:    engineResult ? engineResult.action      : null,
+      engine_reason:    engineResult ? engineResult.reason      : null,
+      engine_message:   engineResult ? engineResult.message     : null,
+      engine_version:   engineResult ? engineResult.engine_version : null,
+      engine_output:    engineResult || {}
     };
 
     const client =
@@ -353,9 +380,10 @@
         : null;
 
     if (!client) {
-      console.log("[VITALIS] prescreener fallback — no Supabase client", { patientRow, referralRow });
+      console.warn("[VITALIS] Supabase not available — using fallback");
+      console.log("[VITALIS] fallback data:", { patientRow, referralRow });
       if (contactPayload) console.log("[VITALIS] auto_contact_payload", contactPayload);
-      return { ok: true, patientId, referralId, score, level, contactPayload, fallback: true };
+      return { ok: true, patientId, referralId, score, level, contactPayload, engineResult, fallback: true };
     }
 
     const { error: patientErr } = await client.from("patients").insert(patientRow);
@@ -365,7 +393,7 @@
     if (referralErr) throw referralErr;
 
     if (contactPayload) console.log("[VITALIS] auto_contact_payload", contactPayload);
-    return { ok: true, patientId, referralId, score, level, contactPayload, fallback: false };
+    return { ok: true, patientId, referralId, score, level, contactPayload, engineResult, fallback: false };
   }
 
   global.VITALIS_PRESCREENER = { selectBestSite, scorePatient, submitPrescreener, pricingFromScore, buildContactMessagePayload };

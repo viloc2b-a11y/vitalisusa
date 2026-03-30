@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>VITALIS — Matching Engine Test Suite</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 1.5rem;
+      color: #38bdf8;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 0.75rem;
+    }
+    .test-card {
+      background: #1e293b;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #475569;
+      transition: border-color 0.3s;
+    }
+    .test-card.pass { border-left-color: #22c55e; }
+    .test-card.fail { border-left-color: #ef4444; }
+    .test-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-left: 8px;
+    }
+    .badge.pass { background: #16a34a; color: white; }
+    .badge.fail { background: #dc2626; color: white; }
+    .detail {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      margin-top: 0.5rem;
+    }
+    .detail pre {
+      background: #0f172a;
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      overflow-x: auto;
+      color: #cbd5e1;
+    }
+    .checks {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-top: 0.4rem;
+    }
+    .checks span.ok { color: #22c55e; }
+    .checks span.no { color: #ef4444; }
+    #summary {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    #summary.all-pass { background: #16a34a22; color: #22c55e; border: 1px solid #22c55e; }
+    #summary.has-fail { background: #dc262622; color: #ef4444; border: 1px solid #ef4444; }
+  </style>
+</head>
+<body>
+
+  <h1>🧪 VITALIS Matching Engine — Test Suite v1</h1>
+  <div id="results"></div>
+  <div id="summary"></div>
+
+  <script src="js/matching-engine.js"></script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var E = window.VITALIS_ENGINE;
+      var box = document.getElementById('results');
+      var sum = document.getElementById('summary');
+      var okCount = 0;
+      var failCount = 0;
+
+      // Helper: build check report string
+      function chk(label, pass) {
+        return '<span class="' + (pass ? 'ok' : 'no') + '">'
+          + (pass ? '✓' : '✗') + ' ' + label + '</span>';
+      }
+
+      // ── 4 Test Cases ─────────────────────────────────────────────────────
+
+      var tests = [
+        {
+          name: 'Test 1 — HIGH priority, matched OA_KNEE_01',
+          desc: 'edad=55, cerca, artritis, varios, 1a3a, flexible, es',
+          input: {
+            sintoma: 'varios', duracion: '1a3a', edad: 55,
+            ubicacion: 'cerca', dx: 'artritis',
+            disponibilidad: 'flexible', idioma: 'es'
+          },
+          check: function (r) {
+            var checks = [];
+            checks.push({ l: 'match === true',           p: r.match === true });
+            checks.push({ l: 'study_id === OA_KNEE_01',  p: r.study_id === 'OA_KNEE_01' });
+            checks.push({ l: 'priority === high',        p: r.priority === 'high' });
+            checks.push({ l: 'score >= 10',              p: r.score >= 10 });
+            checks.push({ l: 'action === call within 2 hours', p: r.action === 'call within 2 hours' });
+            checks.push({ l: 'queue_rank === 1',         p: r.queue_rank === 1 });
+            checks.push({ l: 'queue_label === urgent',   p: r.queue_label === 'urgent' });
+            checks.push({ l: 'matched_count >= 1',       p: typeof r.matched_count === 'number' && r.matched_count >= 1 });
+            checks.push({ l: 'message contains "2 a 4 horas"', p: r.message.indexOf('2 a 4 horas') > -1 });
+            checks.push({ l: 'engine_version === v1',    p: r.engine_version === 'v1' });
+            return checks;
+          }
+        },
+        {
+          name: 'Test 2 — MEDIUM priority, matched OA_KNEE_01',
+          desc: 'edad=50, lejos, revisado, escaleras, 6m1a, tarde, es',
+          input: {
+            sintoma: 'escaleras', duracion: '6m1a', edad: 50,
+            ubicacion: 'lejos', dx: 'revisado',
+            disponibilidad: 'tarde', idioma: 'es'
+          },
+          check: function (r) {
+            var checks = [];
+            checks.push({ l: 'match === true',            p: r.match === true });
+            checks.push({ l: 'study_id === OA_KNEE_01',   p: r.study_id === 'OA_KNEE_01' });
+            checks.push({ l: 'priority === medium',       p: r.priority === 'medium' });
+            checks.push({ l: 'score >= 6 && < 10',        p: r.score >= 6 && r.score < 10 });
+            checks.push({ l: 'action === call within 24 hours', p: r.action === 'call within 24 hours' });
+            checks.push({ l: 'queue_rank === 3',          p: r.queue_rank === 3 });
+            checks.push({ l: 'queue_label === standard',  p: r.queue_label === 'standard' });
+            checks.push({ l: 'matched_count >= 1',        p: typeof r.matched_count === 'number' && r.matched_count >= 1 });
+            checks.push({ l: 'match is false when waitlist', p: r.priority !== 'waitlist' || r.match === false });
+            return checks;
+          }
+        },
+        {
+          name: 'Test 3 — WAITLIST, no match (fuera + nunca)',
+          desc: 'edad=30, fuera, nunca, rigidez, menos6m, nomas_saber, es',
+          input: {
+            sintoma: 'rigidez', duracion: 'menos6m', edad: 30,
+            ubicacion: 'fuera', dx: 'nunca',
+            disponibilidad: 'nomas_saber', idioma: 'es'
+          },
+          check: function (r) {
+            var checks = [];
+            checks.push({ l: 'match === false',           p: r.match === false });
+            checks.push({ l: 'study_id === null',         p: r.study_id === null });
+            checks.push({ l: 'priority === waitlist',     p: r.priority === 'waitlist' });
+            checks.push({ l: 'score === 0 (fuera)',       p: r.score === 0 });
+            checks.push({ l: 'action === store and nurture', p: r.action === 'store and nurture' });
+            checks.push({ l: 'queue_rank === 9',          p: r.queue_rank === 9 });
+            checks.push({ l: 'queue_label === nurture',   p: r.queue_label === 'nurture' });
+            checks.push({ l: 'matched_count === 0',       p: r.matched_count === 0 });
+            checks.push({ l: 'match false when waitlist', p: r.match === false });
+            checks.push({ l: 'message contains "avisaremos"', p: r.message.indexOf('avisaremos') > -1 });
+            return checks;
+          }
+        },
+        {
+          name: 'Test 4 — WAITLIST, no match (age exclusion: 95yo)',
+          desc: 'edad=95, cerca, artritis, varios, mas3a, flexible, es',
+          input: {
+            sintoma: 'varios', duracion: 'mas3a', edad: 95,
+            ubicacion: 'cerca', dx: 'artritis',
+            disponibilidad: 'flexible', idioma: 'es'
+          },
+          check: function (r) {
+            var checks = [];
+            // Age 95 exceeds all study edad_max → matched_count=0 → no match
+            checks.push({ l: 'match === false',           p: r.match === false });
+            checks.push({ l: 'study_id === null',         p: r.study_id === null });
+            checks.push({ l: 'matched_count === 0',       p: r.matched_count === 0 });
+            checks.push({ l: 'action === store and nurture', p: r.action === 'store and nurture' });
+            checks.push({ l: 'queue_rank === 9',          p: r.queue_rank === 9 });
+            checks.push({ l: 'queue_label === nurture',   p: r.queue_label === 'nurture' });
+            checks.push({ l: 'match false when waitlist', p: r.priority === 'waitlist' && r.match === false });
+            checks.push({ l: 'engine_version === v1',     p: r.engine_version === 'v1' });
+            return checks;
+          }
+        }
+      ];
+
+      // ── Run ──────────────────────────────────────────────────────────────
+
+      tests.forEach(function (t) {
+        var result = E.buildEngineOutput(t.input);
+        var checks;
+        try { checks = t.check(result); } catch (e) { checks = [{ l: 'exception: ' + e.message, p: false }]; }
+
+        var allPass = checks.every(function (c) { return c.p; });
+        if (allPass) { okCount++; } else { failCount++; }
+
+        var checksHtml = checks.map(function (c) { return chk(c.l, c.p); }).join(' &nbsp;·&nbsp; ');
+
+        var card = document.createElement('div');
+        card.className = 'test-card ' + (allPass ? 'pass' : 'fail');
+        card.innerHTML =
+          '<div class="test-title">' + t.name +
+            '<span class="badge ' + (allPass ? 'pass' : 'fail') + '">' +
+              (allPass ? '✅ PASS' : '❌ FAIL') +
+            '</span>' +
+          '</div>' +
+          '<div class="checks">' + checksHtml + '</div>' +
+          '<div class="detail">' +
+            '<em>' + t.desc + '</em>' +
+            '<pre>' + JSON.stringify(result, null, 2) + '</pre>' +
+          '</div>';
+        box.appendChild(card);
+      });
+
+      // ── Summary ──────────────────────────────────────────────────────────
+
+      var allPass = failCount === 0;
+      sum.className = allPass ? 'all-pass' : 'has-fail';
+      sum.textContent = allPass
+        ? '✅ ALL ' + okCount + ' TESTS PASSED'
+        : '❌ ' + failCount + ' FAILED / ' + okCount + ' PASSED';
+
+      console.log('[VITALIS TEST] ' + okCount + '/' + (okCount + failCount) + ' passed');
+    })();
+  </script>
+</body>
+</html>
