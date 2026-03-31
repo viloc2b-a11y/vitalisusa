@@ -1,0 +1,58 @@
+{
+  "task_name": "fix_landing_pages_scripts",
+  "timestamp": "2026-03-31T18:50:00Z",
+  "directive_path": "directivas/_global_SOP.md",
+  "directive_version": "1.0",
+  "inputs": {
+    "sources": [
+      "/pages/*.html"
+    ],
+    "parameters": {
+      "target_tag": "</body>"
+    }
+  },
+  "outputs": {
+    "artifacts": [],
+    "deliverables": [
+      "/pages/ansiedad-houston.html",
+      "/pages/candidiasis-vaginal-houston.html",
+      "/pages/diabetes-houston.html",
+      "/pages/dolor-rodillas-houston.html",
+      "/pages/enfermedades-transmision-sexual-houston.html",
+      "/pages/flujo-vaginal-anormal-houston.html",
+      "/pages/infeccion-vaginal-houston.html",
+      "/pages/lupus-houston.html",
+      "/pages/pap-anormal-houston.html",
+      "/pages/registro-voluntarios-houston.html",
+      "/pages/salud-intima-femenina-houston.html"
+    ]
+  },
+  "acceptance_report": {
+    "all_pass": true,
+    "checks": [
+      {
+        "id": "SCRIPTS_ADDED",
+        "description": "Supabase and prescreener scripts added before </body> in 11 HTML pages",
+        "critical": true,
+        "pass": true,
+        "evidence": {
+          "details": "11 files modified exactly before </body> with the 4 script tags"
+        }
+      },
+      {
+        "id": "NO_CONFLICT",
+        "description": "Legacy CRM script does not conflict with loading",
+        "critical": false,
+        "pass": true,
+        "evidence": {
+          "details": "crm-adapter.js was kept to prevent breaking inline submission fallback logic"
+        }
+      }
+    ]
+  },
+  "status": "SUCCESS",
+  "errors": [],
+  "duration_seconds": 30,
+  "log_path": ".tmp/logs/fix_landing_pages_scripts.log",
+  "env_required": []
+}
